@@ -31,7 +31,7 @@ const About: React.FC = () => {
           </>
         }
         rightSlot={
-          <aside aria-label="What we stand for" class="w-full p-[18px] bg-white/80 border border-P/15 rounded-card flex flex-col gap-3">
+          <aside aria-label="What we stand for" className="w-full p-[18px] bg-white/80 border border-P/15 rounded-card flex flex-col gap-3">
             <div className="font-h text-[14px] font-extrabold tracking-[.2px] text-P/90">
               What SparrowBridge is built on
             </div>
