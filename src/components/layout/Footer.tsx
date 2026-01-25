@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container } from '../layout/Container';
 import logo from '../../assets/sparrowbridge-logo.svg';
 
 interface FooterProps {

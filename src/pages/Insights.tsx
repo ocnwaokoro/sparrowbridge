@@ -3,7 +3,6 @@ import {
   PageShell, 
   SiteHeader, 
   Footer, 
-  Container,
   Button
 } from '../components';
 

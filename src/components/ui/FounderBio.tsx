@@ -22,8 +22,6 @@ interface FounderBioProps {
 }
 
 export const FounderBio: React.FC<FounderBioProps> = ({ 
-  name, 
-  title, 
   paragraphs, 
   details, 
   imagePlaceholder,

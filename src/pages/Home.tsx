@@ -3,7 +3,6 @@ import {
   PageShell, 
   SiteHeader, 
   Hero, 
-  HeroValueList, 
   ValuePropCard, 
   SectionTitle, 
   BodyText, 

@@ -8,7 +8,7 @@ interface SiteHeaderProps {
   activeLink?: string;
 }
 
-export const SiteHeader: React.FC<SiteHeaderProps> = ({ activeLink }) => {
+export const SiteHeader: React.FC<SiteHeaderProps> = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [

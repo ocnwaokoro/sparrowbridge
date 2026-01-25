@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card } from '../ui/Card';
 import { CardBody } from '../ui/CardBody';
-import { Badge } from '../ui/Badge';
 
 interface CaseStudyCardProps {
   title: string;
