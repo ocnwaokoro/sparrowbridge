@@ -27,7 +27,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex md:gap-4 lg:gap-6 items-center">
+        <nav className="hidden min-[760px]:flex gap-4 lg:gap-6 items-center">
           {navLinks.map((link) => (
             <NavLink
               key={link.href}
@@ -43,14 +43,14 @@ export const SiteHeader: React.FC<SiteHeaderProps> = () => {
               {link.label}
             </NavLink>
           ))}
-          <Button href="/contact" variant="primary" className="whitespace-nowrap md:text-[13px] lg:text-[14px]">
+          <Button href="/contact" variant="primary" className="whitespace-nowrap text-[13px] lg:text-[14px]">
             Start the Conversation
           </Button>
         </nav>
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden p-2 text-P"
+          className="min-[760px]:hidden p-2 text-P"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -65,7 +65,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = () => {
 
       {/* Mobile Nav Overlay */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-P/15 p-7 flex flex-col gap-5 shadow-lg">
+        <div className="min-[760px]:hidden absolute top-20 left-0 w-full bg-white border-b border-P/15 p-7 flex flex-col gap-5 shadow-lg">
           {navLinks.map((link) => (
             <NavLink
               key={link.href}
