@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { 
   PageShell, 
   SiteHeader, 
@@ -7,6 +7,10 @@ import {
 } from '../components';
 
 const Contact: React.FC = () => {
+  useEffect(() => {
+    document.title = 'SparrowBridge - Contact';
+  }, []);
+
   return (
     <PageShell>
       <SiteHeader activeLink="/contact" />

@@ -12,7 +12,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'About Us', href: '/about' },
+    { label: 'About', href: '/about' },
     { label: 'Solutions', href: '/solutions' },
     { label: 'Insights', href: '/insights' },
     { label: 'Contact', href: '/contact' },
@@ -27,13 +27,13 @@ export const SiteHeader: React.FC<SiteHeaderProps> = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-6 items-center">
+        <nav className="hidden md:flex md:gap-4 lg:gap-6 items-center">
           {navLinks.map((link) => (
             <NavLink
               key={link.href}
               to={link.href}
               className={({ isActive }) => 
-                `font-h text-[14px] font-semibold no-underline transition-colors duration-300 ${
+                `font-h text-[14px] font-semibold no-underline whitespace-nowrap transition-colors duration-300 ${
                   isActive 
                     ? 'text-A1' 
                     : 'text-P opacity-90 hover:opacity-100 hover:text-A1'
@@ -43,7 +43,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = () => {
               {link.label}
             </NavLink>
           ))}
-          <Button href="/contact" variant="primary">
+          <Button href="/contact" variant="primary" className="whitespace-nowrap md:text-[13px] lg:text-[14px]">
             Start the Conversation
           </Button>
         </nav>

@@ -90,6 +90,10 @@ const Insights: React.FC = () => {
   };
 
   useEffect(() => {
+    document.title = 'SparrowBridge - Insights';
+  }, []);
+
+  useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
       const found = ARTICLES.find(a => a.id === hash);
