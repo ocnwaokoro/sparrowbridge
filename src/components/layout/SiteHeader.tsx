@@ -4,19 +4,15 @@ import { Button } from '../ui/Button';
 import { Container } from './Container';
 import logo from '../../assets/sparrowbridge-logo.svg';
 
-interface SiteHeaderProps {
-  activeLink?: string;
-}
-
-export const SiteHeader: React.FC<SiteHeaderProps> = () => {
+export const SiteHeader: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { label: 'About', href: '/about' },
     { label: 'Solutions', href: '/solutions' },
     { label: 'Insights', href: '/insights' },
-    { label: 'Contact', href: '/contact' },
     { label: 'Careers', href: '/careers' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (

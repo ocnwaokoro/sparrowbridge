@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
             <img src={logo} alt="SparrowBridge" className="h-9 w-auto brightness-0 invert" />
           </Link>
           <p className="font-b text-[13px] leading-[1.4] text-white/60">
-            Leading Through Complexity to Build What Lasts
+            Let's build what lasts.
           </p>
         </div>
 
