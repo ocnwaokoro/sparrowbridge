@@ -21,15 +21,21 @@ interface FounderBioProps {
   className?: string;
 }
 
-export const FounderBio: React.FC<FounderBioProps> = ({ 
-  paragraphs, 
-  details, 
+export const FounderBio: React.FC<FounderBioProps> = ({
+  name,
+  title,
+  paragraphs,
+  details,
   imagePlaceholder,
-  className = '' 
+  className = ''
 }) => {
   return (
     <div className={`grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-stretch ${className}`}>
       <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-2 mb-2">
+          <h3 className="font-h text-[22px] font-extrabold text-P">{name}</h3>
+          <p className="font-b text-[14px] font-semibold text-P/75">{title}</p>
+        </div>
         <div className="flex flex-col gap-4">
           {paragraphs.map((p, i) => (
             <p key={i} className="font-b text-[15px] font-normal leading-[1.65] text-P/90">
