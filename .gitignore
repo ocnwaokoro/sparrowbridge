@@ -33,3 +33,8 @@ dist-ssr
 /docs/
 /files/
 *.md
+
+# Optional/unused assets (originals, duplicates)
+src/assets/KELECHIOKEREKE-1.jpg
+src/assets/Photo Jan 04, 2 14 58 PM.jpg
+src/assets/Photo Jan 17, 11 49 37 AM.jpg
