@@ -6,6 +6,8 @@ import Solutions from './pages/Solutions';
 import Insights from './pages/Insights';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 // Lightweight scroll-to-top component
 const ScrollToTop: React.FC = () => {
@@ -38,6 +40,8 @@ const App: React.FC = () => {
           <Route path="/insights" element={<Insights />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           {/* Fallback for old .html links or mismatched routes */}
           <Route path="/about.html" element={<About />} />
           <Route path="/solutions.html" element={<Solutions />} />
