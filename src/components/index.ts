@@ -22,6 +22,7 @@ export * from './ui/Badge';
 export * from './ui/Divider';
 export * from './ui/Testimonial';
 export * from './ui/ComparisonTable';
+export * from './ui/AnimatedComparisonSlider';
 export * from './ui/ValueCard';
 export * from './ui/TeamMemberCard';
 export * from './ui/FounderBio';
@@ -31,6 +32,7 @@ export * from './patterns/Hero';
 export * from './patterns/TwoColumnLayout';
 export * from './patterns/CardGrid';
 export * from './patterns/ProcessDiagram';
+export * from './patterns/ConsultingProcessDiagram';
 
 // Nav
 export * from './nav/StickyRail';
@@ -39,6 +41,7 @@ export * from './nav/RailLink';
 
 // Homepage
 export * from './homepage/HeroValueList';
+export * from './homepage/HeroKickerStyle';
 export * from './homepage/ValuePropCard';
 export * from './homepage/CTAInline';
 

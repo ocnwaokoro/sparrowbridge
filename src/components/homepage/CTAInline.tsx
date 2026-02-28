@@ -15,12 +15,12 @@ export const CTAInline: React.FC<CTAInlineProps> = ({
   className = '' 
 }) => {
   return (
-    <div className={`w-full max-w-[1000px] p-4 bg-white border border-P/15 rounded-btn 
+    <div className={`w-full max-w-[1000px] p-4 bg-P border border-P/20 rounded-btn 
       flex flex-col md:flex-row md:items-center md:justify-between gap-5 text-center md:text-left ${className}`}>
-      <span className="font-b text-[18px] font-medium text-P">
+      <span className="font-h text-[18px] font-extrabold italic text-white">
         {text}
       </span>
-      <Button href={href} variant="primary">
+      <Button href={href} variant="primary" className="shrink-0">
         {ctaText}
       </Button>
     </div>
