@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
+import heroBgHome from '../assets/hero-bg-home.jpg';
 import { 
   PageShell, 
   SiteHeader, 
   Hero, 
+  HeroValueList,
   ValuePropCard, 
   SectionTitle, 
   BodyText, 
-  ComparisonTable, 
+  AnimatedComparisonSlider,
+
   CTAInline, 
   Testimonial,
   ProcessStep,
-  ProcessDiagramNode,
-  ProcessConnector,
+  ConsultingProcessDiagram,
   CardGrid,
   CaseStudyCard,
   Button,
@@ -26,14 +28,15 @@ const Home: React.FC = () => {
 
   return (
     <PageShell>
-      <SiteHeader activeLink="/" />
+      <SiteHeader />
       
       {/* Hero Section */}
       <Hero
-        title="Leading Through Complexity to Build What Lasts"
-        subtitle="We help organizations solve the challenges that prevent growth—with integrity, insight, and lasting impact."
-        kicker="The courage to lead · align · change · grow · rebuild · flourish"
+        title="Leading Through Complexity"
+        subtitle="We help organizations solve the challenges that impede growth, with integrity, insight, and lasting impact."
+        kicker={<HeroValueList values={["lead", "align", "challenge", "build", "decide", "grow"]} />}
         variant="dark"
+        backgroundImage={heroBgHome}
         actions={
           <>
             <Button href="/contact" variant="primary">Start the Conversation</Button>
@@ -77,46 +80,39 @@ const Home: React.FC = () => {
         <Container className="flex flex-col items-center gap-6">
           <SectionTitle align="center">Challenges We Help You Navigate</SectionTitle>
           <BodyText align="center" size="lg" className="max-w-[900px]">
-            Every organization faces natural cycles of decline—it is the law of entropy. We partner with you to name the root causes,
+            Every organization faces natural cycles of decline. It is the law of entropy. We partner with you to name the root causes,
             restore your momentum, and build a culture of growth that outlasts the struggle.
           </BodyText>
           
           <h3 className="font-h text-[22px] lg:text-[28px] font-semibold text-center text-P">
-            Let us help you go from:
+            Let us help you go from where you are to where you want to be…
           </h3>
 
-          <ComparisonTable 
-            rows={[
-              { 
-                from: "Creating a great growth strategy and then asking \"now what?\"", 
-                to: "Execution with the right culture and people." 
+          <div className="w-[1000px] max-w-full">
+            <AnimatedComparisonSlider
+              slides={[
+              {
+                from: "Creating a growth strategy that meets resistance and stalls…",
+                to: "Execution with the right people and culture",
               },
-              { 
-                from: "Inability to stem a declining sales revenue trend", 
-                to: "Hitting key performance indicators with our ARC Framework™" 
+              {
+                from: "Inability to stem a declining sales revenue trend…",
+                to: "Hitting key performance indicators with our revenue enablement program and ARC Framework™",
               },
-              { 
-                from: "Dysfunctional team(s) unable to align with other key functions", 
-                to: "Empowering team members with clear vision and a culture of support" 
+              {
+                from: "A dysfunctional leadership team",
+                to: "A formidable force that implements your vision.",
               },
-              { 
-                from: "A barely effective leadership team", 
-                to: "A formidable force that implements your vision." 
-              }
             ]}
-          />
+            />
+          </div>
 
           <CTAInline 
-            text="Where are you in your journey? Let's build what lasts—together."
+            text="Where are you in your journey? Let's build what lasts."
             ctaText="Contact us"
             href="/contact"
           />
 
-          <Testimonial 
-            quote="SparrowBridge helped us identify the root causes of our organizational challenges and guided us through a transformation that has fundamentally changed how we operate."
-            author="Client"
-            role="ISN Medical"
-          />
         </Container>
       </section>
 
@@ -126,8 +122,8 @@ const Home: React.FC = () => {
           <SectionTitle variant="light" align="center">How We Work Together</SectionTitle>
           <BodyText variant="light" align="center" size="lg" className="max-w-[900px]">
             Strategy development? Culture transformation? Leadership development? Talent assessments? Sales transformation?
-            Yeah, we can help you with that. But let's not treat the symptoms. Let's do the deeper work of discovering the root cause
-            of your performance issues.
+            Yeah, we can help you with that. But let's not treat the symptoms. We encourage you to do the deeper work
+            of discovering root causes instead of tackling symptoms.
           </BodyText>
 
           <div className="flex flex-col lg:flex-row gap-[20px] justify-center items-stretch w-full">
@@ -146,31 +142,18 @@ const Home: React.FC = () => {
 
             {/* Diagram card */}
             <div className="w-full lg:w-[400px] p-[18px] bg-white border border-P/15 rounded-card flex flex-col gap-[14px]">
-              <div className="font-h text-[16px] font-extrabold text-P">Process Diagram</div>
-              <div className="flex flex-col gap-1.5">
-                <ProcessDiagramNode title="Diagnose" description="Reveal hidden dynamics and bottlenecks." />
-                <ProcessConnector />
-                <ProcessDiagramNode title="Co-design" description="Build alignment through participation." />
-                <ProcessConnector />
-                <ProcessDiagramNode title="Coaching (Center)" description="Wise guidance for leaders under pressure." isAccent />
-                <ProcessConnector />
-                <ProcessDiagramNode title="Implement" description="Move through resistance with clarity." />
-                <ProcessConnector />
-                <ProcessDiagramNode title="Assess" description="Measure what changed—and what will last." />
-              </div>
+              <div className="font-h text-[16px] font-extrabold text-P">Our Process</div>
+              <ConsultingProcessDiagram />
             </div>
           </div>
 
           <Testimonial 
             variant="light"
-            quote="SparrowBridge brought clarity to our leadership challenges and helped us build a cohesive team that now drives results together."
-            author="Client"
-            role="St. Emmanuel Hospital"
+            quote="SparrowBridge worked with us to help identify ways to improve staff engagement and communication in our business, which is a legacy family hospital. We were impressed with how SparrowBridge built trust amongst the employees and drew very meaningful insights, which helped us make clear strategic decisions to improve patient and staff satisfaction. Working with SparrowBridge was very stress-free. We constantly felt they listened to the issues we brought up without judging, was very clear and direct when communicating, never losing sight of what we needed to achieve."
+            author="Dotun Akinrinade"
+            role="Executive Director, St. Emmanuel Hospital"
           />
 
-          <div className="w-full max-w-[800px] p-[14px] bg-white/10 border border-white/10 rounded-btn">
-            <div className="font-b text-[14px] font-semibold text-white">Case study example: Elsevier Shared Tech</div>
-          </div>
         </Container>
       </section>
 
@@ -182,24 +165,18 @@ const Home: React.FC = () => {
             <BodyText align="center" className="text-[18px] text-P/80">Real results from organizations that chose to do the deeper work</BodyText>
           </div>
 
-          <CardGrid columns={3}>
+          <CardGrid columns={2}>
             <CaseStudyCard 
-              title="Pure"
-              summary="A SaaS company struggling with leadership alignment and declining team morale. Through our diagnostic process, we uncovered systemic communication breakdowns and implemented a sustainable leadership development program."
-              tags={["Leadership", "Culture"]}
+              title="SaaS Company"
+              summary="SaaS company struggling with full integration post-acquisition and global expansion of customer base. Through our diagnostic and strategy co-design processes, the company achieved full integration and global expansion."
+              tags={["Leadership", "Culture", "Sales", "GTM Strategy"]}
               accentColor="bg-P"
             />
             <CaseStudyCard 
-              title="Elsevier Shared Tech"
-              summary="A technology division navigating complex cross-functional dependencies and integration challenges. We facilitated alignment workshops and established sustainable collaboration frameworks."
+              title="Global Product Team"
+              summary="A global shared technology product team at a large information company navigating expansion in scope."
               tags={["Strategy", "Operations"]}
               accentColor="bg-A2"
-            />
-            <CaseStudyCard 
-              title="Healthcare System"
-              summary="A regional healthcare provider facing post-merger integration challenges and cultural misalignment. We designed and facilitated a comprehensive integration strategy that honored both legacy cultures."
-              tags={["Culture", "M&A"]}
-              accentColor="bg-A1"
             />
           </CardGrid>
         </Container>
@@ -244,7 +221,7 @@ const Home: React.FC = () => {
       <section id="contact" className="scroll-mt-28 bg-P py-[48px] lg:py-[64px] text-center">
         <Container className="flex flex-col items-center gap-8">
           <SectionTitle variant="light" align="center" className="max-w-[700px] lg:text-[40px]">
-            Ready to Build What Lasts — Together?
+            Ready to start?
           </SectionTitle>
           <BodyText variant="light" className="max-w-[600px] text-[18px]">
             Let's start a conversation about your organization's challenges and opportunities.
