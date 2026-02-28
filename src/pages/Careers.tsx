@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import { 
   PageShell, 
   SiteHeader, 
+  Hero,
   Footer, 
   Container,
-  ApplicationForm
+  ApplicationForm,
+  HeroKickerStyle
 } from '../components';
 
 const Careers: React.FC = () => {
@@ -14,22 +16,33 @@ const Careers: React.FC = () => {
 
   return (
     <PageShell>
-      <SiteHeader activeLink="/careers" />
+      <SiteHeader />
       
       {/* Careers Hero */}
-      <section className="bg-P py-12 lg:py-16 text-white">
-        <Container>
-          <div className="font-h text-[13px] font-extrabold tracking-[1.2px] uppercase text-white/75">Careers</div>
-          <h1 className="font-h text-[40px] lg:text-[52px] font-extrabold tracking-[-0.6px] leading-[1.05] mt-3 max-w-[980px]">
-            Build What Lasts — Together
-          </h1>
-          <p className="text-[20px] text-white/80 max-w-[920px] mt-4">
-            We are a purpose-driven company. If you feel called to help individuals and organizations unlock and amplify their value
-            to humanity and our planet, we would love to work with you. If you want a company where you can bring your whole self
-            to work, let’s build it daily. Our vision statement applies to us first. Let’s help you build a lifestyle that lasts.
-          </p>
-        </Container>
-      </section>
+      <Hero
+        kicker={<HeroKickerStyle prefix="Careers" />}
+        title="Join us"
+        subtitle="We are a purpose-driven company. If you feel called to help individuals and organizations unlock and amplify their value to humanity and our planet, we would love to work with you. If you want a company where you can bring your whole self to work, let’s build it daily. Our vision statement applies to us first. Let’s help you build a lifestyle that lasts."
+        variant="dark"
+        rightSlot={
+          <aside className="w-full p-[18px] bg-white/80 border border-P/15 rounded-card flex flex-col gap-3">
+            <div className="font-h text-[14px] font-extrabold tracking-[0.2px] text-P/90">What we look for</div>
+            <div className="flex flex-col gap-3">
+              {[
+                { title: "Integrity", description: "We do the deeper work, even when it’s uncomfortable." },
+                { title: "Craft", description: "Clear thinking, strong writing, disciplined execution." },
+                { title: "Care", description: "We treat clients, colleagues, and the work with respect." },
+                { title: "Systems thinking", description: "We look for root causes, not just symptoms." },
+              ].map((item) => (
+                <div key={item.title} className="p-3 bg-white/70 border border-P/15 rounded-card flex flex-col gap-1.5">
+                  <div className="font-b text-[14px] font-bold text-P">{item.title}</div>
+                  <div className="font-b text-[12px] leading-[1.4] text-P/75">{item.description}</div>
+                </div>
+              ))}
+            </div>
+          </aside>
+        }
+      />
 
       {/* Main Careers Content */}
       <section className="bg-white py-12 lg:py-20">
@@ -77,8 +90,8 @@ const Careers: React.FC = () => {
                     <div className="p-4 flex flex-col gap-3">
                       {[
                         { t: "Client-facing excellence", d: "We communicate in a way that earns trust." },
-                        { t: "Systems thinking", d: "We look for root causes—not just symptoms." },
-                        { t: "Practical impact", d: "We measure what changed—and what will last." }
+                        { t: "Systems thinking", d: "We look for root causes, not just symptoms." },
+                        { t: "Practical impact", d: "We measure what changed, and what will last." }
                       ].map((item, i) => (
                         <div key={i} className="p-3 border border-P/10 rounded-card bg-white flex gap-3 items-start">
                           <div className="w-2.5 h-2.5 rounded-full bg-P/20 mt-1 flex-shrink-0" />
