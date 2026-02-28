@@ -30,7 +30,7 @@ export const FounderBio: React.FC<FounderBioProps> = ({
   className = ''
 }) => {
   return (
-    <div className={`grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-stretch ${className}`}>
+    <div className={`grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-8 items-stretch ${className}`}>
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-2 mb-2">
           <h3 className="font-h text-[22px] font-extrabold text-P">{name}</h3>
@@ -51,7 +51,7 @@ export const FounderBio: React.FC<FounderBioProps> = ({
         </div>
       </div>
 
-      <aside className="w-full h-full min-h-[400px] lg:min-h-0">
+      <aside className="w-full aspect-square lg:aspect-auto lg:h-full min-h-0 lg:min-h-0 overflow-hidden rounded-card">
         {imagePlaceholder || (
           <div className="w-full h-full rounded-card border border-P/15 bg-gradient-to-br from-P/15 to-A2/10" />
         )}
