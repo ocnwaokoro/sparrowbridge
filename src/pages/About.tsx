@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import founderImg from '../assets/founder-kelechi-okereke.jpg';
+import aboutLandscape from '../assets/about-landscape.jpg';
 import { 
   PageShell, 
   SiteHeader, 
@@ -10,7 +12,8 @@ import {
   Container,
   ValueCard,
   FounderBio,
-  TeamMemberCard
+  TeamMemberCard,
+  HeroKickerStyle
 } from '../components';
 
 const About: React.FC = () => {
@@ -20,14 +23,14 @@ const About: React.FC = () => {
 
   return (
     <PageShell>
-      <SiteHeader activeLink="/about" />
+      <SiteHeader />
       
       {/* About Hero */}
       <Hero
-        kicker="About Page — Behind the Work"
-        title="We help leaders diagnose what’s real—and build what lasts."
-        subtitle="SparrowBridge exists for organizations navigating complexity: stalled momentum, misalignment, cultural drift, and high-stakes change. We bring clarity to root causes and partner with you to rebuild durable performance with integrity."
+        kicker={<HeroKickerStyle prefix="About" />}
+        title="We help leaders diagnose what’s real, and create lasting change."
         variant="dark"
+        backgroundImage={aboutLandscape}
         actions={
           <>
             <Button href="/contact" variant="primary">Work With Us</Button>
@@ -42,19 +45,19 @@ const About: React.FC = () => {
             <div className="flex flex-col gap-3">
               <div className="p-3 bg-white/70 border border-P/15 rounded-card flex flex-col gap-1.5">
                 <div className="font-b text-[14px] font-bold text-P">Truth over theater</div>
-                <div className="font-b text-[12px] font-normal leading-[1.5] text-P/75">
+                <div className="font-b text-[12px] leading-[1.4] text-P/75">
                   No performative strategy. We name the bottlenecks and the real constraints.
                 </div>
               </div>
               <div className="p-3 bg-white/70 border border-P/15 rounded-card flex flex-col gap-1.5">
                 <div className="font-b text-[14px] font-bold text-P">Integrity in the work</div>
-                <div className="font-b text-[12px] font-normal leading-[1.5] text-P/75">
+                <div className="font-b text-[12px] leading-[1.4] text-P/75">
                   We align action with values so change is sustainable, not cosmetic.
                 </div>
               </div>
               <div className="p-3 bg-white/70 border border-P/15 rounded-card flex flex-col gap-1.5">
                 <div className="font-b text-[14px] font-bold text-P">Durable capability</div>
-                <div className="font-b text-[12px] font-normal leading-[1.5] text-P/75">
+                <div className="font-b text-[12px] leading-[1.4] text-P/75">
                   We build internal capacity so progress holds after we leave.
                 </div>
               </div>
@@ -74,8 +77,7 @@ const About: React.FC = () => {
             <div className="p-[18px] md:p-6 grid gap-6">
               <div className="grid gap-4">
                 <BodyText>
-                  SparrowBridge is an organization development and leadership advisory firm. We help organizations become <i>profitably</i> healthy
-                  by addressing root causes—not just symptoms.
+                  SparrowBridge is an organization development and leadership advisory firm. We help organizations solve the challenges that prevent growth, with integrity, insight, and lasting impact.
                 </BodyText>
                 <BodyText>
                   Our approach blends incisive diagnostics, data-informed insight, and collaborative, human-centered solution design. Whether navigating
@@ -125,6 +127,13 @@ const About: React.FC = () => {
               <FounderBio 
                 name="Kelechi"
                 title="Founder & Managing Principal"
+                imagePlaceholder={
+                  <img
+                    src={founderImg}
+                    alt="Kelechi Okereke, Founder and Managing Principal, SparrowBridge"
+                    className="w-full h-full object-cover object-top rounded-card"
+                  />
+                }
                 paragraphs={[
                   "Kelechi is a seasoned strategist with over two decades of experience navigating difficult organizational shifts at Elsevier. Since founding SparrowBridge, he has brought that same discipline and insight in high impact business turnarounds to guide other institutions in identifying and shepherding lasting change.",
                   "He specializes in seeing what’s broken, restoring alignment and fostering a culture of shared ownership to drive consequential business impact. His deep faith in God fuels a calm, principled confidence, allowing him to serve as a wise guide for leaders facing their most pressing challenges."
@@ -132,15 +141,15 @@ const About: React.FC = () => {
                 details={[
                   { 
                     label: "Career Highlights", 
-                    content: <>SparrowBridge Consulting, Founder & Managing Principal<br/>Elsevier, Global Sales, Special Projects, Product</> 
+                    content: <>SparrowBridge Consulting, Founder & Managing Principal<br/>Elsevier, Global Sales, Special Projects, Product Management</> 
                   },
                   { 
                     label: "Certifications", 
-                    content: <>Columbia University, Executive & Organizational Coaching Certification (2026)<br/>Hogan</> 
+                    content: <>Columbia University, Executive & Organizational Coaching Certification (2026)<br/>Hogan Assessment</> 
                   },
                   { 
                     label: "Education", 
-                    content: <>Teachers College, Columbia University, MA Organizational Psychology<br/>Rutgers University, MA English<br/>Rutgers University, BA Psychology</> 
+                    content: <>Teachers College, Columbia University: MA Organizational Psychology<br/>Rutgers University: MA English<br/>Rutgers University: BA Psychology</> 
                   }
                 ]}
               />
@@ -186,10 +195,10 @@ const About: React.FC = () => {
       </section>
 
       {/* Footer CTA */}
-      <section className="bg-P py-16 lg:py-20 text-center">
+      <section className="bg-P py-[48px] lg:py-[64px] text-center">
         <Container className="flex flex-col items-center gap-8">
           <SectionTitle variant="light" align="center" className="max-w-[700px] lg:text-[40px]">
-            Ready to Build What Lasts — Together?
+            Ready to start?
           </SectionTitle>
           <BodyText variant="light" className="max-w-[600px] text-[18px]">
             Let’s start a conversation about your organization’s challenges and opportunities.
