@@ -58,6 +58,7 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
       <div className="flex flex-col md:flex-row justify-between items-center gap-5 text-center md:text-left">
         <div className="font-b text-[13px] text-white/40">© {currentYear} SparrowBridge. All rights reserved.</div>
         <div className="flex gap-6 flex-wrap justify-center">
+          {/* PLACEHOLDER [SILENT]: Generic LinkedIn URL — needs real company LinkedIn profile URL (e.g. linkedin.com/company/sparrowbridge) */}
           <a className="font-b text-[13px] text-white/40 no-underline hover:text-white transition-colors" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <Link className="font-b text-[13px] text-white/40 no-underline hover:text-white transition-colors" to="/privacy">Privacy</Link>
           <Link className="font-b text-[13px] text-white/40 no-underline hover:text-white transition-colors" to="/terms">Terms</Link>

@@ -178,6 +178,7 @@ const About: React.FC = () => {
                   role="Founder & Managing Principal"
                   bio="Systems-aware strategist and coach. Specializes in diagnosing what’s broken, restoring alignment, and helping leaders implement durable change with integrity and care."
                 />
+                {/* PLACEHOLDER [VISIBLE]: Second team card is placeholder content — needs real name, role, and bio from client */}
                 <TeamMemberCard 
                   name="Other Team Members"
                   role="Additional roles (Placeholder)"

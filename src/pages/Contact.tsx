@@ -52,12 +52,14 @@ const Contact: React.FC = () => {
                 <span className="text-[12px] font-bold text-[rgba(54,72,97,.62)] whitespace-nowrap">LinkedIn</span>
               </a>
 
+              {/* PLACEHOLDER [SILENT]: Calendly URL is generic — needs real scheduling link from client */}
               <a className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-[rgba(54,72,97,.12)] bg-white no-underline text-[rgba(54,72,97,.92)] font-bold text-[13px]"
                  href="https://calendly.com/placeholder" target="_blank" rel="noreferrer">
                 Calendly
                 <span className="text-[12px] font-bold text-[rgba(54,72,97,.62)] whitespace-nowrap">Schedule a call</span>
               </a>
 
+              {/* PLACEHOLDER [VISIBLE]: Dev note about URLs — remove or replace when Calendly is set */}
               <div className="mt-auto pt-1 text-[12px] font-semibold text-[rgba(54,72,97,.55)]">
                 Replace placeholders with real URLs.
               </div>

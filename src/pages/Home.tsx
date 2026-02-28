@@ -191,6 +191,7 @@ const Home: React.FC = () => {
           </div>
 
           <CardGrid columns={3}>
+            {/* PLACEHOLDER [VISIBLE]: Featured insight "Read more" links go nowhere — needs href to /insights#<article-id> or full article URL */}
             <div className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4">
               <div className="font-b text-[12px] font-bold tracking-[1px] text-A1">LEADERSHIP</div>
               <h3 className="font-h text-[20px] font-semibold leading-[1.3] text-P">The Myth of the One Big Move in Organizational Change</h3>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FormField } from '../contact/FormField';
 import { Button } from '../ui/Button';
 
+// PLACEHOLDER [BLOCKING]: Application submission only works when env is set — needs VITE_APPLICATION_FORM_ENDPOINT in .env and backend/Formspree
 const APPLICATION_FORM_ENDPOINT = import.meta.env.VITE_APPLICATION_FORM_ENDPOINT as string | undefined;
 
 export const ApplicationForm: React.FC = () => {
@@ -44,9 +45,11 @@ export const ApplicationForm: React.FC = () => {
         <form className="flex flex-col gap-4 flex-1" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField label="Full Name" id="app-name">
+              {/* PLACEHOLDER [VISIBLE]: Example placeholder text in input — optional to replace with generic "Your name" */}
               <input type="text" id="app-name" name="name" placeholder="Kelechi" className={inputBase} required />
             </FormField>
             <FormField label="Email" id="app-email">
+              {/* PLACEHOLDER [VISIBLE]: Example email placeholder — optional to use generic "you@example.com" */}
               <input type="email" id="app-email" name="email" placeholder="k@sparrowbridge.com" className={inputBase} required />
             </FormField>
           </div>
@@ -87,6 +90,7 @@ export const ApplicationForm: React.FC = () => {
             )}
           </div>
 
+          {/* PLACEHOLDER [VISIBLE]: Shown when env unset — form submission is no-op until VITE_APPLICATION_FORM_ENDPOINT is set */}
           {!APPLICATION_FORM_ENDPOINT && (
             <p className="text-[11px] font-medium text-P/40 italic">
               Set VITE_APPLICATION_FORM_ENDPOINT to your backend or Formspree URL to accept applications.

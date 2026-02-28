@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// PLACEHOLDER [BLOCKING]: Form submission only works when env is set — needs VITE_CONTACT_FORM_ENDPOINT in .env and Formspree/backend endpoint
 const CONTACT_FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT as string | undefined;
 
 export const ContactForm: React.FC = () => {
@@ -39,6 +40,7 @@ export const ContactForm: React.FC = () => {
       className="flex flex-col gap-2.5 flex-1"
       onSubmit={handleSubmit}
     >
+      {/* PLACEHOLDER [SILENT]: action falls back to '#' when VITE_CONTACT_FORM_ENDPOINT unset — form appears to submit but does nothing */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
         <input
           className={inputBase}
@@ -107,6 +109,7 @@ export const ContactForm: React.FC = () => {
         )}
       </div>
 
+      {/* PLACEHOLDER [VISIBLE]: Shown when env unset — form submission is no-op until VITE_CONTACT_FORM_ENDPOINT is set */}
       {!CONTACT_FORM_ENDPOINT && (
         <div className="mt-auto pt-1 text-[12px] font-semibold text-[rgba(54,72,97,.55)]">
           Form submission is currently a placeholder. Set VITE_CONTACT_FORM_ENDPOINT (e.g. your Formspree or backend URL) to enable submissions.

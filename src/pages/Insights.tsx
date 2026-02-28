@@ -143,6 +143,7 @@ const Insights: React.FC = () => {
             </div>
 
             <div className="p-[18px] flex flex-col gap-[14px]">
+              {/* PLACEHOLDER [VISIBLE]: Article hero/feature image — needs per-article image in data/insights or asset; currently shows "Image Placeholder" */}
               <div className="aspect-video border border-[rgba(54,72,97,.16)] rounded-card bg-[linear-gradient(135deg,rgba(54,72,97,.16),rgba(99,107,47,.14))] flex items-center justify-center font-h text-[12px] font-extrabold tracking-[1px] uppercase text-[rgba(54,72,97,.62)]">
                 Image Placeholder
               </div>
