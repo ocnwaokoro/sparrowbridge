@@ -1,93 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  PageShell, 
-  SiteHeader, 
-  Footer, 
-  Button
-} from '../components';
-
-const ARTICLES = [
-  {
-    id: "leadership-001",
-    category: "leadership",
-    categoryLabel: "Leadership",
-    author: "SparrowBridge",
-    dateISO: "2026-01-20",
-    readMins: 6,
-    title: "When Leaders Disagree on the Real Problem",
-    lede: "Organizations stall when leaders operate from different truths. Diagnosis restores a shared reality.",
-    body: [
-      { h2: "What’s happening", p: "When a leadership team cannot agree on the root issue, the organization defaults to competing narratives. The result is motion without progress." },
-      { h2: "Why it persists", p: "Misalignment is often reinforced by incentives, partial information, or patterns of avoidance. Clarity requires more than another meeting." },
-      { p: "If leaders cannot name the same problem, they cannot own the same solution." },
-      { h2: "A better starting point", p: "Begin with shared observation: what is true, measurable, and repeatable. Then trace causes rather than debating conclusions." }
-    ]
-  },
-  {
-    id: "culture-001",
-    category: "culture",
-    categoryLabel: "Culture",
-    author: "SparrowBridge",
-    dateISO: "2026-01-12",
-    readMins: 5,
-    title: "Culture Isn’t Soft—It’s Structural",
-    lede: "Culture is the system of reinforcement that shapes behavior. If you want change, start there.",
-    body: [
-      { h2: "Culture is reinforcement", p: "People do what is rewarded, what is safe, and what is modeled. Values without reinforcement are theater." },
-      { h2: "The real indicators", p: "Look at promotions, meeting dynamics, decision rights, and how conflict is handled. These reveal what the organization truly honors." },
-      { p: "Culture is what the system produces—not what the poster claims." },
-      { h2: "What to do next", p: "Identify 2–3 behaviors that must change and redesign the incentives and norms that currently protect the old pattern." }
-    ]
-  },
-  {
-    id: "strategy-001",
-    category: "strategy",
-    categoryLabel: "Strategy",
-    author: "SparrowBridge",
-    dateISO: "2025-12-18",
-    readMins: 7,
-    title: "Why Strategy Fails in Execution",
-    lede: "Most strategy collapses in the handoff between intent and operating reality.",
-    body: [
-      { h2: "The handoff problem", p: "Strategy often lives as a document while the operating system lives in calendars, incentives, and decision bottlenecks." },
-      { h2: "Where it breaks", p: "Ambiguity in ownership, weak feedback loops, and misaligned metrics create predictable failure—even with smart teams." },
-      { p: "Execution is the truth test of strategy." },
-      { h2: "Making it hold", p: "Translate strategy into an operating cadence: roles, decision rights, measures, and review cycles that keep it alive." }
-    ]
-  },
-  {
-    id: "faith-001",
-    category: "faith",
-    categoryLabel: "Faith & Work",
-    author: "SparrowBridge",
-    dateISO: "2025-11-28",
-    readMins: 4,
-    title: "Leading with Soul in a Systems World",
-    lede: "Principled leadership is not sentiment. It is disciplined practice under pressure.",
-    body: [
-      { h2: "What it requires", p: "Leaders need inner clarity to meet outer complexity. Without it, urgency becomes reactivity." },
-      { h2: "A practiced integrity", p: "Faith-informed leadership shows up as consistency, humility, courage, and care—not slogans." },
-      { p: "The soul of leadership is revealed in what you refuse to do." },
-      { h2: "Practical steps", p: "Name the principles that govern your decisions, and build accountability around them—especially when incentives push the other way." }
-    ]
-  }
-];
-
-const CATEGORIES = [
-  { id: "leadership", label: "Leadership" },
-  { id: "culture", label: "Culture" },
-  { id: "strategy", label: "Strategy" },
-  { id: "faith", label: "Faith & Work" }
-];
+import { PageShell, SiteHeader, Hero, Footer, Button, HeroKickerStyle } from '../components';
+import { ARTICLES, CATEGORIES } from '../data/insights';
+import { formatDate } from '../utils/formatDate';
 
 const Insights: React.FC = () => {
   const [currentArticle, setCurrentArticle] = useState(ARTICLES[0]);
   const [openCategory, setOpenCategory] = useState<string | null>(ARTICLES[0].category);
-
-  const formatDate = (iso: string) => {
-    const d = new Date(iso + "T00:00:00");
-    return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
-  };
 
   useEffect(() => {
     document.title = 'SparrowBridge - Insights';
@@ -115,39 +33,31 @@ const Insights: React.FC = () => {
 
   return (
     <PageShell>
-      <SiteHeader activeLink="/insights" />
+      <SiteHeader />
       
       {/* HERO */}
-      <section className="bg-P text-white px-[28px] py-[70px] lg:px-[80px] lg:py-[90px] grid grid-cols-1 lg:grid-cols-[1.15fr_.85fr] gap-7 items-start">
-        <div className="flex flex-col gap-2">
-          <div className="font-h text-[13px] font-extrabold tracking-[1.2px] uppercase text-white/75">Insights</div>
-          <h1 className="font-h text-[40px] md:text-[52px] font-extrabold tracking-[-.6px] leading-[1.05] mt-[10px]">
-            Wisdom in Practice
-          </h1>
-          <p className="text-[20px] text-white/82 max-w-[760px] mt-[10px]">
-            A living library of reflections on leadership, culture, systems, and the work of building organizations that endure.
-          </p>
-        </div>
-
-        <aside aria-label="What you’ll find here" className="bg-white/80 border border-[rgba(54,72,97,.14)] rounded-card p-[18px] flex flex-col gap-[10px]">
-          <div className="font-h text-[14px] font-extrabold text-[rgba(54,72,97,.9)]">What you’ll find here</div>
-          <div className="pill p-3 rounded-card border border-[rgba(54,72,97,.14)] bg-white/65 text-[13px] font-semibold text-[rgba(54,72,97,.9)]">
-            Leadership & Decision-Making
-          </div>
-          <div className="pill p-3 rounded-card border border-[rgba(54,72,97,.14)] bg-white/65 text-[13px] font-semibold text-[rgba(54,72,97,.9)]">
-            Culture & Trust
-          </div>
-          <div className="pill p-3 rounded-card border border-[rgba(54,72,97,.14)] bg-white/65 text-[13px] font-semibold text-[rgba(54,72,97,.9)]">
-            Strategy & Execution
-          </div>
-          <div className="pill p-3 rounded-card border border-[rgba(54,72,97,.14)] bg-white/65 text-[13px] font-semibold text-[rgba(54,72,97,.9)]">
-            Faith & Work
-          </div>
-        </aside>
-      </section>
+      <Hero
+        kicker={<HeroKickerStyle prefix="Insights" />}
+        title="Wisdom in Practice"
+        subtitle="A living library of reflections on leadership, culture, systems, and the work of building organizations that endure. Curated for leaders who want to go deeper."
+        variant="dark"
+        actions={<Button href="#browse" variant="inverse" className="border-2">Browse insights</Button>}
+        rightSlot={
+          <aside aria-label="What you'll find here" className="w-full p-[18px] bg-white/80 border border-P/15 rounded-card flex flex-col gap-3">
+            <div className="font-h text-[14px] font-extrabold tracking-[0.2px] text-P/90">What you'll find here</div>
+            <div className="flex flex-col gap-3">
+              {["Leadership & Decision-Making", "Culture & Trust", "Strategy & Execution", "Spirituality in the Workplace"].map((label) => (
+                <div key={label} className="p-3 rounded-card border border-P/15 bg-white/70 font-b text-[14px] font-bold text-P">
+                  {label}
+                </div>
+              ))}
+            </div>
+          </aside>
+        }
+      />
 
       {/* PAGE */}
-      <section className="bg-white px-[28px] py-[64px] lg:px-[120px] lg:py-[80px]">
+      <section id="browse" className="scroll-mt-28 bg-white px-[28px] py-[64px] lg:px-[120px] lg:py-[80px]">
         <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-[18px] items-start">
           
           {/* Sidebar */}
@@ -267,9 +177,9 @@ const Insights: React.FC = () => {
               <div className="border border-[rgba(54,72,97,.16)] rounded-card overflow-hidden">
                 <div className="bg-P text-white p-[24px_18px] flex justify-between items-center gap-[14px] flex-wrap">
                   <div>
-                    <div className="font-h text-[18px] font-extrabold tracking-[-.1px]">Want help building what lasts?</div>
+                    <div className="font-h text-[18px] font-extrabold tracking-[-.1px]">Want to start a conversation?</div>
                     <div className="text-[14px] text-white/82 max-w-[700px]">
-                      If you’re navigating complexity and want clarity you can act on, let’s start a conversation.
+                      If you're navigating complexity and want clarity you can act on, let's start a conversation.
                     </div>
                   </div>
                   <Button href="/contact" variant="primary">Start the Conversation</Button>
