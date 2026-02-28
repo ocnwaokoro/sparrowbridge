@@ -28,7 +28,7 @@ export const Testimonial: React.FC<TestimonialProps> = ({
         {quote}
       </p>
       <div className={`font-b text-[14px] font-semibold ${authorClasses}`}>
-        — {author}{role ? `, ${role}` : ''}
+        {author}{role ? `, ${role}` : ''}
       </div>
     </div>
   );
