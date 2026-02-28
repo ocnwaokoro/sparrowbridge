@@ -3,7 +3,8 @@ import {
   PageShell, 
   SiteHeader, 
   Footer, 
-  ContactForm
+  ContactForm,
+  HeroKickerStyle
 } from '../components';
 
 const Contact: React.FC = () => {
@@ -13,14 +14,14 @@ const Contact: React.FC = () => {
 
   return (
     <PageShell>
-      <SiteHeader activeLink="/contact" />
+      <SiteHeader />
       
       {/* HERO */}
       <section className="px-6 lg:px-[80px] py-12 bg-P text-white grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-x-[18px] gap-y-6 items-stretch">
         
         {/* Hero header */}
         <div className="lg:col-span-2">
-          <div className="font-h text-[12px] font-extrabold tracking-[1.2px] uppercase text-white/75">Contact</div>
+          <HeroKickerStyle prefix="CONTACT" />
           <h1 className="font-h text-[40px] lg:text-[52px] font-extrabold tracking-[-.6px] leading-[1.05] mt-[10px]">
             Start the Conversation
           </h1>
@@ -40,15 +41,15 @@ const Contact: React.FC = () => {
 
             <div className="p-3 flex flex-col gap-2 bg-white h-full">
               <a className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-[rgba(54,72,97,.12)] bg-white no-underline text-[rgba(54,72,97,.92)] font-bold text-[13px]"
-                 href="#">
+                 href="https://www.linkedin.com/company/sparrowbridge" target="_blank" rel="noopener noreferrer">
                 SparrowBridge on LinkedIn
-                <span className="text-[12px] font-bold text-[rgba(54,72,97,.62)] whitespace-nowrap">placeholder</span>
+                <span className="text-[12px] font-bold text-[rgba(54,72,97,.62)] whitespace-nowrap">LinkedIn</span>
               </a>
 
               <a className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-[rgba(54,72,97,.12)] bg-white no-underline text-[rgba(54,72,97,.92)] font-bold text-[13px]"
-                 href="#">
+                 href="https://www.linkedin.com/in/kelechiokere/" target="_blank" rel="noopener noreferrer">
                 Founder on LinkedIn
-                <span className="text-[12px] font-bold text-[rgba(54,72,97,.62)] whitespace-nowrap">placeholder</span>
+                <span className="text-[12px] font-bold text-[rgba(54,72,97,.62)] whitespace-nowrap">LinkedIn</span>
               </a>
 
               <a className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-[rgba(54,72,97,.12)] bg-white no-underline text-[rgba(54,72,97,.92)] font-bold text-[13px]"
@@ -78,7 +79,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="flex flex-col gap-0.5">
                     <div className="font-h text-[13px] font-extrabold text-[rgba(54,72,97,.93)] leading-[1.2]">Initial Consultation</div>
-                    <div className="text-[12px] font-semibold text-[rgba(54,72,97,.72)] leading-[1.35]">Clarify the situation and the outcome.</div>
+                    <div className="text-[12px] font-semibold text-[rgba(54,72,97,.72)] leading-[1.35]">Clarify the situation and desired outcome.</div>
                   </div>
                 </div>
 
@@ -98,7 +99,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="flex flex-col gap-0.5">
                     <div className="font-h text-[13px] font-extrabold text-[rgba(54,72,97,.93)] leading-[1.2]">Next Steps</div>
-                    <div className="text-[12px] font-semibold text-[rgba(54,72,97,.72)] leading-[1.35]">Align on approach, scope, and timeline.</div>
+                    <div className="text-[12px] font-semibold text-[rgba(54,72,97,.72)] leading-[1.35]">Align on approach, scope and timeline. Co-design solutions, implement together.</div>
                   </div>
                 </div>
               </div>
