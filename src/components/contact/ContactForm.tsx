@@ -7,7 +7,7 @@ export const ContactForm: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
 
-  const inputBase = "font-b text-base lg:text-[14px] px-3 py-2 rounded-btn border border-[rgba(54,72,97,.18)] outline-none text-[rgba(54,72,97,.92)] placeholder:text-[rgba(54,72,97,.55)] placeholder:font-semibold focus:border-[rgba(54,72,97,.34)] focus:ring-4 focus:ring-[rgba(54,72,97,.10)]";
+  const inputBase = "font-b text-base lg:text-[14px] px-3 py-2 rounded-btn border border-P/20 outline-none text-P/90 placeholder:text-P/55 placeholder:font-semibold focus:border-P/40 focus:ring-4 focus:ring-P/10";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -37,11 +37,11 @@ export const ContactForm: React.FC = () => {
     <form
       action={CONTACT_FORM_ENDPOINT || '#'}
       method="post"
-      className="flex flex-col gap-2.5 flex-1"
+      className="flex flex-col gap-4 flex-1"
       onSubmit={handleSubmit}
     >
       {/* PLACEHOLDER [SILENT]: action falls back to '#' when VITE_CONTACT_FORM_ENDPOINT unset — form appears to submit but does nothing */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1">
           <label htmlFor="contact-name" className="font-b text-[13px] font-semibold text-P/80">Name</label>
           <input
@@ -67,7 +67,7 @@ export const ContactForm: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1">
           <label htmlFor="contact-org" className="font-b text-[13px] font-semibold text-P/80">Organization</label>
           <input
@@ -133,12 +133,6 @@ export const ContactForm: React.FC = () => {
         )}
       </div>
 
-      {/* PLACEHOLDER [VISIBLE]: Shown when env unset — form submission is no-op until VITE_CONTACT_FORM_ENDPOINT is set */}
-      {!CONTACT_FORM_ENDPOINT && (
-        <div className="mt-auto pt-1 text-[12px] font-semibold text-[rgba(54,72,97,.55)]">
-          Form submission is currently a placeholder. Set VITE_CONTACT_FORM_ENDPOINT (e.g. your Formspree or backend URL) to enable submissions.
-        </div>
-      )}
     </form>
   );
 };
