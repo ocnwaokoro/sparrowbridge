@@ -50,7 +50,7 @@ export const ApplicationForm: React.FC = () => {
             </FormField>
             <FormField label="Email" id="app-email">
               {/* PLACEHOLDER [VISIBLE]: Example email placeholder — optional to use generic "you@example.com" */}
-              <input type="email" id="app-email" name="email" placeholder="k@sparrowbridge.com" className={inputBase} required />
+              <input type="email" id="app-email" name="email" placeholder="ko@sparrowbridgeconsulting.com" className={inputBase} required />
             </FormField>
           </div>
 
