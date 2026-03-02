@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import heroBgCareers from '../assets/foggy-ski.jpg';
 import { 
   PageShell, 
   SiteHeader, 
@@ -24,6 +25,8 @@ const Careers: React.FC = () => {
         title="Join us"
         subtitle="We are a purpose-driven company. If you feel called to help individuals and organizations unlock and amplify their value to humanity and our planet, we would love to work with you. If you want a company where you can bring your whole self to work, let’s build it daily. Our vision statement applies to us first. Let’s help you build a lifestyle that lasts."
         variant="dark"
+        backgroundImage={heroBgCareers}
+        backgroundImagePosition="bottom"
         rightSlot={
           <aside className="w-full p-[18px] bg-white/80 border border-P/15 rounded-card flex flex-col gap-3">
             <div className="font-h text-[14px] font-extrabold tracking-[0.2px] text-P/90">What we look for</div>
