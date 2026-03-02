@@ -52,17 +52,11 @@ const Contact: React.FC = () => {
                 <span className="text-[12px] font-bold text-[rgba(54,72,97,.62)] whitespace-nowrap">LinkedIn</span>
               </a>
 
-              {/* PLACEHOLDER [SILENT]: Calendly URL is generic — needs real scheduling link from client */}
               <a className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-[rgba(54,72,97,.12)] bg-white no-underline text-[rgba(54,72,97,.92)] font-bold text-[13px]"
-                 href="https://calendly.com/placeholder" target="_blank" rel="noreferrer">
+                 href="https://calendly.com/ko-sparrowbridgeconsulting/30min" target="_blank" rel="noopener noreferrer">
                 Calendly
                 <span className="text-[12px] font-bold text-[rgba(54,72,97,.62)] whitespace-nowrap">Schedule a call</span>
               </a>
-
-              {/* PLACEHOLDER [VISIBLE]: Dev note about URLs — remove or replace when Calendly is set */}
-              <div className="mt-auto pt-1 text-[12px] font-semibold text-[rgba(54,72,97,.55)]">
-                Replace placeholders with real URLs.
-              </div>
             </div>
           </div>
 
@@ -73,7 +67,7 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="p-3 flex flex-col gap-2 bg-white h-full">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-2.5">
                 {/* Step */}
                 <div className="flex flex-col gap-1.5 items-center text-center p-3 rounded-card border border-[rgba(54,72,97,.12)] bg-white">
                   <div className="w-[26px] h-[26px] rounded-full border border-[rgba(54,72,97,.22)] bg-white flex items-center justify-center font-h font-extrabold text-[12px] text-[rgba(54,72,97,.9)]">
