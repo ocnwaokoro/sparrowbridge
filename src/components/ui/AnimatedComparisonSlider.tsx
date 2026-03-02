@@ -105,15 +105,19 @@ export const AnimatedComparisonSlider: React.FC<AnimatedComparisonSliderProps> =
         </div>
       </div>
 
-      {/* Controls */}
-      <div className="flex items-center justify-between">
-        <button
-          onClick={handlePrev}
-          aria-label="Previous"
-          className="w-11 h-11 flex items-center justify-center rounded-full border border-P/20 bg-white text-P/60 hover:text-P hover:border-P/40 transition-colors text-[16px] font-bold"
-        >
-          ‹
-        </button>
+      {/* Controls: dots centered, smaller chevrons on sides */}
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+        <div className="flex justify-end">
+          <button
+            onClick={handlePrev}
+            aria-label="Previous"
+            className="w-9 h-9 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-full border border-P/20 bg-white text-P/60 hover:text-P hover:border-P/40 transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+        </div>
 
         <div className="flex items-center justify-center" role="tablist" aria-label="Slide index">
           {slides.map((_, i) => (
@@ -136,13 +140,17 @@ export const AnimatedComparisonSlider: React.FC<AnimatedComparisonSliderProps> =
           ))}
         </div>
 
-        <button
-          onClick={handleNext}
-          aria-label="Next"
-          className="w-11 h-11 flex items-center justify-center rounded-full border border-P/20 bg-white text-P/60 hover:text-P hover:border-P/40 transition-colors text-[16px] font-bold"
-        >
-          ›
-        </button>
+        <div className="flex justify-start">
+          <button
+            onClick={handleNext}
+            aria-label="Next"
+            className="w-9 h-9 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-full border border-P/20 bg-white text-P/60 hover:text-P hover:border-P/40 transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );
