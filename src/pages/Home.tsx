@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import heroBgHome from '../assets/hero-bg-home.jpg';
-import caseStudySaas from '../assets/case-study-saas.jpg';
-import caseStudyGlobalProduct from '../assets/case-study-global-product.jpg';
+import heroBgHome from '../assets/home-hero.jpg';
+import caseStudySaas from '../assets/home-case-study-saas.jpg';
+import caseStudyGlobalProduct from '../assets/home-case-study-global-product.jpg';
 import { 
   PageShell, 
   SiteHeader, 
@@ -163,7 +163,7 @@ const Home: React.FC = () => {
               summary="SaaS company struggling with full integration post-acquisition and global expansion of customer base. Through our diagnostic and strategy co-design processes, the company achieved full integration and global expansion."
               tags={["Leadership", "Culture", "Sales", "GTM Strategy"]}
               accentColor="bg-P"
-              href="https://drive.google.com/file/d/17Dda_qUn8pyZucjsxVkDaLPYult5PZmL/view"
+              href="/case-studies/saas"
               imagePlaceholder={<img src={caseStudySaas} alt="" className="w-full h-full object-cover object-center" />}
             />
             <CaseStudyCard 

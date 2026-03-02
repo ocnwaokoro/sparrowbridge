@@ -111,7 +111,7 @@ const Contact: React.FC = () => {
         </div>
 
         {/* RIGHT: Send a Note */}
-        <div id="note" className="border border-P/10 rounded-card overflow-hidden bg-white/80 flex flex-col">
+        <div id="note" className="border border-P/10 rounded-card overflow-hidden bg-[#F8F9FA] flex flex-col">
           <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
             <div className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">Send a Note</div>
           </div>

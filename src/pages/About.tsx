@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import founderImg from '../assets/founder-kelechi-okereke.jpg';
-import aboutLandscape from '../assets/about-landscape.jpg';
+import founderImg from '../assets/founder-kelechi-okere.jpg';
+import aboutLandscape from '../assets/about-hero.jpg';
 import { 
   PageShell, 
   SiteHeader, 
@@ -125,12 +125,12 @@ const About: React.FC = () => {
 
             <div className="p-[18px] md:p-6">
               <FounderBio 
-                name="Kelechi"
+                name="Kelechi Okere"
                 title="Founder & Managing Principal"
                 imagePlaceholder={
                   <img
                     src={founderImg}
-                    alt="Kelechi Okereke, Founder and Managing Principal, SparrowBridge"
+                    alt="Kelechi Okere, Founder and Managing Principal, SparrowBridge"
                     className="w-full h-full min-h-0 flex-1 object-cover object-center rounded-card"
                     loading="lazy"
                     width={440}
@@ -148,7 +148,7 @@ const About: React.FC = () => {
                   },
                   { 
                     label: "Certifications", 
-                    content: <>Columbia University: Executive & Organizational Coaching Certification (Summer 2026)<br/>Hogan Assessment</> 
+                    content: <>Columbia University: Executive & Organizational Coaching Certification (Summer 2025)<br/>Hogan Assessment</> 
                   },
                   { 
                     label: "Education", 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import flowersGreenery from '../assets/flowers-greenery.jpg';
+import flowersGreenery from '../assets/solutions-hero.jpg';
 import { 
   PageShell, 
   SiteHeader, 
@@ -9,7 +9,6 @@ import {
   Footer, 
   Container,
   SolutionCriteriaList,
-  CardGrid,
   HeroKickerStyle
 } from '../components';
 
@@ -182,14 +181,39 @@ const Solutions: React.FC = () => {
           <p className="font-b text-[17px] leading-[1.65] text-P/80 max-w-[780px]">
             Whether you already know the problem, challenge or opportunity you want to tackle or you're not sure where to start, we employ our process rooted in organization development research and practice to get from where you are to where you want to be.
           </p>
-          {/* Solutions Content: row of 3, then row of 2 */}
-          <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-[1fr_1fr] gap-8">
-            {/* Row 1: 2 articles (same as section above — each spans 2 cols, centered) */}
-            {/* 01 - Incisive Diagnosis */}
-            <div id="diagnosis" className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
+          {/* Solutions Content: 6 steps — 3+3 layout */}
+          <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 gap-8">
+            {/* Row 1: 01, 02, 03 */}
+            {/* 01 - Exploration */}
+            <div id="exploration" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
               <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
-                <h3 className="font-h text-[20px] font-extrabold text-P">Incisive Diagnosis</h3>
+                <h3 className="font-h text-[20px] font-extrabold text-P">Exploration</h3>
                 <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">01</span>
+              </div>
+              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+                <div className="flex flex-col gap-2 min-h-[72px]">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Overview</div>
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    We listen, clarify the problem or opportunity, and align on scope and readiness.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A2">What you receive</div>
+                  <SolutionCriteriaList 
+                    items={[
+                      "Clarity on scope and readiness.",
+                      "A path to the next phase: diagnosis or co-design."
+                    ]}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* 02 - Diagnosis */}
+            <div id="diagnosis" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+                <h3 className="font-h text-[20px] font-extrabold text-P">Diagnosis</h3>
+                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">02</span>
               </div>
               <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
@@ -211,11 +235,11 @@ const Solutions: React.FC = () => {
               </div>
             </div>
 
-            {/* 02 - Co-design & Alignment */}
-            <div id="codesign" className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-4 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
+            {/* 03 - Co-design & Alignment */}
+            <div id="codesign" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
               <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
                 <h3 className="font-h text-[20px] font-extrabold text-P">Co-design & Alignment</h3>
-                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">02</span>
+                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">03</span>
               </div>
               <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
@@ -237,18 +261,18 @@ const Solutions: React.FC = () => {
               </div>
             </div>
 
-            {/* Row 2: 3 articles (each spans 2 cols) */}
-            {/* 03 - Implementation & Integration */}
+            {/* Row 2: 04, 05, 06 */}
+            {/* 04 - Implementation & Integration */}
             <div id="implement" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
               <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
                 <h3 className="font-h text-[20px] font-extrabold text-P">Implementation & Integration</h3>
-                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">03</span>
+                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">04</span>
               </div>
               <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Overview</div>
                   <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
-                    Implementation is what separates courageous leaders from the rest. Increase your chance of success.
+                    Implementation is what separates courageous leaders from the rest.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -264,11 +288,11 @@ const Solutions: React.FC = () => {
               </div>
             </div>
 
-            {/* 04 - Executive & Org Coaching */}
-            <div id="coaching" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
+            {/* 05 - Executive & Org Coaching */}
+            <div id="coaching-process" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
               <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
                 <h3 className="font-h text-[20px] font-extrabold text-P">Executive & Org Coaching</h3>
-                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">04</span>
+                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">05</span>
               </div>
               <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
@@ -290,11 +314,11 @@ const Solutions: React.FC = () => {
               </div>
             </div>
 
-            {/* 05 - Assess */}
+            {/* 06 - Assess */}
             <div id="assess" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
               <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
                 <h3 className="font-h text-[20px] font-extrabold text-P">Assess</h3>
-                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">05</span>
+                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">06</span>
               </div>
               <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
