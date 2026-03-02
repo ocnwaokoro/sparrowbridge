@@ -16,7 +16,7 @@ export const RailLink: React.FC<RailLinkProps> = ({
   return (
     <a 
       href={href}
-      className={`block py-1.5 font-b text-[14px] font-semibold no-underline transition-colors
+      className={`block py-1.5 font-b text-[14px] font-semibold no-underline transition-colors min-h-[44px] flex items-center
         ${isActive ? 'text-A1' : 'text-P/70 hover:text-P'} ${className}`}
     >
       {children}

@@ -19,13 +19,24 @@ export const AnimatedComparisonSlider: React.FC<AnimatedComparisonSliderProps> =
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mq.matches);
+    const handler = () => setPrefersReducedMotion(mq.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const goTo = useCallback((index: number) => {
     setVisible(false);
     setTimeout(() => {
       setCurrentIndex(index);
       setVisible(true);
-    }, 300);
+    }, 200);
   }, []);
 
   const next = useCallback(() => {
@@ -37,19 +48,20 @@ export const AnimatedComparisonSlider: React.FC<AnimatedComparisonSliderProps> =
   }, [currentIndex, slides.length, goTo]);
 
   const resetTimer = useCallback(() => {
+    if (prefersReducedMotion) return;
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
       setCurrentIndex(i => {
-        const next = (i + 1) % slides.length;
+        const nextIdx = (i + 1) % slides.length;
         setVisible(false);
         setTimeout(() => {
-          setCurrentIndex(next);
+          setCurrentIndex(nextIdx);
           setVisible(true);
-        }, 300);
+        }, 200);
         return i;
       });
     }, autoAdvanceMs);
-  }, [autoAdvanceMs, slides.length]);
+  }, [autoAdvanceMs, slides.length, prefersReducedMotion]);
 
   useEffect(() => {
     resetTimer();
@@ -64,25 +76,31 @@ export const AnimatedComparisonSlider: React.FC<AnimatedComparisonSliderProps> =
 
   const slide = slides[currentIndex];
 
-  const contentTransition = { opacity: visible ? 1 : 0, transition: 'opacity 300ms ease' };
+  const contentTransition = {
+    opacity: visible ? 1 : 0,
+    transition: prefersReducedMotion ? 'none' : 'opacity 200ms ease',
+  };
 
   return (
     <div className={`w-full flex flex-col gap-4 ${className}`}>
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        From: {slide.from}. To: {slide.to}.
+      </div>
 
-      {/* Card shell stays static; only inner content crossfades */}
-      <div className="w-full bg-white border border-P/15 rounded-card overflow-hidden shadow-sm min-h-[160px]">
+      {/* Card shell stays static; only inner content crossfades. Fixed height on mobile so carousel doesn't jump. */}
+      <div className="w-full bg-white border border-P/15 rounded-card overflow-hidden shadow-sm h-[240px] md:h-auto md:min-h-[160px]">
         <div className="hidden md:flex bg-P/5 border-b border-P/15">
           <div className="w-1/2 flex-none min-w-0 p-[14px] font-h text-[14px] font-extrabold text-P">Go from</div>
           <div className="w-1/2 flex-none min-w-0 p-[14px] font-h text-[14px] font-extrabold text-P">To</div>
         </div>
-        <div className="flex flex-col md:flex-row md:items-stretch min-h-[120px]">
-          <div className="flex-1 min-w-0 md:w-1/2 md:flex-none py-5 px-[14px] font-b text-[15px] leading-[1.5] text-P/85 overflow-hidden">
+        <div className="flex flex-col md:flex-row md:items-stretch h-[240px] md:h-auto md:min-h-[120px]">
+          <div className="flex-1 min-w-0 md:w-1/2 md:flex-none py-4 px-4 md:py-5 md:px-[14px] font-b text-[15px] leading-[1.5] text-P/85 overflow-hidden md:overflow-x-hidden">
             <span className="md:hidden block font-h font-extrabold text-[12px] uppercase text-A1 mb-1">Go from:</span>
-            <span style={contentTransition} className="block">{slide.from}</span>
+            <span style={contentTransition} className="block break-words">{slide.from}</span>
           </div>
-          <div className="flex-1 min-w-0 md:w-1/2 md:flex-none py-5 px-[14px] font-b text-[15px] leading-[1.5] font-semibold text-P/95 border-t md:border-t-0 md:border-l border-P/10 overflow-hidden">
+          <div className="flex-1 min-w-0 md:w-1/2 md:flex-none py-4 px-4 md:py-5 md:px-[14px] font-b text-[15px] leading-[1.5] font-semibold text-P/95 border-t md:border-t-0 md:border-l border-P/10 overflow-hidden md:overflow-x-hidden">
             <span className="md:hidden block font-h font-extrabold text-[12px] uppercase text-A2 mb-1">To:</span>
-            <span style={contentTransition} className="block">{slide.to}</span>
+            <span style={contentTransition} className="block break-words">{slide.to}</span>
           </div>
         </div>
       </div>
@@ -92,30 +110,36 @@ export const AnimatedComparisonSlider: React.FC<AnimatedComparisonSliderProps> =
         <button
           onClick={handlePrev}
           aria-label="Previous"
-          className="w-8 h-8 flex items-center justify-center rounded-full border border-P/20 bg-white text-P/60 hover:text-P hover:border-P/40 transition-colors text-[16px] font-bold"
+          className="w-11 h-11 flex items-center justify-center rounded-full border border-P/20 bg-white text-P/60 hover:text-P hover:border-P/40 transition-colors text-[16px] font-bold"
         >
           ‹
         </button>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-1.5" role="tablist" aria-label="Slide index">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => handleDot(i)}
               aria-label={`Go to slide ${i + 1}`}
-              className={`rounded-full transition-all duration-300 ${
-                i === currentIndex
-                  ? 'w-5 h-2 bg-P'
-                  : 'w-2 h-2 bg-P/25 hover:bg-P/50'
-              }`}
-            />
+              role="tab"
+              aria-selected={i === currentIndex}
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-P/5 active:bg-P/10"
+            >
+              <span
+                className={`rounded-full transition-all duration-300 shrink-0 ${
+                  i === currentIndex
+                    ? 'w-5 h-2 bg-P'
+                    : 'w-2 h-2 bg-P/30 hover:bg-P/50'
+                }`}
+              />
+            </button>
           ))}
         </div>
 
         <button
           onClick={handleNext}
           aria-label="Next"
-          className="w-8 h-8 flex items-center justify-center rounded-full border border-P/20 bg-white text-P/60 hover:text-P hover:border-P/40 transition-colors text-[16px] font-bold"
+          className="w-11 h-11 flex items-center justify-center rounded-full border border-P/20 bg-white text-P/60 hover:text-P hover:border-P/40 transition-colors text-[16px] font-bold"
         >
           ›
         </button>

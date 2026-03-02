@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface Segment {
   lines: string[];
@@ -10,7 +10,7 @@ const SEGMENTS: Segment[] = [
   {
     lines: ['EXPLORATION'],
     label: 'EXPLORATION',
-    tooltip: 'Initial consultation to learn about, clarify, and confirm your problem, challenge, or opportunity.',
+    tooltip: 'Initial discovery of your problem or opportunity.',
   },
   {
     lines: ['DIAGNOSE'],
@@ -35,7 +35,7 @@ const SEGMENTS: Segment[] = [
   {
     lines: ['ASSESS'],
     label: 'ASSESS',
-    tooltip: 'Measure progress, learn, and reinforce what will last.',
+    tooltip: 'Measure progress, learn, and iterate.',
   },
 ];
 
@@ -93,9 +93,33 @@ function getSegmentFill(i: number, hovered: boolean): string {
 
 export const ConsultingProcessDiagram: React.FC = () => {
   const [hovered, setHovered] = useState<number | null>(null);
+  const [activeSegment, setActiveSegment] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mq.matches);
+    const handler = () => setPrefersReducedMotion(mq.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+    const handleTouchOutside = (e: TouchEvent) => {
+      const target = e.target as Node;
+      if (containerRef.current && !containerRef.current.contains(target)) setActiveSegment(null);
+    };
+    document.addEventListener('touchstart', handleTouchOutside);
+    return () => document.removeEventListener('touchstart', handleTouchOutside);
+  }, []);
+
+  const pathTransition = prefersReducedMotion ? 'none' : 'fill 0.2s ease';
 
   return (
-    <div className="relative w-full aspect-square">
+    <div ref={containerRef} className="relative w-full aspect-square">
       <svg
         viewBox="0 0 400 400"
         xmlns="http://www.w3.org/2000/svg"
@@ -105,30 +129,41 @@ export const ConsultingProcessDiagram: React.FC = () => {
         {SEGMENTS.map((seg, i) => {
           const { x, y } = getLabelPos(i);
           const isHovered = hovered === i;
+          const isActive = isHovered || activeSegment === seg.label;
+          const tooltipId = `diagram-tooltip-${i}`;
 
           return (
             <g
               key={i}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
+              onClick={() => setActiveSegment(prev => (prev === seg.label ? null : seg.label))}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActiveSegment(prev => (prev === seg.label ? null : seg.label));
+                }
+              }}
               style={{ cursor: 'pointer' }}
-              role="img"
+              role="button"
+              tabIndex={0}
               aria-label={seg.label}
+              aria-describedby={isActive ? tooltipId : undefined}
             >
               <path
                 d={getSegmentPath(i)}
                 style={{
-                  fill: getSegmentFill(i, isHovered),
+                  fill: getSegmentFill(i, isActive),
                   stroke: '#ffffff',
                   strokeWidth: 2,
-                  transition: 'fill 0.2s ease',
+                  transition: pathTransition,
                 }}
               />
               <text
                 textAnchor="middle"
                 style={{
                   fill: '#ffffff',
-                  fontSize: '10.5px',
+                  fontSize: '12px',
                   fontWeight: 700,
                   letterSpacing: '0.4px',
                   pointerEvents: 'none',
@@ -160,7 +195,7 @@ export const ConsultingProcessDiagram: React.FC = () => {
           textAnchor="middle"
           style={{
             fill: '#ffffff',
-            fontSize: '9.5px',
+            fontSize: '11px',
             fontWeight: 700,
             letterSpacing: '0.3px',
             pointerEvents: 'none',
@@ -176,20 +211,27 @@ export const ConsultingProcessDiagram: React.FC = () => {
         </text>
       </svg>
 
-      {/* Hover tooltip */}
-      {hovered !== null && (
-        <div
-          className="absolute z-10 max-w-[158px] p-3 bg-white border border-P rounded-card shadow-lg pointer-events-none"
-          style={TOOLTIP_POSITIONS[hovered]}
-        >
-          <p className="font-h text-[10px] font-extrabold text-P mb-1 leading-tight">
-            {SEGMENTS[hovered].label}
-          </p>
-          <p className="font-b text-[10px] text-P/75 leading-[1.45]">
-            {SEGMENTS[hovered].tooltip}
-          </p>
-        </div>
-      )}
+      {/* Tooltip (hover or tap) */}
+      {SEGMENTS.map((seg, i) => {
+        const isActive = hovered === i || activeSegment === seg.label;
+        if (!isActive) return null;
+        return (
+          <div
+            key={i}
+            id={`diagram-tooltip-${i}`}
+            role="tooltip"
+            className="absolute z-10 max-w-[200px] p-3 bg-white border border-P rounded-card shadow-lg pointer-events-none"
+            style={TOOLTIP_POSITIONS[i]}
+          >
+            <p className="font-h text-[13px] font-extrabold text-P mb-1 leading-tight">
+              {seg.label}
+            </p>
+            <p className="font-b text-[14px] text-P/75 leading-[1.5]">
+              {seg.tooltip}
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 };

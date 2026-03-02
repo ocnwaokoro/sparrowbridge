@@ -16,13 +16,13 @@ export const Button: React.FC<ButtonProps> = ({
   className = '', 
   ...props 
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center px-4 py-3 font-h text-[14px] font-bold rounded-btn transition-all hover:-translate-y-[1px] no-underline';
+  const baseClasses = 'inline-flex items-center justify-center px-4 py-3 font-h text-[14px] font-bold rounded-btn transition-all hover:-translate-y-[1px] no-underline min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-A1 focus-visible:ring-offset-2';
   
   const variantClasses: Record<ButtonVariant, string> = {
     primary: 'bg-A1 text-white hover:opacity-[0.95]',
     secondary: 'bg-white border border-P text-P hover:bg-P/5',
     inverse: 'bg-transparent border border-white text-white hover:bg-white/10',
-    ghost: 'bg-transparent text-P/70 hover:text-P hover:bg-P/5 px-2 py-1',
+    ghost: 'bg-transparent text-P/70 hover:text-P hover:bg-P/5 px-2 py-1 min-h-0',
   };
 
   const combinedClasses = `${baseClasses} ${variantClasses[variant]} ${className}`;
