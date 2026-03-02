@@ -12,7 +12,6 @@ import {
   Container,
   ValueCard,
   FounderBio,
-  TeamMemberCard,
   HeroKickerStyle
 } from '../components';
 
@@ -45,19 +44,19 @@ const About: React.FC = () => {
             <div className="flex flex-col gap-3">
               <div className="p-3 bg-white/70 border border-P/15 rounded-card flex flex-col gap-1.5">
                 <div className="font-b text-[14px] font-bold text-P">Truth over theater</div>
-                <div className="font-b text-[12px] leading-[1.4] text-P/75">
+                <div className="font-b text-[15px] lg:text-[12px] leading-[1.4] text-P/75">
                   No performative strategy. We name the bottlenecks and the real constraints.
                 </div>
               </div>
               <div className="p-3 bg-white/70 border border-P/15 rounded-card flex flex-col gap-1.5">
                 <div className="font-b text-[14px] font-bold text-P">Integrity in the work</div>
-                <div className="font-b text-[12px] leading-[1.4] text-P/75">
+                <div className="font-b text-[15px] lg:text-[12px] leading-[1.4] text-P/75">
                   We align action with values so change is sustainable, not cosmetic.
                 </div>
               </div>
               <div className="p-3 bg-white/70 border border-P/15 rounded-card flex flex-col gap-1.5">
                 <div className="font-b text-[14px] font-bold text-P">Durable capability</div>
-                <div className="font-b text-[12px] leading-[1.4] text-P/75">
+                <div className="font-b text-[15px] lg:text-[12px] leading-[1.4] text-P/75">
                   We build internal capacity so progress holds after we leave.
                 </div>
               </div>
@@ -104,11 +103,12 @@ const About: React.FC = () => {
               <ValueCard 
                 title="Purpose" 
                 variant="outline"
+                className="text-center"
                 description={<b>We do this work in service of a higher calling, guided by faith, integrity, and care.</b>} 
               />
 
-              <Button href="#team" variant="primary" className="w-fit">
-                Meet our team →
+              <Button href="#founder" variant="primary" className="w-fit">
+                Meet our founder →
               </Button>
             </div>
           </div>
@@ -128,11 +128,16 @@ const About: React.FC = () => {
                 name="Kelechi"
                 title="Founder & Managing Principal"
                 imagePlaceholder={
-                  <img
-                    src={founderImg}
-                    alt="Kelechi Okereke, Founder and Managing Principal, SparrowBridge"
-                    className="w-full h-full object-cover object-top rounded-card"
-                  />
+                  <div className="aspect-[3/4] w-full overflow-hidden rounded-card">
+                    <img
+                      src={founderImg}
+                      alt="Kelechi Okereke, Founder and Managing Principal, SparrowBridge"
+                      className="w-full h-full object-cover object-top"
+                      loading="lazy"
+                      width={600}
+                      height={800}
+                    />
+                  </div>
                 }
                 paragraphs={[
                   "Kelechi is a seasoned strategist with over two decades of experience navigating difficult organizational shifts at Elsevier. Since founding SparrowBridge, he has brought that same discipline and insight in high impact business turnarounds to guide other institutions in identifying and shepherding lasting change.",
@@ -145,7 +150,7 @@ const About: React.FC = () => {
                   },
                   { 
                     label: "Certifications", 
-                    content: <>Columbia University, Executive & Organizational Coaching Certification (2026)<br/>Hogan Assessment</> 
+                    content: <>Columbia University: Executive & Organizational Coaching Certification (Summer 2026)<br/>Hogan Assessment</> 
                   },
                   { 
                     label: "Education", 
@@ -158,51 +163,14 @@ const About: React.FC = () => {
         </Container>
       </section>
 
-      {/* MEET OUR TEAM */}
-      <section id="team" className="scroll-mt-28 bg-white py-16 lg:py-20">
-        <Container>
-          <div className="border border-P/15 rounded-card bg-white overflow-hidden shadow-sm">
-            <div className="px-[18px] py-4 border-b border-P/15 bg-P/[0.03] flex items-center justify-between gap-4 flex-wrap">
-              <SectionTitle className="lg:text-[34px]">Meet Our Team</SectionTitle>
-            </div>
-
-            <div className="p-[18px] md:p-6 grid gap-6">
-              <BodyText>
-                SparrowBridge is building a purpose-driven team. If you feel called to help individuals and organizations unlock and amplify their value
-                to humanity and our planet, we would love to work with you.
-              </BodyText>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <TeamMemberCard 
-                  name="Kelechi"
-                  role="Founder & Managing Principal"
-                  bio="Systems-aware strategist and coach. Specializes in diagnosing what’s broken, restoring alignment, and helping leaders implement durable change with integrity and care."
-                />
-                {/* PLACEHOLDER [VISIBLE]: Second team card is placeholder content — needs real name, role, and bio from client */}
-                <TeamMemberCard 
-                  name="Other Team Members"
-                  role="Additional roles (Placeholder)"
-                  bio="Placeholder for additional team members. Keep bios consistent: what they’ve done, what they’re known for, and how they help leaders under pressure."
-                />
-              </div>
-
-              <div className="flex gap-3 flex-wrap mt-2">
-                <Button href="/careers" variant="primary">Explore Careers</Button>
-                <Button href="/contact" variant="secondary" className="border-P/30">Contact</Button>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
       {/* Footer CTA */}
       <section className="bg-P py-[48px] lg:py-[64px] text-center">
         <Container className="flex flex-col items-center gap-8">
           <SectionTitle variant="light" align="center" className="max-w-[700px] lg:text-[40px]">
             Ready to start?
           </SectionTitle>
-          <BodyText variant="light" className="max-w-[600px] text-[18px]">
-            Let’s start a conversation about your organization’s challenges and opportunities.
+          <BodyText variant="light" align="center" className="max-w-[600px] text-[18px]">
+            Let's start a conversation about your organization's challenges and opportunities.
           </BodyText>
           <div className="flex flex-col md:flex-row gap-3">
             <Button href="/contact" variant="primary" className="px-8 py-4 text-[16px]">Contact Us</Button>

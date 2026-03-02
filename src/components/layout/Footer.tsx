@@ -16,10 +16,10 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
       <div className="flex flex-col lg:flex-row justify-between gap-10">
         <div className="max-w-[300px] flex flex-col gap-4">
           <Link to="/" className="flex items-center no-underline">
-            <img src={logo} alt="SparrowBridge" className="h-9 w-auto brightness-0 invert" />
+            <img src={logo} alt="SparrowBridge" className="h-9 w-auto brightness-0 invert" loading="lazy" />
           </Link>
           <p className="font-b text-[13px] leading-[1.4] text-white/60">
-            Let's build what lasts.
+            Together we build what lasts.
           </p>
         </div>
 
@@ -37,15 +37,15 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
             <div className="font-h text-[13px] font-bold text-white">Solutions</div>
             <div className="flex flex-col gap-2">
               <Link className={linkClasses} to="/solutions#diagnosis">Incisive Diagnosis</Link>
-              <Link className={linkClasses} to="/solutions#implement">Co-design & Implement</Link>
-              <Link className={linkClasses} to="/solutions#coaching">Executive Coaching</Link>
+              <Link className={linkClasses} to="/solutions#codesign">Co-design & Alignment</Link>
+              <Link className={linkClasses} to="/solutions#implement">Implementation & Integration</Link>
+              <Link className={linkClasses} to="/solutions#coaching">Executive & Org Coaching</Link>
             </div>
           </div>
 
           <div className="flex flex-col gap-3">
             <div className="font-h text-[13px] font-bold text-white">Resources</div>
             <div className="flex flex-col gap-2">
-              <Link className={linkClasses} to="/insights">Insights</Link>
               <Link className={linkClasses} to="/#cases">Case Studies</Link>
               <Link className={linkClasses} to="/contact">Contact</Link>
             </div>
@@ -56,12 +56,11 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
       <div className="h-px bg-white/20"></div>
 
       <div className="flex flex-col md:flex-row justify-between items-center gap-5 text-center md:text-left">
-        <div className="font-b text-[13px] text-white/40">© {currentYear} SparrowBridge. All rights reserved.</div>
+        <div className="font-b text-[13px] text-white/60">© {currentYear} SparrowBridge. All rights reserved.</div>
         <div className="flex gap-6 flex-wrap justify-center">
-          {/* PLACEHOLDER [SILENT]: Generic LinkedIn URL — needs real company LinkedIn profile URL (e.g. linkedin.com/company/sparrowbridge) */}
-          <a className="font-b text-[13px] text-white/40 no-underline hover:text-white transition-colors" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <Link className="font-b text-[13px] text-white/40 no-underline hover:text-white transition-colors" to="/privacy">Privacy</Link>
-          <Link className="font-b text-[13px] text-white/40 no-underline hover:text-white transition-colors" to="/terms">Terms</Link>
+          <a className="font-b text-[13px] text-white/60 no-underline hover:text-white transition-colors" href="https://www.linkedin.com/company/sparrowbridge" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <Link className="font-b text-[13px] text-white/60 no-underline hover:text-white transition-colors" to="/privacy">Privacy</Link>
+          <Link className="font-b text-[13px] text-white/60 no-underline hover:text-white transition-colors" to="/terms">Terms</Link>
         </div>
       </div>
     </footer>
