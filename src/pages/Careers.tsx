@@ -28,7 +28,7 @@ const Careers: React.FC = () => {
         backgroundImage={heroBgCareers}
         backgroundImagePosition="bottom"
         rightSlot={
-          <aside className="w-full p-[18px] bg-white/80 border border-P/15 rounded-card flex flex-col gap-3">
+          <aside className="w-full p-5 bg-white/80 border border-P/15 rounded-card flex flex-col gap-3">
             <div className="font-h text-[14px] font-extrabold tracking-[0.2px] text-P/90">What we look for</div>
             <div className="flex flex-col gap-3">
               {[
@@ -52,7 +52,7 @@ const Careers: React.FC = () => {
         <Container>
           <div className="border border-P/15 rounded-card bg-white overflow-hidden shadow-sm">
             {/* Header */}
-            <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex flex-col gap-1">
+            <div className="px-5 lg:px-6 py-4 bg-P/5 border-b border-P/15 flex flex-col gap-1">
               <h2 className="font-h text-[16px] font-extrabold tracking-tight text-P/90">Join SparrowBridge</h2>
               <p className="text-[13px] font-semibold text-P/60">
                 We keep hiring simple: send a note, share your LinkedIn, and attach a resume. If there’s a fit, we’ll follow up.
@@ -60,12 +60,12 @@ const Careers: React.FC = () => {
             </div>
 
             {/* Body */}
-            <div className="p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-6 items-start">
+            <div className="p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-6 items-stretch">
               
               {/* Left Column: Values & How We Work */}
-              <div className="flex flex-col gap-6">
-                <div className="flex flex-col gap-4">
-                  <div className="border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex flex-col">
+              <div className="flex flex-col gap-6 min-h-0">
+                <div className="flex flex-col gap-4 flex-1 min-h-0">
+                  <div className="border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex flex-col shrink-0">
                     <div className="px-4 py-2 border-b border-P/10 bg-P/5">
                       <h3 className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">What We Value</h3>
                     </div>
@@ -86,7 +86,7 @@ const Careers: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex flex-col">
+                  <div className="border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex flex-col flex-1 min-h-0">
                     <div className="px-4 py-2 border-b border-P/10 bg-P/5">
                       <h3 className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">How We Work</h3>
                     </div>

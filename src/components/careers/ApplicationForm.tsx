@@ -37,8 +37,8 @@ export const ApplicationForm: React.FC = () => {
 
   return (
     <div className="border border-P/10 rounded-card bg-P/[0.02] overflow-hidden flex flex-col">
-      <div className="px-4 py-3 bg-P/5 border-b border-P/10">
-        <h3 className="font-h text-[14px] font-extrabold text-P/90 uppercase tracking-wider">Application</h3>
+      <div className="px-4 py-2 bg-P/5 border-b border-P/10">
+        <h3 className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">Application</h3>
       </div>
 
       <div className="p-4 bg-white flex flex-col gap-4 flex-1">
