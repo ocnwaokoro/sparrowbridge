@@ -1,4 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap');
+/* Self-hosted fonts (latin subset) – load with main CSS to avoid FOUT */
+@import '@fontsource/montserrat/latin-300.css';
+@import '@fontsource/montserrat/latin-400.css';
+@import '@fontsource/montserrat/latin-500.css';
+@import '@fontsource/montserrat/latin-600.css';
+@import '@fontsource/montserrat/latin-700.css';
+@import '@fontsource/prompt/latin-400.css';
+@import '@fontsource/prompt/latin-600.css';
+@import '@fontsource/prompt/latin-700.css';
+@import '@fontsource/prompt/latin-800.css';
 
 @tailwind base;
 @tailwind components;
