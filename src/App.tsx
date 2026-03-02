@@ -6,6 +6,7 @@ import Solutions from './pages/Solutions';
 import Insights from './pages/Insights';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
+import CaseStudyElsevier from './pages/CaseStudyElsevier';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 
@@ -40,6 +41,7 @@ const App: React.FC = () => {
           <Route path="/insights" element={<Insights />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/case-studies/elsevier" element={<CaseStudyElsevier />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           {/* Fallback for old .html links or mismatched routes */}
