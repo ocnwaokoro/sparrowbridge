@@ -8,4 +8,9 @@
   body {
     @apply antialiased text-P bg-white;
   }
+  button,
+  a,
+  [role="button"] {
+    touch-action: manipulation;
+  }
 }
