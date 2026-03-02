@@ -6,6 +6,7 @@ import { formatDate } from '../utils/formatDate';
 const Insights: React.FC = () => {
   const [currentArticle, setCurrentArticle] = useState(ARTICLES[0]);
   const [openCategory, setOpenCategory] = useState<string | null>(ARTICLES[0].category);
+  const [browseOpen, setBrowseOpen] = useState(false);
 
   useEffect(() => {
     document.title = 'SparrowBridge - Insights';
@@ -60,8 +61,76 @@ const Insights: React.FC = () => {
       <section id="browse" className="scroll-mt-28 bg-white px-[28px] py-[64px] lg:px-[120px] lg:py-[80px]">
         <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-[18px] items-start">
           
-          {/* Sidebar */}
-          <aside aria-label="Insights library" className="border border-[rgba(54,72,97,.16)] rounded-card bg-white overflow-hidden lg:sticky lg:top-[110px] lg:max-h-[calc(100vh-140px)] flex flex-col">
+          {/* Mobile accordion */}
+          <div className="lg:hidden mb-4">
+            <button
+              onClick={() => setBrowseOpen(b => !b)}
+              aria-expanded={browseOpen}
+              aria-controls="insights-browse"
+              className="w-full flex items-center justify-between px-4 py-3 bg-P/5 border border-P/15 rounded-card font-h text-[14px] font-semibold text-P min-h-[44px]"
+            >
+              Browse insights
+              <span aria-hidden="true">{browseOpen ? '▴' : '▾'}</span>
+            </button>
+            {browseOpen && (
+              <div id="insights-browse" className="mt-2 border border-P/15 rounded-card bg-white overflow-hidden max-h-[60vh] overflow-y-auto">
+                <div className="p-[14px] bg-[rgba(54,72,97,.06)] border-b border-[rgba(54,72,97,.16)]">
+                  <div className="font-h text-[16px] font-extrabold tracking-[-.1px] text-[rgba(54,72,97,.95)]">
+                    Browse Insights
+                  </div>
+                </div>
+                <div className="p-3 overflow-auto flex flex-col gap-[10px]">
+                  {CATEGORIES.map(cat => {
+                    const categoryArticles = ARTICLES.filter(a => a.category === cat.id);
+                    if (categoryArticles.length === 0) return null;
+                    const isOpen = openCategory === cat.id;
+                    return (
+                      <details
+                        key={cat.id}
+                        className="border border-[rgba(54,72,97,.16)] rounded-card overflow-hidden bg-[#FAFAFA] open:bg-white"
+                        open={isOpen}
+                        onToggle={(e) => {
+                          if ((e.target as HTMLDetailsElement).open) setOpenCategory(cat.id);
+                          else if (openCategory === cat.id) setOpenCategory(null);
+                        }}
+                      >
+                        <summary className="cursor-pointer px-3 py-3 flex items-center justify-between gap-3 font-h text-[13px] font-extrabold text-[rgba(54,72,97,.92)] bg-[rgba(54,72,97,.06)] border-b border-[rgba(54,72,97,.12)] list-none [&::-webkit-details-marker]:hidden">
+                          <span>{cat.label}</span>
+                          <span className="font-b text-[12px] font-bold text-[rgba(54,72,97,.62)]">{categoryArticles.length}</span>
+                        </summary>
+                        <div className="p-[10px] bg-white flex flex-col gap-2">
+                          {categoryArticles.map(article => (
+                            <a
+                              key={article.id}
+                              href={`#${article.id}`}
+                              className={`group w-full text-left rounded-card border border-[rgba(54,72,97,.12)] bg-[#FAFAFA] text-[rgba(54,72,97,.92)] cursor-pointer px-[10px] py-[10px] flex flex-col gap-0 transition-colors duration-150 hover:bg-[rgba(54,72,97,.06)] no-underline ${
+                                currentArticle.id === article.id ? 'bg-[rgba(54,72,97,.06)] border-[rgba(54,72,97,.22)]' : ''
+                              }`}
+                            >
+                              <div className="flex items-center justify-between gap-2.5">
+                                <div className="font-h text-[13px] font-extrabold leading-[1.25] flex-1 min-w-0 truncate">
+                                  {article.title}
+                                </div>
+                                <div className="font-b text-[11px] font-bold text-[rgba(54,72,97,.55)] shrink-0">
+                                  {formatDate(article.dateISO)}
+                                </div>
+                              </div>
+                              <div className="font-b text-[12px] text-[rgba(54,72,97,.78)] leading-[1.35] max-h-0 opacity-0 overflow-hidden group-hover:mt-1.5 group-hover:max-h-12 group-hover:opacity-100 transition-all duration-200">
+                                {article.lede}
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+                      </details>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+          {/* Desktop sidebar — fully unchanged */}
+          <div className="hidden lg:block">
+            <aside aria-label="Insights library" className="border border-[rgba(54,72,97,.16)] rounded-card bg-white overflow-hidden lg:sticky lg:top-[110px] lg:max-h-[calc(100vh-140px)] flex flex-col">
             <div className="p-[14px] bg-[rgba(54,72,97,.06)] border-b border-[rgba(54,72,97,.16)]">
               <div className="font-h text-[16px] font-extrabold tracking-[-.1px] text-[rgba(54,72,97,.95)]">
                 Browse Insights
@@ -103,10 +172,10 @@ const Insights: React.FC = () => {
                           }`}
                         >
                           <div className="flex items-center justify-between gap-2.5">
-                            <div className="font-h text-[13px] font-extrabold leading-[1.25] flex-1">
+                            <div className="font-h text-[13px] font-extrabold leading-[1.25] flex-1 min-w-0 truncate">
                               {article.title}
                             </div>
-                            <div className="font-b text-[11px] font-bold text-[rgba(54,72,97,.55)] whitespace-nowrap">
+                            <div className="font-b text-[11px] font-bold text-[rgba(54,72,97,.55)] shrink-0">
                               {formatDate(article.dateISO)}
                             </div>
                           </div>
@@ -121,6 +190,7 @@ const Insights: React.FC = () => {
               })}
             </div>
           </aside>
+          </div>
 
           {/* Article */}
           <main aria-label="Selected insight" className="border border-[rgba(54,72,97,.16)] rounded-card bg-white overflow-hidden">
@@ -134,7 +204,7 @@ const Insights: React.FC = () => {
                 <span>·</span>
                 <span>By {currentArticle.author}</span>
               </div>
-              <h2 className="font-h text-[34px] font-extrabold tracking-[-.2px] leading-[1.15] text-[rgba(54,72,97,.96)]">
+              <h2 className="font-h text-[26px] lg:text-[34px] font-extrabold tracking-[-.2px] leading-[1.15] text-[rgba(54,72,97,.96)]">
                 {currentArticle.title}
               </h2>
               <div className="text-[16px] text-[rgba(54,72,97,.85)] max-w-[900px]">
