@@ -128,10 +128,10 @@ const Home: React.FC = () => {
           </BodyText>
 
           <div className="w-full max-w-xl mx-auto">
-            <div className="p-3 bg-white border border-P/15 rounded-card flex flex-col gap-2">
-              <div className="flex items-baseline justify-between gap-3">
-                <div className="font-h text-[18px] lg:text-[20px] font-extrabold text-P">Our Process</div>
-                <p className="font-b text-[13px] text-P/70 whitespace-nowrap">Hover over each step for more</p>
+            <div className="p-3 flex flex-col gap-2">
+              <div className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-0 text-center">
+                <span className="font-h text-[22px] lg:text-[26px] font-extrabold text-white">Our Process</span>
+                <span className="font-b text-[15px] lg:text-[16px] text-white/80">— Hover over each step for more</span>
               </div>
               <div className="flex-1 min-h-[320px] flex items-center justify-center">
                 <ConsultingProcessDiagram />

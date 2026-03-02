@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface Segment {
   lines: string[];
@@ -93,8 +93,6 @@ function getSegmentFill(i: number, hovered: boolean): string {
 
 export const ConsultingProcessDiagram: React.FC = () => {
   const [hovered, setHovered] = useState<number | null>(null);
-  const [activeSegment, setActiveSegment] = useState<string | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
     typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
   );
@@ -107,19 +105,10 @@ export const ConsultingProcessDiagram: React.FC = () => {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  useEffect(() => {
-    const handleTouchOutside = (e: TouchEvent) => {
-      const target = e.target as Node;
-      if (containerRef.current && !containerRef.current.contains(target)) setActiveSegment(null);
-    };
-    document.addEventListener('touchstart', handleTouchOutside);
-    return () => document.removeEventListener('touchstart', handleTouchOutside);
-  }, []);
-
   const pathTransition = prefersReducedMotion ? 'none' : 'fill 0.2s ease';
 
   return (
-    <div ref={containerRef} className="relative w-full aspect-square">
+    <div className="relative w-full aspect-square">
       <svg
         viewBox="0 0 400 400"
         xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +118,6 @@ export const ConsultingProcessDiagram: React.FC = () => {
         {SEGMENTS.map((seg, i) => {
           const { x, y } = getLabelPos(i);
           const isHovered = hovered === i;
-          const isActive = isHovered || activeSegment === seg.label;
           const tooltipId = `diagram-tooltip-${i}`;
 
           return (
@@ -137,23 +125,13 @@ export const ConsultingProcessDiagram: React.FC = () => {
               key={i}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              onClick={() => setActiveSegment(prev => (prev === seg.label ? null : seg.label))}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  setActiveSegment(prev => (prev === seg.label ? null : seg.label));
-                }
-              }}
-              style={{ cursor: 'pointer' }}
-              role="button"
-              tabIndex={0}
               aria-label={seg.label}
-              aria-describedby={isActive ? tooltipId : undefined}
+              aria-describedby={isHovered ? tooltipId : undefined}
             >
               <path
                 d={getSegmentPath(i)}
                 style={{
-                  fill: getSegmentFill(i, isActive),
+                  fill: getSegmentFill(i, isHovered),
                   stroke: '#ffffff',
                   strokeWidth: 2,
                   transition: pathTransition,
@@ -211,10 +189,9 @@ export const ConsultingProcessDiagram: React.FC = () => {
         </text>
       </svg>
 
-      {/* Tooltip (hover or tap) */}
+      {/* Tooltip (hover only) */}
       {SEGMENTS.map((seg, i) => {
-        const isActive = hovered === i || activeSegment === seg.label;
-        if (!isActive) return null;
+        if (hovered !== i) return null;
         return (
           <div
             key={i}
