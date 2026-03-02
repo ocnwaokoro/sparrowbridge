@@ -9,7 +9,7 @@ export const ApplicationForm: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
 
-  const inputBase = "w-full px-3 py-2 bg-white border border-P/15 rounded-btn font-b text-[14px] focus:outline-none focus:border-A1/40 focus:ring-4 focus:ring-P/5 transition-all placeholder:text-P/40";
+  const inputBase = "w-full px-3 py-2 bg-white border border-P/15 rounded-btn font-b text-base lg:text-[14px] focus:outline-none focus:border-A1/40 focus:ring-4 focus:ring-P/5 transition-all placeholder:text-P/40";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

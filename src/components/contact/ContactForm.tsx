@@ -7,7 +7,7 @@ export const ContactForm: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
 
-  const inputBase = "font-b text-[14px] px-3 py-2 rounded-btn border border-[rgba(54,72,97,.18)] outline-none text-[rgba(54,72,97,.92)] placeholder:text-[rgba(54,72,97,.55)] placeholder:font-semibold focus:border-[rgba(54,72,97,.34)] focus:ring-4 focus:ring-[rgba(54,72,97,.10)]";
+  const inputBase = "font-b text-base lg:text-[14px] px-3 py-2 rounded-btn border border-[rgba(54,72,97,.18)] outline-none text-[rgba(54,72,97,.92)] placeholder:text-[rgba(54,72,97,.55)] placeholder:font-semibold focus:border-[rgba(54,72,97,.34)] focus:ring-4 focus:ring-[rgba(54,72,97,.10)]";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,60 +42,84 @@ export const ContactForm: React.FC = () => {
     >
       {/* PLACEHOLDER [SILENT]: action falls back to '#' when VITE_CONTACT_FORM_ENDPOINT unset — form appears to submit but does nothing */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-        <input
-          className={inputBase}
-          name="name"
-          placeholder="Name"
-          autoComplete="name"
-          required
-        />
-        <input
-          className={inputBase}
-          name="email"
-          type="email"
-          placeholder="Email"
-          autoComplete="email"
-          required
-        />
+        <div className="flex flex-col gap-1">
+          <label htmlFor="contact-name" className="font-b text-[13px] font-semibold text-P/80">Name</label>
+          <input
+            id="contact-name"
+            className={inputBase}
+            name="name"
+            placeholder="Name"
+            autoComplete="name"
+            required
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <label htmlFor="contact-email" className="font-b text-[13px] font-semibold text-P/80">Email</label>
+          <input
+            id="contact-email"
+            className={inputBase}
+            name="email"
+            type="email"
+            placeholder="Email"
+            autoComplete="email"
+            required
+          />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-        <input
-          className={inputBase}
-          name="org"
-          placeholder="Organization"
-          autoComplete="organization"
-        />
-        <input
-          className={inputBase}
-          name="role"
-          placeholder="Role / Title"
-          autoComplete="organization-title"
+        <div className="flex flex-col gap-1">
+          <label htmlFor="contact-org" className="font-b text-[13px] font-semibold text-P/80">Organization</label>
+          <input
+            id="contact-org"
+            className={inputBase}
+            name="org"
+            placeholder="Organization"
+            autoComplete="organization"
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <label htmlFor="contact-role" className="font-b text-[13px] font-semibold text-P/80">Role / Title</label>
+          <input
+            id="contact-role"
+            className={inputBase}
+            name="role"
+            placeholder="Role / Title"
+            autoComplete="organization-title"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <label htmlFor="contact-type" className="font-b text-[13px] font-semibold text-P/80">Inquiry type</label>
+        <select
+          id="contact-type"
+          required
+          className={`${inputBase} bg-white`}
+          name="type"
+        >
+          <option value="" disabled>Inquiry type</option>
+          <option value="discovery">Discovery / Consulting</option>
+          <option value="coaching">Coaching</option>
+          <option value="speaking">Speaking / Workshop</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <label htmlFor="contact-message" className="font-b text-[13px] font-semibold text-P/80">Message</label>
+        <textarea
+          id="contact-message"
+          required
+          className={`${inputBase} min-h-[100px] resize-y flex-1`}
+          name="message"
+          placeholder="Message"
         />
       </div>
 
-      <select
-        required
-        className={`${inputBase} bg-white`}
-        name="type"
-      >
-        <option value="" disabled>Inquiry type</option>
-        <option value="discovery">Discovery / Consulting</option>
-        <option value="coaching">Coaching</option>
-        <option value="speaking">Speaking / Workshop</option>
-        <option value="other">Other</option>
-      </select>
-
-      <textarea
-        required
-        className={`${inputBase} min-h-[80px] resize-y flex-1`}
-        name="message"
-        placeholder="Message"
-      />
-
       <div className="flex gap-3 items-center flex-wrap">
         <button
-          className="inline-flex items-center justify-center px-4 py-3 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70"
+          className="inline-flex items-center justify-center px-4 py-3 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px]"
           type="submit"
           disabled={status === 'sending'}
         >
