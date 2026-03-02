@@ -8,6 +8,8 @@ interface CaseStudyCardProps {
   tags: string[];
   accentColor?: string;
   imagePlaceholder?: React.ReactNode;
+  /** Link to full case study (PDF, page, or external URL). When set, shows "Read full case study" link. */
+  href?: string;
   className?: string;
 }
 
@@ -17,12 +19,13 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   tags, 
   accentColor = 'bg-P',
   imagePlaceholder,
+  href,
   className = '' 
 }) => {
   return (
     <Card className={`h-full flex flex-col ${className}`}>
       {imagePlaceholder ? (
-        <div className="h-[200px] w-full bg-P/5 flex items-center justify-center">
+        <div className="h-[200px] w-full bg-P/5 flex items-center justify-center overflow-hidden">
           {imagePlaceholder}
         </div>
       ) : (
@@ -43,6 +46,16 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
             </span>
           ))}
         </div>
+        {href && (
+          <a
+            href={href}
+            target={href.startsWith('http') ? '_blank' : undefined}
+            rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            className="font-b text-[14px] font-semibold text-A1 no-underline hover:underline mt-1"
+          >
+            Read full case study →
+          </a>
+        )}
       </CardBody>
     </Card>
   );
