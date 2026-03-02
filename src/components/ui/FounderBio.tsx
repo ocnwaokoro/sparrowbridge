@@ -51,7 +51,7 @@ export const FounderBio: React.FC<FounderBioProps> = ({
         </div>
       </div>
 
-      <aside className="w-full aspect-square lg:aspect-auto lg:h-full min-h-0 lg:min-h-0 overflow-hidden rounded-card">
+      <aside className="w-full min-h-0 overflow-hidden rounded-card flex">
         {imagePlaceholder || (
           <div className="w-full h-full rounded-card border border-P/15 bg-gradient-to-br from-P/15 to-A2/10" />
         )}

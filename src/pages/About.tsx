@@ -128,16 +128,14 @@ const About: React.FC = () => {
                 name="Kelechi"
                 title="Founder & Managing Principal"
                 imagePlaceholder={
-                  <div className="aspect-[3/4] w-full overflow-hidden rounded-card">
-                    <img
-                      src={founderImg}
-                      alt="Kelechi Okereke, Founder and Managing Principal, SparrowBridge"
-                      className="w-full h-full object-cover object-top"
-                      loading="lazy"
-                      width={600}
-                      height={800}
-                    />
-                  </div>
+                  <img
+                    src={founderImg}
+                    alt="Kelechi Okereke, Founder and Managing Principal, SparrowBridge"
+                    className="w-full h-full min-h-0 flex-1 object-cover object-center rounded-card"
+                    loading="lazy"
+                    width={440}
+                    height={587}
+                  />
                 }
                 paragraphs={[
                   "Kelechi is a seasoned strategist with over two decades of experience navigating difficult organizational shifts at Elsevier. Since founding SparrowBridge, he has brought that same discipline and insight in high impact business turnarounds to guide other institutions in identifying and shepherding lasting change.",
