@@ -16,7 +16,7 @@ const Privacy: React.FC = () => {
             <SectionTitle className="mb-2">Privacy Policy</SectionTitle>
             <p className="font-b text-[14px] text-P/60 mb-10">Last updated: February 28, 2026</p>
 
-            <div className="flex flex-col gap-6 font-b text-[15px] leading-[1.7] text-P/90 [&_h2]:font-h [&_h2]:text-[18px] [&_h2]:font-extrabold [&_h2]:text-P [&_h2]:mt-6 [&_h2]:mb-2 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-2 [&_li]:mb-1">
+            <div className="flex flex-col gap-6 font-b text-base lg:text-[15px] leading-[1.7] text-P/90 [&_h2]:font-h [&_h2]:text-[18px] [&_h2]:font-extrabold [&_h2]:text-P [&_h2]:mt-6 [&_h2]:mb-2 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-2 [&_li]:mb-1">
               <p>
                 This Privacy Policy (“Policy”) describes how SparrowBridge Consulting (“SparrowBridge,” “we,” “us,” or “our”) collects, uses, and protects personal information when you use our website at sparrowbridgeconsulting.com (the “Site”) or when you contact us or apply for a role with us. We are committed to protecting your privacy. By using the Site or providing your information, you agree to this Policy. Our <Link to="/terms" className="text-A1 font-semibold no-underline hover:underline">Terms of Use</Link> also apply to your use of the Site.
               </p>

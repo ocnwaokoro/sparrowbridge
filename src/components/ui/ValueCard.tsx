@@ -28,7 +28,7 @@ export const ValueCard: React.FC<ValueCardProps> = ({
       <CardBody className="p-[18px] gap-2.5">
         {icon && <div className="mb-1 text-P/60">{icon}</div>}
         <h3 className="font-h text-[16px] font-extrabold text-P">{title}</h3>
-        <div className="font-b text-[14px] leading-[1.6] text-P/80">
+        <div className="font-b text-[15px] lg:text-[14px] leading-[1.6] text-P/80">
           {description}
         </div>
       </CardBody>

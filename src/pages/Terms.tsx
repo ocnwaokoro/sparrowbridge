@@ -16,7 +16,7 @@ const Terms: React.FC = () => {
             <SectionTitle className="mb-2">Terms of Use</SectionTitle>
             <p className="font-b text-[14px] text-P/60 mb-10">Last updated: February 28, 2026</p>
 
-            <div className="flex flex-col gap-6 font-b text-[15px] leading-[1.7] text-P/90 [&_h2]:font-h [&_h2]:text-[18px] [&_h2]:font-extrabold [&_h2]:text-P [&_h2]:mt-6 [&_h2]:mb-2 [&_p]:mb-3">
+            <div className="flex flex-col gap-6 font-b text-base lg:text-[15px] leading-[1.7] text-P/90 [&_h2]:font-h [&_h2]:text-[18px] [&_h2]:font-extrabold [&_h2]:text-P [&_h2]:mt-6 [&_h2]:mb-2 [&_p]:mb-3">
               <p>
                 SparrowBridge Consulting (“SparrowBridge,” “we,” or “us”) provides the content on this website (the “Site”) subject to the following terms and conditions (the “Terms”). We may update these Terms from time to time without prior notice; the “Last updated” date above will change when we do. By accessing or using the Site, you agree to these Terms. For how we collect, use, and protect your information, please see our <Link to="/privacy" className="text-A1 font-semibold no-underline hover:underline">Privacy Policy</Link>.
               </p>
