@@ -115,7 +115,7 @@ export const AnimatedComparisonSlider: React.FC<AnimatedComparisonSliderProps> =
           ‹
         </button>
 
-        <div className="flex items-center justify-center gap-1.5" role="tablist" aria-label="Slide index">
+        <div className="flex items-center justify-center" role="tablist" aria-label="Slide index">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -123,13 +123,13 @@ export const AnimatedComparisonSlider: React.FC<AnimatedComparisonSliderProps> =
               aria-label={`Go to slide ${i + 1}`}
               role="tab"
               aria-selected={i === currentIndex}
-              className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-P/5 active:bg-P/10"
+              className="group min-w-[44px] min-h-[44px] -mx-2 flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-P/5 active:bg-P/10 first:ml-2 last:mr-2"
             >
               <span
-                className={`rounded-full transition-all duration-300 shrink-0 ${
+                className={`rounded-full transition-all duration-300 shrink-0 pointer-events-none ${
                   i === currentIndex
                     ? 'w-5 h-2 bg-P'
-                    : 'w-2 h-2 bg-P/30 hover:bg-P/50'
+                    : 'w-2 h-2 bg-P/30 group-hover:bg-P/50'
                 }`}
               />
             </button>
