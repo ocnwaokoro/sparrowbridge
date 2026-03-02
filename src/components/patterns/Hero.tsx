@@ -12,7 +12,17 @@ interface HeroProps {
   rightSlot?: React.ReactNode;
   variant?: 'light' | 'dark';
   backgroundImage?: string;
+  /** Optional mobile-optimized image for max-width 768px. When set, a <picture> is used. */
+  mobileBackgroundImage?: string;
+  /** Vertical alignment of the background image (object-position). Use to show more top or bottom of the photo. */
+  backgroundImagePosition?: 'top' | 'center' | 'bottom';
 }
+
+const objectPositionClass = {
+  top: 'object-top',
+  center: 'object-center',
+  bottom: 'object-bottom',
+} as const;
 
 export const Hero: React.FC<HeroProps> = ({ 
   kicker, 
@@ -22,20 +32,42 @@ export const Hero: React.FC<HeroProps> = ({
   rightSlot,
   variant = 'dark',
   backgroundImage,
+  mobileBackgroundImage,
+  backgroundImagePosition = 'center',
 }) => {
   const bgClasses = backgroundImage ? '' : (variant === 'dark' ? 'bg-P' : 'bg-white');
   const textVariant = variant === 'dark' ? 'light' : 'dark';
+  const positionClass = objectPositionClass[backgroundImagePosition];
 
   return (
-    <section className={`relative ${bgClasses} py-16 lg:py-24 min-h-[480px] lg:h-[620px] flex items-start overflow-hidden`}>
+    <section className={`relative ${bgClasses} py-16 lg:py-24 min-h-[320px] lg:min-h-[480px] lg:h-[620px] flex items-start overflow-hidden`}>
       {backgroundImage && (
         <>
-          <img
-            src={backgroundImage}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
+          {/* TODO J-02: create mobile-optimized versions of hero/landscape images at ≤300KB and pass as mobileBackgroundImage */}
+          {mobileBackgroundImage ? (
+            <picture>
+              <source media="(max-width: 768px)" srcSet={mobileBackgroundImage} />
+              <img
+                src={backgroundImage}
+                alt=""
+                aria-hidden="true"
+                className={`absolute inset-0 w-full h-full object-cover ${positionClass}`}
+                width={1440}
+                height={620}
+                loading="eager"
+              />
+            </picture>
+          ) : (
+            <img
+              src={backgroundImage}
+              alt=""
+              aria-hidden="true"
+              className={`absolute inset-0 w-full h-full object-cover ${positionClass}`}
+              width={1440}
+              height={620}
+              loading="eager"
+            />
+          )}
           <div className="absolute inset-0 bg-P/75" aria-hidden="true" />
         </>
       )}
