@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import heroBgHome from '../assets/hero-bg-home.jpg';
+import caseStudySaas from '../assets/case-study-saas.jpg';
+import caseStudyGlobalProduct from '../assets/case-study-global-product.jpg';
 import { 
   PageShell, 
   SiteHeader, 
@@ -12,7 +14,6 @@ import {
 
   CTAInline, 
   Testimonial,
-  ProcessStep,
   ConsultingProcessDiagram,
   CardGrid,
   CaseStudyCard,
@@ -76,19 +77,19 @@ const Home: React.FC = () => {
           The homepage has a very specific kicker with dots. */}
 
       {/* Challenges Section */}
-      <section className="bg-white py-[48px] lg:py-[64px] flex flex-col items-center">
-        <Container className="flex flex-col items-center gap-6">
+      <section className="bg-white py-8 lg:py-[48px] xl:py-[64px] flex flex-col items-center">
+        <Container className="flex flex-col items-center gap-4 lg:gap-6 w-full">
           <SectionTitle align="center">Challenges We Help You Navigate</SectionTitle>
           <BodyText align="center" size="lg" className="max-w-[900px]">
             Every organization faces natural cycles of decline. It is the law of entropy. We partner with you to name the root causes,
             restore your momentum, and build a culture of growth that outlasts the struggle.
           </BodyText>
           
-          <h3 className="font-h text-[22px] lg:text-[28px] font-semibold text-center text-P">
+          <h3 className="font-h text-[20px] lg:text-[28px] font-semibold text-center text-P px-2">
             Let us help you go from where you are to where you want to be…
           </h3>
 
-          <div className="w-[1000px] max-w-full">
+          <div className="w-full max-w-4xl">
             <AnimatedComparisonSlider
               slides={[
               {
@@ -108,7 +109,7 @@ const Home: React.FC = () => {
           </div>
 
           <CTAInline 
-            text="Where are you in your journey? Let's build what lasts."
+            text="Where are you in your journey? Together we build what lasts."
             ctaText="Contact us"
             href="/contact"
           />
@@ -126,24 +127,15 @@ const Home: React.FC = () => {
             of discovering root causes instead of tackling symptoms.
           </BodyText>
 
-          <div className="flex flex-col lg:flex-row gap-[20px] justify-center items-stretch w-full">
-            {/* Process card */}
-            <div className="w-full lg:w-[550px] p-[18px] bg-white border border-P/15 rounded-card flex flex-col gap-[14px]">
-              <div className="font-h text-[16px] font-extrabold text-P">Engagement Phases</div>
-              <div className="flex flex-col gap-1.5">
-                <ProcessStep number={1} title="Exploration" description="Initial consultation to learn about, clarify, and confirm your problem, challenge, or opportunity." />
-                <ProcessStep number={2} title="Diagnostic Phase" description="In-depth data collection and analysis." />
-                <ProcessStep number={3} title="Strategy Phase" description="Co-created transformation roadmaps." />
-                <ProcessStep number={4} title="Implementation Phase" description="Coaching & change facilitation." />
-                <ProcessStep number={5} title="Integration Phase" description="Embedding sustainable practices." />
-                <ProcessStep number={6} title="Assess" description="Measure progress, learn, and reinforce what will last." />
+          <div className="w-full max-w-xl mx-auto">
+            <div className="p-3 bg-white border border-P/15 rounded-card flex flex-col gap-2">
+              <div className="flex items-baseline justify-between gap-3">
+                <div className="font-h text-[18px] lg:text-[20px] font-extrabold text-P">Our Process</div>
+                <p className="font-b text-[13px] text-P/70 whitespace-nowrap">Hover over each step for more</p>
               </div>
-            </div>
-
-            {/* Diagram card */}
-            <div className="w-full lg:w-[400px] p-[18px] bg-white border border-P/15 rounded-card flex flex-col gap-[14px]">
-              <div className="font-h text-[16px] font-extrabold text-P">Our Process</div>
-              <ConsultingProcessDiagram />
+              <div className="flex-1 min-h-[320px] flex items-center justify-center">
+                <ConsultingProcessDiagram />
+              </div>
             </div>
           </div>
 
@@ -171,63 +163,31 @@ const Home: React.FC = () => {
               summary="SaaS company struggling with full integration post-acquisition and global expansion of customer base. Through our diagnostic and strategy co-design processes, the company achieved full integration and global expansion."
               tags={["Leadership", "Culture", "Sales", "GTM Strategy"]}
               accentColor="bg-P"
+              href="https://drive.google.com/file/d/17Dda_qUn8pyZucjsxVkDaLPYult5PZmL/view"
+              imagePlaceholder={<img src={caseStudySaas} alt="" className="w-full h-full object-cover object-center" />}
             />
             <CaseStudyCard 
               title="Global Product Team"
               summary="A global shared technology product team at a large information company navigating expansion in scope."
               tags={["Strategy", "Operations"]}
               accentColor="bg-A2"
+              href="/case-studies/elsevier"
+              imagePlaceholder={<img src={caseStudyGlobalProduct} alt="" className="w-full h-full object-cover object-center" />}
             />
           </CardGrid>
         </Container>
       </section>
 
-      {/* Featured Insights */}
-      <section className="bg-white py-[48px] lg:py-[64px]">
-        <Container className="flex flex-col items-center gap-9">
-          <div className="text-center flex flex-col gap-4">
-            <SectionTitle align="center" className="lg:text-[40px] font-semibold">Featured Insights</SectionTitle>
-            <BodyText align="center" className="text-[18px] text-P/80">Wisdom in Practice</BodyText>
-          </div>
-
-          <CardGrid columns={3}>
-            {/* PLACEHOLDER [VISIBLE]: Featured insight "Read more" links go nowhere — needs href to /insights#<article-id> or full article URL */}
-            <div className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4">
-              <div className="font-b text-[12px] font-bold tracking-[1px] text-A1">LEADERSHIP</div>
-              <h3 className="font-h text-[20px] font-semibold leading-[1.3] text-P">The Myth of the One Big Move in Organizational Change</h3>
-              <p className="font-b text-[14px] leading-[1.5] text-P/80">Why incremental, sustained effort beats grand transformation every time.</p>
-              <a href="#" className="font-b text-[14px] font-semibold text-A1 no-underline">Read more →</a>
-            </div>
-            <div className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4">
-              <div className="font-b text-[12px] font-bold tracking-[1px] text-A2">FAITH & BUSINESS</div>
-              <h3 className="font-h text-[20px] font-semibold leading-[1.3] text-P">Leading with Soul in a Systems World</h3>
-              <p className="font-b text-[14px] leading-[1.5] text-P/80">How faith-informed leadership creates more resilient organizations.</p>
-              <a href="#" className="font-b text-[14px] font-semibold text-A1 no-underline">Read more →</a>
-            </div>
-            <div className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4">
-              <div className="font-b text-[12px] font-bold tracking-[1px] text-P">CULTURE</div>
-              <h3 className="font-h text-[20px] font-semibold leading-[1.3] text-P">Why Smart People Fail at Culture Transformation</h3>
-              <p className="font-b text-[14px] leading-[1.5] text-P/80">The hidden dynamics that derail even the best-intentioned change efforts.</p>
-              <a href="#" className="font-b text-[14px] font-semibold text-A1 no-underline">Read more →</a>
-            </div>
-          </CardGrid>
-
-          <Button href="/insights" variant="secondary" className="px-8 py-4 text-[16px] border-2">
-            View All Insights
-          </Button>
-        </Container>
-      </section>
-
       {/* Footer CTA */}
-      <section id="contact" className="scroll-mt-28 bg-P py-[48px] lg:py-[64px] text-center">
-        <Container className="flex flex-col items-center gap-8">
+      <section id="contact" className="scroll-mt-28 bg-P py-[48px] lg:py-[64px]">
+        <Container className="flex flex-col items-center justify-center gap-8 text-center w-full max-w-3xl mx-auto">
           <SectionTitle variant="light" align="center" className="max-w-[700px] lg:text-[40px]">
             Ready to start?
           </SectionTitle>
-          <BodyText variant="light" className="max-w-[600px] text-[18px]">
+          <BodyText variant="light" align="center" className="max-w-[600px] text-[18px]">
             Let's start a conversation about your organization's challenges and opportunities.
           </BodyText>
-          <div className="flex flex-col md:flex-row gap-3">
+          <div className="flex flex-col md:flex-row gap-3 justify-center">
             <Button href="/contact" variant="primary" className="px-8 py-4 text-[16px]">Contact Us</Button>
             <Button href="/contact" variant="inverse" className="px-8 py-4 text-[16px] border-2">Schedule a Call</Button>
           </div>
