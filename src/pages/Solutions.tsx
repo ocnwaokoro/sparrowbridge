@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import flowersGreenery from '../assets/flowers-greenery.jpg';
 import { 
   PageShell, 
   SiteHeader, 
@@ -7,9 +8,6 @@ import {
   Button, 
   Footer, 
   Container,
-  RailSection,
-  RailLink,
-  CaseStudyCard,
   SolutionCriteriaList,
   CardGrid,
   HeroKickerStyle
@@ -30,23 +28,26 @@ const Solutions: React.FC = () => {
         title="Four ways we help leaders create lasting change."
         subtitle="We don’t treat symptoms. We help you see what’s true, align leaders around what matters, and implement change that holds."
         variant="dark"
+        backgroundImage={flowersGreenery}
+        backgroundImagePosition="top"
         actions={
           <>
             <Button href="/contact" variant="primary">Start the Conversation</Button>
-            <Button href="#diagnosis" variant="inverse">Explore Solutions</Button>
+            <Button href="#org-change" variant="inverse">Explore Solutions</Button>
           </>
         }
         rightSlot={
           <aside className="w-full p-[18px] bg-white/80 border border-P/15 rounded-card flex flex-col gap-3" aria-label="Solution list">
-            <div className="font-h text-[14px] font-extrabold tracking-[0.2px] text-P/90">Our four solutions</div>
+            <div className="font-h text-[14px] font-extrabold tracking-[0.2px] text-P/90">Solutions</div>
             <div className="flex flex-col gap-3">
               {[
-                { id: "01", title: "Incisive Diagnosis", href: "#diagnosis" },
-                { id: "02", title: "Co-design & Alignment", href: "#codesign" },
-                { id: "03", title: "Implementation & Integration", href: "#implement" },
-                { id: "04", title: "Executive & Org Coaching", href: "#coaching" }
+                { id: "01", title: "Organization Change", href: "#org-change" },
+                { id: "02", title: "Sales Transformation", href: "#sales" },
+                { id: "03", title: "Product Transformation", href: "#product" },
+                { id: "04", title: "Talent", href: "#talent" },
+                { id: "05", title: "Executive Coaching", href: "#coaching" }
               ].map((item) => (
-                <a key={item.id} href={item.href} className="flex items-center justify-between p-3 rounded-card bg-white/70 border border-P/15 no-underline text-P font-b text-[14px] font-bold hover:bg-white transition-colors group">
+                <a key={item.id} href={item.href} className="flex items-center justify-between p-3 rounded-card bg-white/70 border border-P/15 no-underline text-P font-b text-[14px] font-bold hover:bg-white transition-colors group min-h-[44px]">
                   {item.title}
                   <span className="font-h text-[12px] font-extrabold tracking-[.6px] text-P/40 group-hover:text-A1 transition-colors">{item.id}</span>
                 </a>
@@ -59,145 +60,146 @@ const Solutions: React.FC = () => {
       {/* Solutions Overview: Challenge / Expect */}
       <section className="bg-[#F8F9FA] py-[48px] lg:py-[64px]">
         <Container className="flex flex-col gap-10">
+          <SectionTitle className="lg:text-[28px]">Selective Service Offerings</SectionTitle>
           <p className="font-b text-[17px] leading-[1.65] text-P/80 max-w-[780px]">
-            In any change program, leaders often have to attend to multiple solutions to help the organization perform at its peak again.
+            In any change program, leaders often have to attend to multiple solutions to help the organization perform at its peak again. We draw from two decades of experience driving meaningful change in a corporate environment and Ivy League training to help clients in areas such as:
           </p>
-          <CardGrid columns={2}>
-
-            {/* Sales Transformation */}
-            <div className="border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col">
+          <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-[1fr_1fr] gap-8">
+            {/* Row 1: 2 cards (same size as row 2 — each spans 2 cols, centered) */}
+            {/* Organization Change */}
+            <div id="org-change" className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
               <div className="px-5 py-4 bg-P/5 border-b border-P/15">
-                <h3 className="font-h text-[20px] font-extrabold text-P">Sales Transformation</h3>
+                <h3 className="font-h text-[20px] font-extrabold text-P">Organization Change</h3>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1">
-                <div className="flex flex-col gap-2">
+              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+                <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Challenge</div>
-                  <p className="font-b text-[14px] leading-[1.65] text-P/80">
-                    You've missed your revenue quota targets in consecutive quarters or years and it's not clear what the issue is exactly. You can't narrow it to any single root cause but your desire is to get back to consistent on-target performance.
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    Stakeholders are unhappy with results; growth has stalled and the root cause is unclear. Tactics haven't moved the organization forward.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A2">What you can expect</div>
-                  <p className="font-b text-[14px] leading-[1.65] text-P/80">
-                    Incisive diagnosis of the root causes behind the performance decline and data driven solutions you can implement with us standing with you all the way through.
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    A partner to co-diagnose the problem and then co-design and implement the solutions that get you back on track.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Product Transformation */}
-            <div className="border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col">
+            {/* Sales Transformation */}
+            <div id="sales" className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-4 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
               <div className="px-5 py-4 bg-P/5 border-b border-P/15">
-                <h3 className="font-h text-[20px] font-extrabold text-P">Product Transformation</h3>
+                <h3 className="font-h text-[20px] font-extrabold text-P">Sales Transformation</h3>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1">
-                <div className="flex flex-col gap-2">
+              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+                <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Challenge</div>
-                  <p className="font-b text-[14px] leading-[1.65] text-P/80">
-                    Your product team is under immense pressure to ship a product customers love. But their rate of shipping innovative solutions is not what you want. You want to turn things around but it's unclear where to get started.
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    You've missed revenue targets and can't pinpoint the cause. You want to get back to consistent performance.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A2">What you can expect</div>
-                  <p className="font-b text-[14px] leading-[1.65] text-P/80">
-                    Incisive diagnosis of the underlying dynamics between product managers, engineering, UX/UI design, sales and other functions impeding efficiency at scale.
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    Incisive diagnosis of root causes and data-driven solutions, with us alongside you through implementation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Row 2: 3 cards (each spans 2 cols) */}
+            {/* Product Transformation */}
+            <div id="product" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15">
+                <h3 className="font-h text-[20px] font-extrabold text-P">Product Transformation</h3>
+              </div>
+              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+                <div className="flex flex-col gap-2 min-h-[72px]">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Challenge</div>
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    Your product team is under pressure to ship; innovation rate lags and the path forward is unclear.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A2">What you can expect</div>
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    Diagnosis of dynamics between product, engineering, UX, sales and other functions impeding efficiency.
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Talent */}
-            <div className="border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col">
+            <div id="talent" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
               <div className="px-5 py-4 bg-P/5 border-b border-P/15">
                 <h3 className="font-h text-[20px] font-extrabold text-P">Talent</h3>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1">
-                <div className="flex flex-col gap-2">
+              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+                <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Challenge</div>
-                  <p className="font-b text-[14px] leading-[1.65] text-P/80">
-                    Your business environment is changing and this is putting pressure on your growth but you find it difficult to keep pace with existing talent.
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    Your environment is changing and growth is under pressure; existing talent can't keep pace.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A2">What you can expect</div>
-                  <p className="font-b text-[14px] leading-[1.65] text-P/80">
-                    A partner to help you make sense of the changes in the external environment and devise and implement a talent strategy that helps you stay ahead of the changes.
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    A partner to make sense of change and implement a talent strategy that keeps you ahead.
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Executive Coaching */}
-            <div className="border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col">
+            <div id="coaching" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
               <div className="px-5 py-4 bg-P/5 border-b border-P/15">
                 <h3 className="font-h text-[20px] font-extrabold text-P">Executive Coaching</h3>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1">
-                <div className="flex flex-col gap-2">
+              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+                <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Challenge</div>
-                  <p className="font-b text-[14px] leading-[1.65] text-P/80">
-                    You and your leadership team are making consequential decisions at the speed of light, navigating organizational dynamics that leave you exhausted each day and often, you need a thought partner.
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    Leaders make high-stakes decisions daily and navigate exhausting dynamics. You need a thought partner.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A2">What you can expect</div>
-                  <p className="font-b text-[14px] leading-[1.65] text-P/80">
-                    A credentialed coach who understands organizational dynamics partnering with you to build greater self-awareness, understand destructive thought patterns and find ways to operate at your best.
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    A credentialed coach who understands organizational dynamics—building self-awareness and helping you operate at your best.
                   </p>
                 </div>
               </div>
             </div>
-
-          </CardGrid>
+          </div>
         </Container>
       </section>
 
-      {/* Main Body */}
+      {/* Main Body - Our Process */}
       <section className="bg-white py-16 lg:py-20">
-        <Container className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 items-start">
-          
-          {/* Sidebar Rail */}
-          <aside className="lg:sticky lg:top-28 flex flex-col gap-6">
-            <div className="border border-P/15 rounded-card bg-white p-5 shadow-sm">
-              <h3 className="font-h text-[16px] font-extrabold mb-2">Choose your entry point</h3>
-              <p className="text-[13px] text-P/70 mb-4 leading-[1.5]">
-                We recommend starting with Diagnosis, or enter midstream if you already know what’s true.
-              </p>
-              <RailSection>
-                <RailLink href="#diagnosis">Incisive Diagnosis</RailLink>
-                <RailLink href="#codesign">Co-design & Alignment</RailLink>
-                <RailLink href="#implement">Implementation & Integration</RailLink>
-                <RailLink href="#coaching">Executive & Org Coaching</RailLink>
-              </RailSection>
-            </div>
-          </aside>
-
-          {/* Solutions Content */}
-          <div className="flex flex-col gap-16">
-            
+        <Container className="flex flex-col gap-10">
+          <SectionTitle className="lg:text-[28px]">Our Process</SectionTitle>
+          <p className="font-b text-[17px] leading-[1.65] text-P/80 max-w-[780px]">
+            Whether you already know the problem, challenge or opportunity you want to tackle or you're not sure where to start, we employ our process rooted in organization development research and practice to get from where you are to where you want to be.
+          </p>
+          {/* Solutions Content: row of 3, then row of 2 */}
+          <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-[1fr_1fr] gap-8">
+            {/* Row 1: 2 articles (same as section above — each spans 2 cols, centered) */}
             {/* 01 - Incisive Diagnosis */}
-            <article id="diagnosis" className="scroll-mt-28 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm">
-              <div className="p-5 lg:px-6 lg:py-5 bg-P/5 border-b border-P/15 flex justify-between gap-3 items-baseline">
-                <SectionTitle className="lg:text-[28px]">Incisive Diagnosis</SectionTitle>
-                <div className="font-h text-[12px] font-extrabold tracking-[1px] uppercase text-P/40">Solution 01</div>
+            <div id="diagnosis" className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+                <h3 className="font-h text-[20px] font-extrabold text-P">Incisive Diagnosis</h3>
+                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">01</span>
               </div>
-              <div className="p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-stretch">
-                <p className="col-span-full font-b text-[14px] leading-[1.6] text-P/80 -mb-2">
-                  Even the most well meaning and informed executive teams can miss the finer details behind performance failures.
-                </p>
-                <div className="flex flex-col gap-6">
-                  <div className="p-5 rounded-card bg-[#FAFAFA] border border-P/10">
-                    <h3 className="font-h text-[14px] font-extrabold mb-3">When this is the right fit</h3>
-                    <SolutionCriteriaList 
-                      items={[
-                        "You’re seeing stalled execution, revenue decline, misalignment,",
-                        "Multiple “fixes” have been tried, but problems return.",
-                        "Leaders disagree on what the real problem is."
-                      ]}
-                    />
-                  </div>
-                  <div className="p-5 rounded-card bg-[#FAFAFA] border border-P/10">
-                    <h3 className="font-h text-[14px] font-extrabold mb-3">What you receive</h3>
+              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+                <div className="flex flex-col gap-2 min-h-[72px]">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Overview</div>
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    Executive teams can miss the finer details behind performance failures.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A2">What you receive</div>
                     <SolutionCriteriaList 
                       items={[
                         "A clear diagnostic narrative (“what’s happening and why”) using a proprietary, award-winning instrument.",
@@ -205,81 +207,52 @@ const Solutions: React.FC = () => {
                         "Recommended interventions and sequencing implementation guidance"
                       ]}
                     />
-                  </div>
                 </div>
-                <CaseStudyCard 
-                  title="Elsevier Shared Tech"
-                  summary="Diagnostic work revealed cross-functional bottlenecks, unclear decision rights, and incentive misalignment, leading to a practical operating reset."
-                  tags={["Diagnosis", "Operations", "Leadership"]}
-                  accentColor="bg-P"
-                />
               </div>
-            </article>
+            </div>
 
             {/* 02 - Co-design & Alignment */}
-            <article id="codesign" className="scroll-mt-28 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm">
-              <div className="p-5 lg:px-6 lg:py-5 bg-P/5 border-b border-P/15 flex justify-between gap-3 items-baseline">
-                <SectionTitle className="lg:text-[28px]">Co-design & Alignment</SectionTitle>
-                <div className="font-h text-[12px] font-extrabold tracking-[1px] uppercase text-P/40">Solution 02</div>
+            <div id="codesign" className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-4 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+                <h3 className="font-h text-[20px] font-extrabold text-P">Co-design & Alignment</h3>
+                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">02</span>
               </div>
-              <div className="p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-stretch">
-                <p className="col-span-full font-b text-[14px] leading-[1.6] text-P/80 -mb-2">
-                  Changing human systems is hard. We help you make it meaningful.
-                </p>
-                <div className="flex flex-col gap-6">
-                  <div className="p-5 rounded-card bg-[#FAFAFA] border border-P/10">
-                    <h3 className="font-h text-[14px] font-extrabold mb-3">When this is the right fit</h3>
-                    <SolutionCriteriaList 
-                      items={[
-                        "You know the direction, but leaders aren’t aligned on the “how.”",
-                        "Strategy exists, but it’s not translating into execution.",
-                        "Buy-in is uneven across functions."
-                      ]}
-                    />
-                  </div>
-                  <div className="p-5 rounded-card bg-[#FAFAFA] border border-P/10">
-                    <h3 className="font-h text-[14px] font-extrabold mb-3">What you receive</h3>
-                    <SolutionCriteriaList 
-                      items={[
-                        "Shared language and commitments across leadership.",
-                        "Co-created roadmap with roles, responsibilities, and cadence.",
-                        "Decision rights and operating norms that reduce friction."
-                      ]}
-                    />
-                  </div>
+              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+                <div className="flex flex-col gap-2 min-h-[72px]">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Overview</div>
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    Changing human systems is hard. We help you make it meaningful.
+                  </p>
                 </div>
-                <CaseStudyCard 
-                  title="Pure"
-                  summary="Alignment work clarified priorities and accountability, reducing internal drag and speeding up execution across teams."
-                  tags={["Strategy", "Alignment", "Culture"]}
-                  accentColor="bg-A2"
-                />
+                <div className="flex flex-col gap-2">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A2">What you receive</div>
+                  <SolutionCriteriaList 
+                    items={[
+                      "Shared language and commitments across leadership.",
+                      "Co-created roadmap with roles, responsibilities, and cadence.",
+                      "Decision rights and operating norms that reduce friction."
+                    ]}
+                  />
+                </div>
               </div>
-            </article>
+            </div>
 
+            {/* Row 2: 3 articles (each spans 2 cols) */}
             {/* 03 - Implementation & Integration */}
-            <article id="implement" className="scroll-mt-28 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm">
-              <div className="p-5 lg:px-6 lg:py-5 bg-P/5 border-b border-P/15 flex justify-between gap-3 items-baseline">
-                <SectionTitle className="lg:text-[28px]">Implementation & Integration</SectionTitle>
-                <div className="font-h text-[12px] font-extrabold tracking-[1px] uppercase text-P/40">Solution 03</div>
+            <div id="implement" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+                <h3 className="font-h text-[20px] font-extrabold text-P">Implementation & Integration</h3>
+                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">03</span>
               </div>
-              <div className="p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-stretch">
-                <p className="col-span-full font-b text-[14px] leading-[1.6] text-P/80 -mb-2">
-                  Implementation is what separates courageous leaders from the rest. Increase your chance of success.
-                </p>
-                <div className="flex flex-col gap-6">
-                  <div className="p-5 rounded-card bg-[#FAFAFA] border border-P/10">
-                    <h3 className="font-h text-[14px] font-extrabold mb-3">When this is the right fit</h3>
-                    <SolutionCriteriaList 
-                      items={[
-                        "You have a plan, but adoption is inconsistent.",
-                        "Change launches but doesn’t stick.",
-                        "Managers need reinforcement systems, not more messaging."
-                      ]}
-                    />
-                  </div>
-                  <div className="p-5 rounded-card bg-[#FAFAFA] border border-P/10">
-                    <h3 className="font-h text-[14px] font-extrabold mb-3">What you receive</h3>
+              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+                <div className="flex flex-col gap-2 min-h-[72px]">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Overview</div>
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    Implementation is what separates courageous leaders from the rest. Increase your chance of success.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A2">What you receive</div>
                     <SolutionCriteriaList 
                       items={[
                         "Implementation rhythms (cadence, accountability, feedback loops).",
@@ -287,40 +260,25 @@ const Solutions: React.FC = () => {
                         "Measurement: what changed, what held, what didn’t."
                       ]}
                     />
-                  </div>
                 </div>
-                <CaseStudyCard 
-                  title="Healthcare System"
-                  summary="Post-merger integration support built shared operating norms and sustained behavioral change across legacy teams."
-                  tags={["Integration", "Culture", "Execution"]}
-                  accentColor="bg-A1"
-                />
               </div>
-            </article>
+            </div>
 
             {/* 04 - Executive & Org Coaching */}
-            <article id="coaching" className="scroll-mt-28 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm">
-              <div className="p-5 lg:px-6 lg:py-5 bg-P/5 border-b border-P/15 flex justify-between gap-3 items-baseline">
-                <SectionTitle className="lg:text-[28px]">Executive & Org Coaching</SectionTitle>
-                <div className="font-h text-[12px] font-extrabold tracking-[1px] uppercase text-P/40">Solution 04</div>
+            <div id="coaching" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+                <h3 className="font-h text-[20px] font-extrabold text-P">Executive & Org Coaching</h3>
+                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">04</span>
               </div>
-              <div className="p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-stretch">
-                <p className="col-span-full font-b text-[14px] leading-[1.6] text-P/80 -mb-2">
-                  Leaders navigate complex decisions daily, especially in a change process. We are your thought partner.
-                </p>
-                <div className="flex flex-col gap-6">
-                  <div className="p-5 rounded-card bg-[#FAFAFA] border border-P/10">
-                    <h3 className="font-h text-[14px] font-extrabold mb-3">When this is the right fit</h3>
-                    <SolutionCriteriaList 
-                      items={[
-                        "Leaders are under pressure and need a trusted thinking partner.",
-                        "You’re navigating conflict, decision fatigue, or a credibility gap.",
-                        "You need development or behavior change, not just strategy."
-                      ]}
-                    />
-                  </div>
-                  <div className="p-5 rounded-card bg-[#FAFAFA] border border-P/10">
-                    <h3 className="font-h text-[14px] font-extrabold mb-3">What you receive</h3>
+              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+                <div className="flex flex-col gap-2 min-h-[72px]">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Overview</div>
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    Leaders navigate complex decisions daily, especially in a change process. We are your thought partner.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A2">What you receive</div>
                     <SolutionCriteriaList 
                       items={[
                         "Executive coaching grounded in real organizational context.",
@@ -328,17 +286,35 @@ const Solutions: React.FC = () => {
                         "Support that reinforces the change you’re implementing."
                       ]}
                     />
-                  </div>
                 </div>
-                <CaseStudyCard 
-                  title="Leadership Team Reset"
-                  summary="Coaching + operating norms helped a leadership team rebuild trust and make faster, cleaner decisions under complexity."
-                  tags={["Coaching", "Leadership", "Trust"]}
-                  accentColor="bg-P"
-                />
               </div>
-            </article>
+            </div>
 
+            {/* 05 - Assess */}
+            <div id="assess" className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+                <h3 className="font-h text-[20px] font-extrabold text-P">Assess</h3>
+                <span className="font-h text-[12px] font-extrabold tracking-[1px] text-P/50">05</span>
+              </div>
+              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+                <div className="flex flex-col gap-2 min-h-[72px]">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">Overview</div>
+                  <p className="font-b text-[15px] lg:text-[14px] leading-[1.65] text-P/80">
+                    We measure progress, learn, and iterate so your change holds.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A2">What you receive</div>
+                  <SolutionCriteriaList 
+                    items={[
+                      "Alignment on progress metrics",
+                      "After action review sessions",
+                      "Refined action steps"
+                    ]}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
