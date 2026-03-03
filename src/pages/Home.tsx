@@ -222,7 +222,7 @@ const Home: React.FC = () => {
               href="https://www.aclu.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4 block no-underline text-inherit hover:border-P/25 hover:-translate-y-1 hover:shadow-sm transition-all duration-200"
+              className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4 block no-underline text-inherit hover:border-P/25 transition-colors"
             >
               <div className="font-b text-[14px] font-bold tracking-[1px] text-A1">
                 U.S.
@@ -248,7 +248,7 @@ const Home: React.FC = () => {
               href="https://isnmedical.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4 block no-underline text-inherit hover:border-P/25 hover:-translate-y-1 hover:shadow-sm transition-all duration-200"
+              className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4 block no-underline text-inherit hover:border-P/25 transition-colors"
             >
               <div className="font-b text-[14px] font-bold tracking-[1px] text-A2">
                 Nigeria
@@ -274,7 +274,7 @@ const Home: React.FC = () => {
               href="https://stemmanuelhospital.com.ng/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4 block no-underline text-inherit hover:border-P/25 hover:-translate-y-1 hover:shadow-sm transition-all duration-200"
+              className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4 block no-underline text-inherit hover:border-P/25 transition-colors"
             >
               <div className="font-b text-[14px] font-bold tracking-[1px] text-A2">
                 Nigeria

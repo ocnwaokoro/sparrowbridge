@@ -24,7 +24,7 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
 }) => {
   const cardContent = (
     <Card
-      className={`h-full flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow hover:border-P/25 ${href ? "cursor-pointer" : ""} ${className}`}
+      className={`h-full flex flex-col transition-colors hover:border-P/25 ${href ? "cursor-pointer" : ""} ${className}`}
     >
       {imagePlaceholder ? (
         <div className="h-[200px] w-full bg-P/5 flex items-center justify-center overflow-hidden">
