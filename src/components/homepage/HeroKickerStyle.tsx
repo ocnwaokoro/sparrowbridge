@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface HeroKickerStyleProps {
   prefix: string;
@@ -8,8 +8,8 @@ interface HeroKickerStyleProps {
 
 export const HeroKickerStyle: React.FC<HeroKickerStyleProps> = ({
   prefix,
-  accent = '',
-  className = '',
+  accent = "",
+  className = "",
 }) => (
   <div className={`flex items-center gap-2 ${className}`}>
     <span className="font-h text-[16px] font-semibold tracking-[0.6px] text-white/85 whitespace-nowrap">

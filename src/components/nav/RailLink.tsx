@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface RailLinkProps {
   href: string;
@@ -7,17 +7,17 @@ interface RailLinkProps {
   className?: string;
 }
 
-export const RailLink: React.FC<RailLinkProps> = ({ 
-  href, 
-  children, 
+export const RailLink: React.FC<RailLinkProps> = ({
+  href,
+  children,
   isActive = false,
-  className = '' 
+  className = "",
 }) => {
   return (
-    <a 
+    <a
       href={href}
       className={`block py-1.5 font-b text-[14px] font-semibold no-underline transition-colors min-h-[44px] flex items-center
-        ${isActive ? 'text-A1' : 'text-P/70 hover:text-P'} ${className}`}
+        ${isActive ? "text-A1" : "text-P/70 hover:text-P"} ${className}`}
     >
       {children}
     </a>

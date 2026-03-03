@@ -1,46 +1,56 @@
-import React, { useEffect } from 'react';
-import heroBgHome from '../assets/home-hero.jpg';
-import caseStudySaas from '../assets/home-case-study-saas.jpg';
-import caseStudyGlobalProduct from '../assets/home-case-study-global-product.jpg';
-import { 
-  PageShell, 
-  SiteHeader, 
+import React, { useEffect } from "react";
+import heroBgHome from "../assets/home-hero.jpg";
+import caseStudySaas from "../assets/home-case-study-saas.jpg";
+import caseStudyGlobalProduct from "../assets/home-case-study-global-product.jpg";
+import acluLogo from "../../clients/aclu-logo.svg";
+import isnLogo from "../../clients/isn-new-logo.svg";
+import sehLogo from "../../clients/seh-logo.svg";
+import {
+  PageShell,
+  SiteHeader,
   Hero,
   HeroValueList,
   SectionTitle,
-  BodyText, 
+  BodyText,
   AnimatedComparisonSlider,
-
-  CTAInline, 
+  CTAInline,
   Testimonial,
   ConsultingProcessDiagram,
   CardGrid,
   CaseStudyCard,
   Button,
   Footer,
-  Container
-} from '../components';
+  Container,
+} from "../components";
 
 const Home: React.FC = () => {
   useEffect(() => {
-    document.title = 'SparrowBridge - Home';
+    document.title = "SparrowBridge - Home";
   }, []);
 
   return (
     <PageShell>
       <SiteHeader />
-      
+
       {/* Hero Section */}
       <Hero
         title="Leading Through Complexity"
         subtitle="We help organizations solve the challenges that impede growth, with integrity, insight, and lasting impact."
-        kicker={<HeroValueList values={["lead", "align", "challenge", "build", "decide", "grow"]} />}
+        kicker={
+          <HeroValueList
+            values={["lead", "align", "challenge", "build", "decide", "grow"]}
+          />
+        }
         variant="dark"
         backgroundImage={heroBgHome}
         actions={
           <>
-            <Button href="/contact" variant="primary">Start the Conversation</Button>
-            <Button href="#approach" variant="inverse">Read Our Approach</Button>
+            <Button href="/contact" variant="primary">
+              Start the Conversation
+            </Button>
+            <Button href="#approach" variant="inverse">
+              Read Our Approach
+            </Button>
           </>
         }
       />
@@ -53,12 +63,15 @@ const Home: React.FC = () => {
       {/* Challenges Section */}
       <section className="bg-white py-8 lg:py-[48px] xl:py-[64px] flex flex-col items-center">
         <Container className="flex flex-col items-center gap-4 lg:gap-6 w-full">
-          <SectionTitle align="center">Challenges We Help You Navigate</SectionTitle>
+          <SectionTitle align="center">
+            Challenges We Help You Navigate
+          </SectionTitle>
           <BodyText align="center" size="lg" className="max-w-[900px]">
-            Every organization faces natural cycles of decline. It is the law of entropy. We partner with you to name the root causes,
-            restore your momentum, and build a culture of growth that outlasts the struggle.
+            Every organization faces natural cycles of decline. It is the law of
+            entropy. We partner with you to name the root causes, restore your
+            momentum, and build a culture of growth that outlasts the struggle.
           </BodyText>
-          
+
           <h3 className="font-h text-[20px] lg:text-[28px] font-semibold text-center text-P px-2">
             Let us help you go from where you are to where you want to be…
           </h3>
@@ -66,46 +79,61 @@ const Home: React.FC = () => {
           <div className="w-full max-w-4xl">
             <AnimatedComparisonSlider
               slides={[
-              {
-                from: "Creating a growth strategy that meets resistance and stalls…",
-                to: "Execution with the right people and culture",
-              },
-              {
-                from: "Inability to stem a declining sales revenue trend…",
-                to: "Hitting key performance indicators with our revenue enablement program and ARC Framework™",
-              },
-              {
-                from: "A dysfunctional leadership team",
-                to: "A formidable force that implements your vision.",
-              },
-            ]}
+                {
+                  from: "Creating a growth strategy that meets resistance and stalls…",
+                  to: "Execution with the right people and culture",
+                },
+                {
+                  from: "Inability to stem a declining sales revenue trend…",
+                  to: "Hitting key performance indicators with our revenue enablement program and ARC Framework™",
+                },
+                {
+                  from: "A dysfunctional leadership team",
+                  to: "A formidable force that implements your vision.",
+                },
+              ]}
             />
           </div>
 
-          <CTAInline 
+          <CTAInline
             text="Where are you in your journey? Together we build what lasts."
             ctaText="Contact us"
             href="/contact"
           />
-
         </Container>
       </section>
 
       {/* How We Work Section */}
-      <section id="approach" className="scroll-mt-28 bg-P py-[48px] lg:py-[64px] flex flex-col items-center">
+      <section
+        id="approach"
+        className="scroll-mt-28 bg-P py-[48px] lg:py-[64px] flex flex-col items-center"
+      >
         <Container className="flex flex-col items-center gap-6">
-          <SectionTitle variant="light" align="center">How We Work Together</SectionTitle>
-          <BodyText variant="light" align="center" size="lg" className="max-w-[900px]">
-            Strategy development? Culture transformation? Leadership development? Talent assessments? Sales transformation?
-            Yeah, we can help you with that. But let's not treat the symptoms. We encourage you to do the deeper work
-            of discovering root causes instead of tackling symptoms.
+          <SectionTitle variant="light" align="center">
+            How We Work Together
+          </SectionTitle>
+          <BodyText
+            variant="light"
+            align="center"
+            size="lg"
+            className="max-w-[900px]"
+          >
+            Strategy development? Culture transformation? Leadership
+            development? Talent assessments? Sales transformation? Yeah, we can
+            help you with that. But let's not treat the symptoms. We encourage
+            you to do the deeper work of discovering root causes instead of
+            tackling symptoms.
           </BodyText>
 
           <div className="w-full max-w-xl mx-auto">
             <div className="p-3 flex flex-col gap-2">
               <div className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-0 text-center">
-                <span className="font-h text-[22px] lg:text-[26px] font-extrabold text-white">Our Process</span>
-                <span className="font-b text-[15px] lg:text-[16px] text-white/80">— Hover over each step for more</span>
+                <span className="font-h text-[22px] lg:text-[26px] font-extrabold text-white">
+                  Our Process
+                </span>
+                <span className="font-b text-[15px] lg:text-[16px] text-white/80">
+                  — Hover over each step for more
+                </span>
               </div>
               <div className="flex-1 min-h-[320px] flex items-center justify-center">
                 <ConsultingProcessDiagram />
@@ -113,57 +141,201 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <Testimonial 
+          <Testimonial
             variant="light"
             quote="SparrowBridge worked with us to help identify ways to improve staff engagement and communication in our business, which is a legacy family hospital. We were impressed with how SparrowBridge built trust amongst the employees and drew very meaningful insights, which helped us make clear strategic decisions to improve patient and staff satisfaction. Working with SparrowBridge was very stress-free. We constantly felt they listened to the issues we brought up without judging, was very clear and direct when communicating, never losing sight of what we needed to achieve."
             author="Dotun Akinrinade"
             role="Executive Director, St. Emmanuel Hospital"
           />
-
         </Container>
       </section>
 
       {/* Client Transformations */}
-      <section id="cases" className="scroll-mt-28 bg-[#F8F9FA] py-[48px] lg:py-[64px]">
+      <section
+        id="cases"
+        className="scroll-mt-28 bg-[#F8F9FA] py-[48px] lg:py-[64px]"
+      >
         <Container className="flex flex-col items-center gap-9">
           <div className="text-center flex flex-col gap-4">
-            <SectionTitle align="center" className="lg:text-[40px] font-semibold">Client Transformations</SectionTitle>
-            <BodyText align="center" className="text-[18px] text-P/80">Real results from organizations that chose to do the deeper work</BodyText>
+            <SectionTitle
+              align="center"
+              className="lg:text-[40px] font-semibold"
+            >
+              Client Transformations
+            </SectionTitle>
+            <BodyText align="center" className="text-[18px] text-P/80">
+              Real results from organizations that chose to do the deeper work
+            </BodyText>
           </div>
 
           <CardGrid columns={2}>
-            <CaseStudyCard 
+            <CaseStudyCard
               title="SaaS Company"
               summary="SaaS company struggling with full integration post-acquisition and global expansion of customer base. Through our diagnostic and strategy co-design processes, the company achieved full integration and global expansion."
               tags={["Leadership", "Culture", "Sales", "GTM Strategy"]}
               accentColor="bg-P"
               href="/case-studies/saas"
-              imagePlaceholder={<img src={caseStudySaas} alt="" className="w-full h-full object-cover object-center" />}
+              imagePlaceholder={
+                <img
+                  src={caseStudySaas}
+                  alt=""
+                  className="w-full h-full object-cover object-center"
+                />
+              }
             />
-            <CaseStudyCard 
+            <CaseStudyCard
               title="Global Product Team"
               summary="A global shared technology product team at a large information company navigating expansion in scope."
               tags={["Strategy", "Operations"]}
               accentColor="bg-A2"
               href="/case-studies/elsevier"
-              imagePlaceholder={<img src={caseStudyGlobalProduct} alt="" className="w-full h-full object-cover object-center" />}
+              imagePlaceholder={
+                <img
+                  src={caseStudyGlobalProduct}
+                  alt=""
+                  className="w-full h-full object-cover object-center"
+                />
+              }
             />
           </CardGrid>
         </Container>
       </section>
 
+      {/* Clients – exact card markup from former Featured Insights (article cards) + logo concept */}
+      <section className="bg-white py-[48px] lg:py-[64px]">
+        <Container className="flex flex-col items-center gap-9">
+          <div className="text-center flex flex-col gap-4">
+            <SectionTitle
+              align="center"
+              className="lg:text-[40px] font-semibold"
+            >
+              Clients
+            </SectionTitle>
+            <BodyText align="center" className="text-[18px] text-P/80">
+              Organizations we have worked with
+            </BodyText>
+          </div>
+
+          {/* Row 1 – client logos from clients/ */}
+          <CardGrid columns={3}>
+            <a
+              href="https://www.aclu.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4 block no-underline text-inherit hover:border-P/25 hover:-translate-y-1 hover:shadow-sm transition-all duration-200"
+            >
+              <div className="font-b text-[14px] font-bold tracking-[1px] text-A1">
+                U.S.
+              </div>
+              <h3 className="font-h text-[20px] font-semibold leading-[1.3] text-P">
+                American Civil Liberties Union
+              </h3>
+              <p className="font-b text-[14px] leading-[1.5] text-P/80">
+                Civil liberties and civil rights organization.
+              </p>
+              <div className="flex items-end justify-between gap-3 mt-auto">
+                <span className="font-b text-[14px] font-semibold text-A1 no-underline hover:underline">
+                  Read more →
+                </span>
+                <img
+                  src={acluLogo}
+                  alt=""
+                  className="h-16 w-auto object-contain object-right"
+                />
+              </div>
+            </a>
+            <a
+              href="https://isnmedical.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4 block no-underline text-inherit hover:border-P/25 hover:-translate-y-1 hover:shadow-sm transition-all duration-200"
+            >
+              <div className="font-b text-[14px] font-bold tracking-[1px] text-A2">
+                Nigeria
+              </div>
+              <h3 className="font-h text-[20px] font-semibold leading-[1.3] text-P">
+                ISN Medical
+              </h3>
+              <p className="font-b text-[14px] leading-[1.5] text-P/80">
+                Healthcare and medical services.
+              </p>
+              <div className="flex items-end justify-between gap-3 mt-auto">
+                <span className="font-b text-[14px] font-semibold text-A1 no-underline hover:underline">
+                  Read more →
+                </span>
+                <img
+                  src={isnLogo}
+                  alt=""
+                  className="h-16 w-auto object-contain object-right"
+                />
+              </div>
+            </a>
+            <a
+              href="https://stemmanuelhospital.com.ng/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 bg-white border border-P/15 rounded-card flex flex-col gap-4 block no-underline text-inherit hover:border-P/25 hover:-translate-y-1 hover:shadow-sm transition-all duration-200"
+            >
+              <div className="font-b text-[14px] font-bold tracking-[1px] text-A2">
+                Nigeria
+              </div>
+              <h3 className="font-h text-[20px] font-semibold leading-[1.3] text-P">
+                St. Emmanuel Hospital
+              </h3>
+              <p className="font-b text-[14px] leading-[1.5] text-P/80">
+                Legacy family hospital.
+              </p>
+              <div className="flex items-end justify-between gap-3 mt-auto">
+                <span className="font-b text-[14px] font-semibold text-A1 no-underline hover:underline">
+                  Read more →
+                </span>
+                <img
+                  src={sehLogo}
+                  alt=""
+                  className="h-16 w-auto object-contain object-right"
+                />
+              </div>
+            </a>
+          </CardGrid>
+        </Container>
+      </section>
+
       {/* Footer CTA */}
-      <section id="contact" className="scroll-mt-28 bg-P py-[48px] lg:py-[64px]">
+      <section
+        id="contact"
+        className="scroll-mt-28 bg-P py-[48px] lg:py-[64px]"
+      >
         <Container className="flex flex-col items-center justify-center gap-8 text-center w-full max-w-3xl mx-auto">
-          <SectionTitle variant="light" align="center" className="max-w-[700px] lg:text-[40px]">
+          <SectionTitle
+            variant="light"
+            align="center"
+            className="max-w-[700px] lg:text-[40px]"
+          >
             Ready to start?
           </SectionTitle>
-          <BodyText variant="light" align="center" className="max-w-[600px] text-[18px]">
-            Let's start a conversation about your organization's challenges and opportunities.
+          <BodyText
+            variant="light"
+            align="center"
+            className="max-w-[600px] text-[18px]"
+          >
+            Let's start a conversation about your organization's challenges and
+            opportunities.
           </BodyText>
           <div className="flex flex-col md:flex-row gap-3 justify-center">
-            <Button href="/contact" variant="primary" className="px-8 py-4 text-[16px]">Contact Us</Button>
-            <Button href="/contact" variant="inverse" className="px-8 py-4 text-[16px] border-2">Schedule a Call</Button>
+            <Button
+              href="/contact"
+              variant="primary"
+              className="px-8 py-4 text-[16px]"
+            >
+              Contact Us
+            </Button>
+            <Button
+              href="/contact"
+              variant="inverse"
+              className="px-8 py-4 text-[16px] border-2"
+            >
+              Schedule a Call
+            </Button>
           </div>
         </Container>
       </section>

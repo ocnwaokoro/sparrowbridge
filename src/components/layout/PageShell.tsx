@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface PageShellProps {
   children: React.ReactNode;
@@ -6,15 +6,20 @@ interface PageShellProps {
   stickyOffset?: boolean;
 }
 
-export const PageShell: React.FC<PageShellProps> = ({ 
-  children, 
-  className = '', 
-  stickyOffset = false 
+export const PageShell: React.FC<PageShellProps> = ({
+  children,
+  className = "",
+  stickyOffset = false,
 }) => {
   return (
-    <div className={`min-h-screen bg-white font-b text-P leading-[1.6] flex flex-col ${className}`}>
+    <div
+      className={`min-h-screen bg-white font-b text-P leading-[1.6] flex flex-col ${className}`}
+    >
       {/* If sticky offset is needed for the header, we can add padding-top here */}
-      <main id="main-content" className={`flex-grow ${stickyOffset ? 'pt-20' : ''}`}>
+      <main
+        id="main-content"
+        className={`flex-grow ${stickyOffset ? "pt-20" : ""}`}
+      >
         {children}
       </main>
     </div>

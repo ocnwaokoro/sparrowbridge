@@ -1,13 +1,18 @@
-import React from 'react';
+import React from "react";
 
 interface FounderDetailBlockProps {
   label: string;
   content: React.ReactNode;
 }
 
-export const FounderDetailBlock: React.FC<FounderDetailBlockProps> = ({ label, content }) => (
+export const FounderDetailBlock: React.FC<FounderDetailBlockProps> = ({
+  label,
+  content,
+}) => (
   <div className="p-3 rounded-card border border-P/15 bg-P/[0.03] text-[13px] leading-[1.5] text-P/80">
-    <b className="block font-h font-extrabold text-P mb-1 uppercase tracking-wider text-[11px]">{label}</b>
+    <b className="block font-h font-extrabold text-P mb-1 uppercase tracking-wider text-[11px]">
+      {label}
+    </b>
     {content}
   </div>
 );
@@ -27,10 +32,12 @@ export const FounderBio: React.FC<FounderBioProps> = ({
   paragraphs,
   details,
   imagePlaceholder,
-  className = ''
+  className = "",
 }) => {
   return (
-    <div className={`grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-8 items-stretch ${className}`}>
+    <div
+      className={`grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-8 items-stretch ${className}`}
+    >
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-2 mb-2">
           <h3 className="font-h text-[22px] font-extrabold text-P">{name}</h3>
@@ -38,7 +45,10 @@ export const FounderBio: React.FC<FounderBioProps> = ({
         </div>
         <div className="flex flex-col gap-4">
           {paragraphs.map((p, i) => (
-            <p key={i} className="font-b text-[15px] font-normal leading-[1.65] text-P/90">
+            <p
+              key={i}
+              className="font-b text-[15px] font-normal leading-[1.65] text-P/90"
+            >
               {p}
             </p>
           ))}
@@ -46,7 +56,11 @@ export const FounderBio: React.FC<FounderBioProps> = ({
 
         <div className="grid gap-3 mt-2">
           {details.map((detail, i) => (
-            <FounderDetailBlock key={i} label={detail.label} content={detail.content} />
+            <FounderDetailBlock
+              key={i}
+              label={detail.label}
+              content={detail.content}
+            />
           ))}
         </div>
       </div>

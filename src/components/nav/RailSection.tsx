@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface RailSectionProps {
   title?: string;
@@ -6,10 +6,10 @@ interface RailSectionProps {
   className?: string;
 }
 
-export const RailSection: React.FC<RailSectionProps> = ({ 
-  title, 
-  children, 
-  className = '' 
+export const RailSection: React.FC<RailSectionProps> = ({
+  title,
+  children,
+  className = "",
 }) => {
   return (
     <div className={`flex flex-col gap-3 ${className}`}>
@@ -18,9 +18,7 @@ export const RailSection: React.FC<RailSectionProps> = ({
           {title}
         </h4>
       )}
-      <nav className="flex flex-col">
-        {children}
-      </nav>
+      <nav className="flex flex-col">{children}</nav>
     </div>
   );
 };

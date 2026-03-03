@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface Segment {
   lines: string[];
@@ -8,45 +8,46 @@ interface Segment {
 
 const SEGMENTS: Segment[] = [
   {
-    lines: ['EXPLORATION'],
-    label: 'EXPLORATION',
-    tooltip: 'Initial discovery of your problem or opportunity.',
+    lines: ["EXPLORATION"],
+    label: "EXPLORATION",
+    tooltip: "Initial discovery of your problem or opportunity.",
   },
   {
-    lines: ['DIAGNOSE'],
-    label: 'DIAGNOSE',
-    tooltip: 'In-depth data collection and root-cause analysis.',
+    lines: ["DIAGNOSE"],
+    label: "DIAGNOSE",
+    tooltip: "In-depth data collection and root-cause analysis.",
   },
   {
-    lines: ['CO-DESIGN'],
-    label: 'CO-DESIGN',
-    tooltip: 'Strategy phase. Build alignment through participation.',
+    lines: ["CO-DESIGN"],
+    label: "CO-DESIGN",
+    tooltip: "Strategy phase. Build alignment through participation.",
   },
   {
-    lines: ['EXECUTIVE', 'COACHING'],
-    label: 'EXECUTIVE COACHING',
-    tooltip: 'Thought partnership throughout the change process.',
+    lines: ["EXECUTIVE", "COACHING"],
+    label: "EXECUTIVE COACHING",
+    tooltip: "Thought partnership throughout the change process.",
   },
   {
-    lines: ['IMPLEMENT'],
-    label: 'IMPLEMENT',
-    tooltip: 'Integration phase. Move through resistance to embed sustainable practices.',
+    lines: ["IMPLEMENT"],
+    label: "IMPLEMENT",
+    tooltip:
+      "Integration phase. Move through resistance to embed sustainable practices.",
   },
   {
-    lines: ['ASSESS'],
-    label: 'ASSESS',
-    tooltip: 'Measure progress, learn, and iterate.',
+    lines: ["ASSESS"],
+    label: "ASSESS",
+    tooltip: "Measure progress, learn, and iterate.",
   },
 ];
 
 // Tooltip positions keyed by segment index, anchored away from outer edge
 const TOOLTIP_POSITIONS: React.CSSProperties[] = [
-  { top: '10%', right: '2%' },    // 0: EXPLORATION  (upper-right)
-  { top: '36%', right: '2%' },    // 1: DIAGNOSE     (right)
-  { bottom: '10%', right: '2%' }, // 2: CO-DESIGN    (lower-right)
-  { bottom: '10%', left: '2%' },  // 3: EXEC COACHING (lower-left)
-  { top: '36%', left: '2%' },     // 4: IMPLEMENT    (left)
-  { top: '10%', left: '2%' },     // 5: ASSESS       (upper-left)
+  { top: "10%", right: "2%" }, // 0: EXPLORATION  (upper-right)
+  { top: "36%", right: "2%" }, // 1: DIAGNOSE     (right)
+  { bottom: "10%", right: "2%" }, // 2: CO-DESIGN    (lower-right)
+  { bottom: "10%", left: "2%" }, // 3: EXEC COACHING (lower-left)
+  { top: "36%", left: "2%" }, // 4: IMPLEMENT    (left)
+  { top: "10%", left: "2%" }, // 5: ASSESS       (upper-left)
 ];
 
 const CX = 200;
@@ -87,25 +88,27 @@ function getLabelPos(i: number): { x: number; y: number } {
 
 // 0-indexed: 0,2,4 → P palette; 1,3,5 → A1 palette
 function getSegmentFill(i: number, hovered: boolean): string {
-  if (i % 2 === 0) return hovered ? '#364861' : '#4A6080';
-  return hovered ? '#636B2F' : '#7A8540';
+  if (i % 2 === 0) return hovered ? "#364861" : "#4A6080";
+  return hovered ? "#636B2F" : "#7A8540";
 }
 
 export const ConsultingProcessDiagram: React.FC = () => {
   const [hovered, setHovered] = useState<number | null>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
-    typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
+    typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false,
   );
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mq.matches);
     const handler = () => setPrefersReducedMotion(mq.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
   }, []);
 
-  const pathTransition = prefersReducedMotion ? 'none' : 'fill 0.2s ease';
+  const pathTransition = prefersReducedMotion ? "none" : "fill 0.2s ease";
 
   return (
     <div className="relative w-full aspect-square">
@@ -132,7 +135,7 @@ export const ConsultingProcessDiagram: React.FC = () => {
                 d={getSegmentPath(i)}
                 style={{
                   fill: getSegmentFill(i, isHovered),
-                  stroke: '#ffffff',
+                  stroke: "#ffffff",
                   strokeWidth: 2,
                   transition: pathTransition,
                 }}
@@ -140,12 +143,12 @@ export const ConsultingProcessDiagram: React.FC = () => {
               <text
                 textAnchor="middle"
                 style={{
-                  fill: '#ffffff',
-                  fontSize: '12px',
+                  fill: "#ffffff",
+                  fontSize: "12px",
                   fontWeight: 700,
-                  letterSpacing: '0.4px',
-                  pointerEvents: 'none',
-                  userSelect: 'none',
+                  letterSpacing: "0.4px",
+                  pointerEvents: "none",
+                  userSelect: "none",
                 }}
               >
                 {seg.lines.length === 1 ? (
@@ -168,16 +171,16 @@ export const ConsultingProcessDiagram: React.FC = () => {
         })}
 
         {/* Center hub */}
-        <circle cx={CX} cy={CY} r={INNER_R - 4} style={{ fill: '#364861' }} />
+        <circle cx={CX} cy={CY} r={INNER_R - 4} style={{ fill: "#364861" }} />
         <text
           textAnchor="middle"
           style={{
-            fill: '#ffffff',
-            fontSize: '11px',
+            fill: "#ffffff",
+            fontSize: "11px",
             fontWeight: 700,
-            letterSpacing: '0.3px',
-            pointerEvents: 'none',
-            userSelect: 'none',
+            letterSpacing: "0.3px",
+            pointerEvents: "none",
+            userSelect: "none",
           }}
         >
           <tspan x={CX} y={CY - 7} dominantBaseline="middle">

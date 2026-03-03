@@ -1,17 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Document, Page, pdfjs } from 'react-pdf';
-import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
-import {
-  PageShell,
-  SiteHeader,
-  Footer,
-  Container,
-} from '../components';
+import React, { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Document, Page, pdfjs } from "react-pdf";
+import pdfWorker from "pdfjs-dist/build/pdf.worker.mjs?url";
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
+import { PageShell, SiteHeader, Footer, Container } from "../components";
 
-const PDF_URL = '/case-studies/saas-case-study.pdf';
+const PDF_URL = "/case-studies/saas-case-study.pdf";
 pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 const CaseStudySaaS: React.FC = () => {
@@ -20,7 +15,7 @@ const CaseStudySaaS: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = 'SparrowBridge - Case Study: SaaS Company';
+    document.title = "SparrowBridge - Case Study: SaaS Company";
   }, []);
 
   useEffect(() => {
@@ -60,29 +55,39 @@ const CaseStudySaaS: React.FC = () => {
         <Container>
           <div ref={containerRef} className="w-full bg-white">
             <Document
-            file={PDF_URL}
-            onLoadSuccess={onDocumentLoadSuccess}
-            loading={<p className="font-b text-P/70 py-12 text-center">Loading PDF…</p>}
-            error={
-              <p className="font-b text-P/70 py-12 text-center">
-                Failed to load PDF. You can{' '}
-                <a href={PDF_URL} className="text-A1 underline" target="_blank" rel="noopener noreferrer">
-                  open it in a new tab
-                </a>.
-              </p>
-            }
-          >
-            {numPages !== null &&
-              Array.from(new Array(numPages), (_, i) => (
-                <Page
-                  key={`page-${i + 1}`}
-                  pageNumber={i + 1}
-                  width={pageWidth}
-                  className="!w-full !max-w-full mb-0"
-                  renderTextLayer
-                  renderAnnotationLayer
-                />
-              ))}
+              file={PDF_URL}
+              onLoadSuccess={onDocumentLoadSuccess}
+              loading={
+                <p className="font-b text-P/70 py-12 text-center">
+                  Loading PDF…
+                </p>
+              }
+              error={
+                <p className="font-b text-P/70 py-12 text-center">
+                  Failed to load PDF. You can{" "}
+                  <a
+                    href={PDF_URL}
+                    className="text-A1 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    open it in a new tab
+                  </a>
+                  .
+                </p>
+              }
+            >
+              {numPages !== null &&
+                Array.from(new Array(numPages), (_, i) => (
+                  <Page
+                    key={`page-${i + 1}`}
+                    pageNumber={i + 1}
+                    width={pageWidth}
+                    className="!w-full !max-w-full mb-0"
+                    renderTextLayer
+                    renderAnnotationLayer
+                  />
+                ))}
             </Document>
           </div>
         </Container>

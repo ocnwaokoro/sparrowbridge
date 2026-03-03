@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface HeroValueListProps {
   values: string[];
@@ -8,21 +8,23 @@ interface HeroValueListProps {
 
 export const HeroValueList: React.FC<HeroValueListProps> = ({
   values,
-  prefix = 'The courage to',
-  className = '',
+  prefix = "The courage to",
+  className = "",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
-    typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
+    typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false,
   );
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mq.matches);
     const handler = () => setPrefersReducedMotion(mq.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
   }, []);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export const HeroValueList: React.FC<HeroValueListProps> = ({
     const interval = setInterval(() => {
       setVisible(false);
       setTimeout(() => {
-        setCurrentIndex(i => (i + 1) % values.length);
+        setCurrentIndex((i) => (i + 1) % values.length);
         setVisible(true);
       }, 200);
     }, 2500);
@@ -48,8 +50,10 @@ export const HeroValueList: React.FC<HeroValueListProps> = ({
         className="font-h text-[16px] font-extrabold text-A1 inline-block min-w-[100px]"
         style={{
           opacity: visible ? 1 : 0,
-          transform: visible ? 'translateY(0px)' : 'translateY(-4px)',
-          transition: prefersReducedMotion ? 'none' : 'opacity 200ms ease, transform 200ms ease',
+          transform: visible ? "translateY(0px)" : "translateY(-4px)",
+          transition: prefersReducedMotion
+            ? "none"
+            : "opacity 200ms ease, transform 200ms ease",
         }}
       >
         {values[currentIndex]}
