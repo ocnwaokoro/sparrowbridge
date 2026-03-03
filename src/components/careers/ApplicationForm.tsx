@@ -90,12 +90,6 @@ export const ApplicationForm: React.FC = () => {
             )}
           </div>
 
-          {/* PLACEHOLDER [VISIBLE]: Shown when env unset — form submission is no-op until VITE_APPLICATION_FORM_ENDPOINT is set */}
-          {!APPLICATION_FORM_ENDPOINT && (
-            <p className="text-[11px] font-medium text-P/40 italic">
-              Set VITE_APPLICATION_FORM_ENDPOINT to your backend or Formspree URL to accept applications.
-            </p>
-          )}
         </form>
       </div>
     </div>
