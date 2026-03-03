@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import heroBgHome from "../assets/home-hero.jpg";
-import caseStudySaas from "../assets/home-case-study-saas.jpg";
-import caseStudyGlobalProduct from "../assets/home-case-study-global-product.jpg";
-import acluLogo from "../../clients/aclu-logo.svg";
-import isnLogo from "../../clients/isn-new-logo.svg";
-import sehLogo from "../../clients/seh-logo.svg";
+import heroBgHome from "../assets/heroes/home-hero.jpg";
+import caseStudySaas from "../assets/case-studies/home-case-study-saas.jpg";
+import caseStudyGlobalProduct from "../assets/case-studies/home-case-study-global-product.jpg";
+import acluLogo from "../assets/clients/aclu-logo.svg";
+import isnLogo from "../assets/clients/isn-new-logo.svg";
+import sehLogo from "../assets/clients/seh-logo.svg";
 import {
   PageShell,
   SiteHeader,

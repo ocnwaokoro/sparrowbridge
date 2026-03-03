@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import founderImg from "../assets/founder-kelechi-okere.jpg";
-import aboutLandscape from "../assets/about-hero.jpg";
+import founderImg from "../assets/people/founder-kelechi-okere.jpg";
+import aboutLandscape from "../assets/heroes/about-hero.jpg";
 import {
   PageShell,
   SiteHeader,

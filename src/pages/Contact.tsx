@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import contactHero from "../assets/contact-hero.jpg";
+import contactHero from "../assets/heroes/contact-hero.jpg";
 import {
   PageShell,
   SiteHeader,

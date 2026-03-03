@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import flowersGreenery from "../assets/solutions-hero.jpg";
+import flowersGreenery from "../assets/heroes/solutions-hero.jpg";
 import {
   PageShell,
   SiteHeader,

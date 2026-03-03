@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/sparrowbridge-logo.svg";
+import logo from "../../assets/branding/sparrowbridge-logo.svg";
 
 interface FooterProps {
   className?: string;

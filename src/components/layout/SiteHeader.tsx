@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Button } from "../ui/Button";
 import { Container } from "./Container";
-import logo from "../../assets/sparrowbridge-logo.svg";
+import logo from "../../assets/branding/sparrowbridge-logo.svg";
 
 export const SiteHeader: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
