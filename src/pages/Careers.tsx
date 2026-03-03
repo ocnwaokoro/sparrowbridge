@@ -27,24 +27,6 @@ const Careers: React.FC = () => {
         variant="dark"
         backgroundImage={careersHero}
         backgroundImagePosition="bottom"
-        rightSlot={
-          <aside className="w-full p-5 bg-white/80 border border-P/15 rounded-card flex flex-col gap-3">
-            <div className="font-h text-[14px] font-extrabold tracking-[0.2px] text-P/90">What we look for</div>
-            <div className="flex flex-col gap-3">
-              {[
-                { title: "Integrity", description: "We do the deeper work, even when it’s uncomfortable." },
-                { title: "Craft", description: "Clear thinking, strong writing, disciplined execution." },
-                { title: "Care", description: "We treat clients, colleagues, and the work with respect." },
-                { title: "Systems thinking", description: "We look for root causes, not just symptoms." },
-              ].map((item) => (
-                <div key={item.title} className="p-3 bg-white/70 border border-P/15 rounded-card flex flex-col gap-1.5">
-                  <div className="font-b text-[14px] font-bold text-P">{item.title}</div>
-                  <div className="font-b text-[12px] leading-[1.4] text-P/75">{item.description}</div>
-                </div>
-              ))}
-            </div>
-          </aside>
-        }
       />
 
       {/* Main Careers Content */}

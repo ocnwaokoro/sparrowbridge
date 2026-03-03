@@ -5,10 +5,9 @@ import caseStudyGlobalProduct from '../assets/home-case-study-global-product.jpg
 import { 
   PageShell, 
   SiteHeader, 
-  Hero, 
+  Hero,
   HeroValueList,
-  ValuePropCard, 
-  SectionTitle, 
+  SectionTitle,
   BodyText, 
   AnimatedComparisonSlider,
 
@@ -43,31 +42,6 @@ const Home: React.FC = () => {
             <Button href="/contact" variant="primary">Start the Conversation</Button>
             <Button href="#approach" variant="inverse">Read Our Approach</Button>
           </>
-        }
-        rightSlot={
-          <aside className="w-full p-[18px] bg-white/80 border border-P/15 rounded-card flex flex-col gap-3">
-            <div className="font-h text-[14px] font-extrabold tracking-[0.2px] text-P/90">
-              What leaders come to SparrowBridge for
-            </div>
-            <div className="flex flex-col gap-3">
-              <ValuePropCard 
-                title="Root-cause diagnosis" 
-                description="Clarify what's actually blocking performance." 
-              />
-              <ValuePropCard 
-                title="Alignment & culture" 
-                description="Restore momentum across teams and functions." 
-              />
-              <ValuePropCard 
-                title="Leadership capacity" 
-                description="Strengthen decision-making under complexity." 
-              />
-              <ValuePropCard 
-                title="Change that holds" 
-                description="Implement and integrate durable practices." 
-              />
-            </div>
-          </aside>
         }
       />
 

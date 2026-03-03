@@ -36,33 +36,6 @@ const About: React.FC = () => {
             <Button href="#who" variant="inverse">Who We Are</Button>
           </>
         }
-        rightSlot={
-          <aside aria-label="What we stand for" className="w-full p-[18px] bg-white/80 border border-P/15 rounded-card flex flex-col gap-3">
-            <div className="font-h text-[14px] font-extrabold tracking-[.2px] text-P/90">
-              What SparrowBridge is built on
-            </div>
-            <div className="flex flex-col gap-3">
-              <div className="p-3 bg-white/70 border border-P/15 rounded-card flex flex-col gap-1.5">
-                <div className="font-b text-[14px] font-bold text-P">Truth over theater</div>
-                <div className="font-b text-[15px] lg:text-[12px] leading-[1.4] text-P/75">
-                  No performative strategy. We name the bottlenecks and the real constraints.
-                </div>
-              </div>
-              <div className="p-3 bg-white/70 border border-P/15 rounded-card flex flex-col gap-1.5">
-                <div className="font-b text-[14px] font-bold text-P">Integrity in the work</div>
-                <div className="font-b text-[15px] lg:text-[12px] leading-[1.4] text-P/75">
-                  We align action with values so change is sustainable, not cosmetic.
-                </div>
-              </div>
-              <div className="p-3 bg-white/70 border border-P/15 rounded-card flex flex-col gap-1.5">
-                <div className="font-b text-[14px] font-bold text-P">Durable capability</div>
-                <div className="font-b text-[15px] lg:text-[12px] leading-[1.4] text-P/75">
-                  We build internal capacity so progress holds after we leave.
-                </div>
-              </div>
-            </div>
-          </aside>
-        }
       />
 
       {/* WHO WE ARE */}

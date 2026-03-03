@@ -35,25 +35,6 @@ const Solutions: React.FC = () => {
             <Button href="#org-change" variant="inverse">Explore Solutions</Button>
           </>
         }
-        rightSlot={
-          <aside className="w-full p-[18px] bg-white/80 border border-P/15 rounded-card flex flex-col gap-3" aria-label="Solution list">
-            <div className="font-h text-[14px] font-extrabold tracking-[0.2px] text-P/90">Solutions</div>
-            <div className="flex flex-col gap-3">
-              {[
-                { id: "01", title: "Organization Change", href: "#org-change" },
-                { id: "02", title: "Sales Transformation", href: "#sales" },
-                { id: "03", title: "Product Transformation", href: "#product" },
-                { id: "04", title: "Talent", href: "#talent" },
-                { id: "05", title: "Executive Coaching", href: "#coaching" }
-              ].map((item) => (
-                <a key={item.id} href={item.href} className="flex items-center justify-between p-3 rounded-card bg-white/70 border border-P/15 no-underline text-P font-b text-[14px] font-bold hover:bg-white transition-colors group min-h-[44px]">
-                  {item.title}
-                  <span className="font-h text-[12px] font-extrabold tracking-[.6px] text-P/40 group-hover:text-A1 transition-colors">{item.id}</span>
-                </a>
-              ))}
-            </div>
-          </aside>
-        }
       />
 
       {/* Solutions Overview: Challenge / Expect */}

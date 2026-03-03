@@ -42,19 +42,7 @@ const Insights: React.FC = () => {
         title="Wisdom in Practice"
         subtitle="A living library of reflections on leadership, culture, systems, and the work of building organizations that endure. Curated for leaders who want to go deeper."
         variant="dark"
-        actions={<Button href="#browse" variant="inverse" className="border-2">Browse insights</Button>}
-        rightSlot={
-          <aside aria-label="What you'll find here" className="w-full p-[18px] bg-white/80 border border-P/15 rounded-card flex flex-col gap-3">
-            <div className="font-h text-[14px] font-extrabold tracking-[0.2px] text-P/90">What you'll find here</div>
-            <div className="flex flex-col gap-3">
-              {["Leadership & Decision-Making", "Culture & Trust", "Strategy & Execution", "Spirituality in the Workplace"].map((label) => (
-                <div key={label} className="p-3 rounded-card border border-P/15 bg-white/70 font-b text-[14px] font-bold text-P">
-                  {label}
-                </div>
-              ))}
-            </div>
-          </aside>
-        }
+        actions={<Button href="#browse" variant="inverse" className="border-2">Browse insights</Button>        }
       />
 
       {/* PAGE */}
