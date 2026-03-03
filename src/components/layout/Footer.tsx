@@ -1,58 +1,82 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../../assets/sparrowbridge-logo.svg';
+import React from "react";
+import { Link } from "react-router-dom";
+import logo from "../../assets/sparrowbridge-logo.svg";
 
 interface FooterProps {
   className?: string;
 }
 
-export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
+export const Footer: React.FC<FooterProps> = ({ className = "" }) => {
   const currentYear = new Date().getFullYear();
-  
-  const linkClasses = "font-b text-[14px] text-white/60 no-underline hover:text-white transition-colors";
+
+  const linkClasses =
+    "font-b text-[14px] text-white/60 no-underline hover:text-white transition-colors";
 
   return (
-    <footer className={`bg-[#1E2D3D] px-7 lg:px-20 py-12 flex flex-col gap-8 ${className}`}>
+    <footer
+      className={`bg-[#1E2D3D] px-7 lg:px-20 py-12 flex flex-col gap-8 ${className}`}
+    >
       <div className="flex flex-col lg:flex-row justify-between gap-10">
         <div className="max-w-[300px] flex flex-col gap-4">
           <Link to="/" className="flex items-center no-underline">
-            <img src={logo} alt="SparrowBridge" className="h-9 w-auto brightness-0 invert" loading="lazy" />
+            <img
+              src={logo}
+              alt="SparrowBridge"
+              className="h-9 w-auto brightness-0 invert"
+              loading="lazy"
+            />
           </Link>
           <p className="font-b text-[14px] leading-[1.4] text-white/60">
             Together we build what lasts.
           </p>
-          <div className="flex flex-col gap-0.5 font-b text-[14px] leading-[1.4] text-white/60">
-            <span className="font-bold text-white/90">Kelechi Okere</span>
-            <span className="text-white/70 italic">Founder & Managing Principal</span>
-            <a href="mailto:ko@sparrowbridgeconsulting.com" className="text-white/60 no-underline hover:text-white transition-colors w-fit italic">ko@sparrowbridgeconsulting.com</a>
-            <a href="https://www.linkedin.com/in/kelechiokere/" target="_blank" rel="noopener noreferrer" className="text-white/60 no-underline hover:text-white transition-colors w-fit break-all italic">linkedin.com/in/kelechiokere</a>
-          </div>
         </div>
 
         <div className="flex gap-10 lg:gap-20 flex-wrap">
           <div className="flex flex-col gap-3">
-            <div className="font-h text-[14px] font-bold text-white">Company</div>
+            <div className="font-h text-[14px] font-bold text-white">
+              Company
+            </div>
             <div className="flex flex-col gap-2">
-              <Link className={linkClasses} to="/about">About Us</Link>
-              <Link className={linkClasses} to="/#approach">Our Approach</Link>
-              <Link className={linkClasses} to="/careers">Careers</Link>
+              <Link className={linkClasses} to="/about">
+                About Us
+              </Link>
+              <Link className={linkClasses} to="/#approach">
+                Our Approach
+              </Link>
+              <Link className={linkClasses} to="/careers">
+                Careers
+              </Link>
             </div>
           </div>
 
           <div className="flex flex-col gap-3">
-            <div className="font-h text-[14px] font-bold text-white">Solutions</div>
+            <div className="font-h text-[14px] font-bold text-white">
+              Solutions
+            </div>
             <div className="flex flex-col gap-2">
-              <Link className={linkClasses} to="/solutions#codesign">Co-design & Alignment</Link>
-              <Link className={linkClasses} to="/solutions#implement">Implementation & Integration</Link>
-              <Link className={linkClasses} to="/solutions#coaching">Executive & Org Coaching</Link>
+              <Link className={linkClasses} to="/solutions#codesign">
+                Co-design & Alignment
+              </Link>
+              <Link className={linkClasses} to="/solutions#implement">
+                Implementation & Integration
+              </Link>
+              <Link className={linkClasses} to="/solutions#coaching">
+                Executive & Org Coaching
+              </Link>
             </div>
           </div>
 
           <div className="flex flex-col gap-3">
-            <div className="font-h text-[14px] font-bold text-white">Resources</div>
+            <div className="font-h text-[14px] font-bold text-white">
+              Resources
+            </div>
             <div className="flex flex-col gap-2">
-              <Link className={linkClasses} to="/#cases">Case Studies</Link>
-              <Link className={linkClasses} to="/contact">Contact</Link>
+              <Link className={linkClasses} to="/#cases">
+                Case Studies
+              </Link>
+              <Link className={linkClasses} to="/contact">
+                Contact
+              </Link>
             </div>
           </div>
         </div>
@@ -61,11 +85,30 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
       <div className="h-px bg-white/20"></div>
 
       <div className="flex flex-col md:flex-row justify-between items-center gap-5 text-center md:text-left">
-        <div className="font-b text-[14px] text-white/60">© {currentYear} SparrowBridge. All rights reserved.</div>
+        <div className="font-b text-[14px] text-white/60">
+          © {currentYear} SparrowBridge. All rights reserved.
+        </div>
         <div className="flex gap-6 flex-wrap justify-center">
-          <a className="font-b text-[14px] text-white/60 no-underline hover:text-white transition-colors" href="https://www.linkedin.com/company/sparrowbridge" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <Link className="font-b text-[14px] text-white/60 no-underline hover:text-white transition-colors" to="/privacy">Privacy</Link>
-          <Link className="font-b text-[14px] text-white/60 no-underline hover:text-white transition-colors" to="/terms">Terms</Link>
+          <a
+            className="font-b text-[14px] text-white/60 no-underline hover:text-white transition-colors"
+            href="https://www.linkedin.com/company/sparrowbridge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          <Link
+            className="font-b text-[14px] text-white/60 no-underline hover:text-white transition-colors"
+            to="/privacy"
+          >
+            Privacy
+          </Link>
+          <Link
+            className="font-b text-[14px] text-white/60 no-underline hover:text-white transition-colors"
+            to="/terms"
+          >
+            Terms
+          </Link>
         </div>
       </div>
     </footer>
