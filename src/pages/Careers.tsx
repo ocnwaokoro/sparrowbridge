@@ -19,7 +19,7 @@ const Careers: React.FC = () => {
       <SiteHeader />
 
       {/* HERO — same layout as Contact */}
-      <section className="relative py-12 min-h-[320px] overflow-hidden text-white">
+      <section className="relative py-8 min-h-[320px] overflow-hidden text-white">
         <img
           src={careersHero}
           alt=""
@@ -27,14 +27,14 @@ const Careers: React.FC = () => {
           className="absolute inset-0 w-full h-full object-cover object-bottom"
         />
         <div className="absolute inset-0 bg-P/75" aria-hidden />
-        <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-6 items-stretch">
+        <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-4 items-stretch">
           {/* Hero header */}
           <div className="lg:col-span-2">
             <HeroKickerStyle prefix="CAREERS" />
-            <h1 className="font-h text-[40px] lg:text-[52px] font-extrabold tracking-[-.6px] leading-[1.05] mt-[10px]">
+            <h1 className="font-h text-[40px] lg:text-[52px] font-extrabold tracking-[-.6px] leading-[1.05] mt-1">
               Join us
             </h1>
-            <p className="text-[18px] text-white/80 max-w-[700px] mt-3">
+            <p className="text-[18px] text-white/80 max-w-[700px] mt-2">
               We are a purpose-driven company. If you feel called to help
               individuals and organizations unlock and amplify their value, we
               would love to work with you.
@@ -42,7 +42,7 @@ const Careers: React.FC = () => {
           </div>
 
           {/* LEFT */}
-          <div className="flex flex-col gap-4 min-h-0 flex-1">
+          <div className="flex flex-col gap-3 min-h-0 flex-1">
             {/* What We Value */}
             <div className="border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex-1 min-h-0 flex flex-col">
               <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
@@ -51,7 +51,7 @@ const Careers: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-4 flex flex-col gap-4 bg-white h-full">
+              <div className="p-3 flex flex-col gap-3 bg-white flex-1 min-h-0">
                 <p className="text-[15px] font-medium text-P/70 leading-[1.4]">
                   These principles guide how we show up for clients and each
                   other.
@@ -73,7 +73,7 @@ const Careers: React.FC = () => {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="flex flex-col gap-2 items-center text-center py-4 px-3 rounded-card border border-P/15 bg-white transition-[border-color,box-shadow] duration-200 hover:border-P/30 hover:shadow-sm"
+                      className="flex flex-col gap-2 items-center text-center py-3 px-3 rounded-card border border-P/15 bg-white transition-[border-color,box-shadow] duration-200 hover:border-P/30 hover:shadow-sm"
                     >
                       <div className="h-[2.4em] flex items-center justify-center w-full">
                         <span className="font-h text-[18px] font-extrabold text-P/90 leading-[1.2] text-center">
@@ -90,14 +90,14 @@ const Careers: React.FC = () => {
             </div>
 
             {/* How We Work */}
-            <div className="border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden">
+            <div className="w-full border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex-1 min-h-0 flex flex-col">
               <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
                 <div className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">
                   How We Work
                 </div>
               </div>
 
-              <div className="p-4 flex flex-col gap-4 bg-white h-full">
+              <div className="p-3 flex flex-col gap-3 bg-white flex-1 min-h-0">
                 <p className="text-[15px] font-medium text-P/70 leading-[1.4]">
                   We look for root causes, communicate with clarity, and measure
                   what lasts.
@@ -119,7 +119,7 @@ const Careers: React.FC = () => {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="flex flex-col gap-2 items-center text-center py-4 px-3 rounded-card border border-P/15 bg-white transition-[border-color,box-shadow] duration-200 hover:border-P/30 hover:shadow-sm"
+                      className="flex flex-col gap-2 items-center text-center py-3 px-3 rounded-card border border-P/15 bg-white transition-[border-color,box-shadow] duration-200 hover:border-P/30 hover:shadow-sm"
                     >
                       <div className="h-[2.4em] flex items-center justify-center w-full">
                         <span className="font-h text-[18px] font-extrabold text-P/90 leading-[1.2] text-center">
@@ -147,7 +147,7 @@ const Careers: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 flex flex-col bg-transparent flex-1">
+            <div className="p-3 flex flex-col bg-transparent flex-1">
               <ApplicationForm embedded />
             </div>
           </div>
