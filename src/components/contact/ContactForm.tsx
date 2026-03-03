@@ -158,7 +158,7 @@ export const ContactForm: React.FC = () => {
 
       <div className="flex gap-3 items-center flex-wrap">
         <button
-          className="inline-flex items-center justify-center px-4 py-3 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px]"
+          className="inline-flex items-center justify-center px-4 py-3 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px] transition-all hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-A1 focus-visible:ring-offset-2"
           type="submit"
           disabled={status === "sending"}
         >

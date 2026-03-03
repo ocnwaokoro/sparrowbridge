@@ -41,22 +41,22 @@ const Contact: React.FC = () => {
           </div>
 
           {/* LEFT */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 min-h-0 flex-1">
             {/* Connect block */}
-            <div className="border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden">
+            <div className="w-full border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex-1 min-h-0 flex flex-col">
               <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
                 <div className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">
                   Connect
                 </div>
               </div>
 
-              <div className="p-4 flex flex-col gap-3 bg-white h-full">
+              <div className="p-4 flex flex-col gap-3 bg-white flex-1 min-h-0">
                 <p className="text-[13px] font-medium text-P/70 leading-[1.4]">
                   Follow us or book a discovery call. We respond quickly and
                   keep the process simple.
                 </p>
                 <a
-                  className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[13px]"
+                  className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[13px] transition-[border-color,box-shadow,transform] duration-200 hover:border-P/30 hover:shadow-sm hover:-translate-y-0.5"
                   href="https://www.linkedin.com/company/sparrowbridge"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
                 </a>
 
                 <a
-                  className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[13px]"
+                  className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[13px] transition-[border-color,box-shadow,transform] duration-200 hover:border-P/30 hover:shadow-sm hover:-translate-y-0.5"
                   href="https://www.linkedin.com/in/kelechiokere/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -80,13 +80,13 @@ const Contact: React.FC = () => {
                 </a>
 
                 <a
-                  className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[13px]"
+                  className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[13px] transition-[border-color,box-shadow,transform] duration-200 hover:border-P/30 hover:shadow-sm hover:-translate-y-0.5"
                   href="https://calendly.com/ko-sparrowbridgeconsulting/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Calendly
-                  <span className="text-[12px] font-bold text-P/60 whitespace-nowrap">
+                  <span className="text-[12px] font-bold text-P/60 whitespace-nowrap group-hover:text-P/80 transition-colors">
                     Schedule a call
                   </span>
                 </a>
@@ -94,60 +94,48 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Getting Started block */}
-            <div className="border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden">
+            <div className="w-full border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex-1 min-h-0 flex flex-col">
               <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
                 <div className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">
                   Getting Started
                 </div>
               </div>
 
-              <div className="p-4 flex flex-col gap-4 bg-white h-full">
-                <p className="text-[13px] font-medium text-P/70 leading-[1.4]">
-                  Here’s how we typically work with new clients—from first touch
-                  to lasting change.
+              <div className="py-4 px-3 flex flex-col gap-4 bg-white flex-1 min-h-0">
+                <p className="text-[15px] font-medium text-P/70 leading-[1.4]">
+                  Here’s how we typically work with new clients, from first touch to lasting change.
                 </p>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-                  {/* Step */}
-                  <div className="flex flex-col gap-1.5 items-center text-center p-4 rounded-card border border-P/15 bg-white">
-                    <div className="w-[26px] h-[26px] rounded-full border border-P/20 bg-white flex items-center justify-center font-h font-extrabold text-[12px] text-P/90">
-                      1
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                      <div className="font-h text-[13px] font-extrabold text-P/90 leading-[1.2]">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+                  <div className="flex flex-col gap-2 items-center text-center py-4 px-3 rounded-card border border-P/15 bg-white transition-[border-color,box-shadow] duration-200 hover:border-P/30 hover:shadow-sm">
+                    <div className="h-[2.4em] flex items-center justify-center w-full">
+                      <span className="font-h text-[18px] font-extrabold text-P/90 leading-[1.2] text-center">
                         Initial Consultation
-                      </div>
-                      <div className="text-[12px] font-semibold text-P/70 leading-[1.35]">
-                        Clarify the situation and desired outcome.
-                      </div>
+                      </span>
+                    </div>
+                    <div className="text-[15px] font-semibold text-P/70 leading-[1.4]">
+                      Clarify the situation and desired outcome.
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-1.5 items-center text-center p-4 rounded-card border border-P/15 bg-white">
-                    <div className="w-[26px] h-[26px] rounded-full border border-P/20 bg-white flex items-center justify-center font-h font-extrabold text-[12px] text-P/90">
-                      2
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                      <div className="font-h text-[13px] font-extrabold text-P/90 leading-[1.2]">
+                  <div className="flex flex-col gap-2 items-center text-center py-4 px-3 rounded-card border border-P/15 bg-white transition-[border-color,box-shadow] duration-200 hover:border-P/30 hover:shadow-sm">
+                    <div className="h-[2.4em] flex items-center justify-center w-full">
+                      <span className="font-h text-[18px] font-extrabold text-P/90 leading-[1.2] text-center">
                         Diagnosis
-                      </div>
-                      <div className="text-[12px] font-semibold text-P/70 leading-[1.35]">
-                        Identify root causes and bottlenecks.
-                      </div>
+                      </span>
+                    </div>
+                    <div className="text-[15px] font-semibold text-P/70 leading-[1.4]">
+                      Identify root causes and bottlenecks.
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-1.5 items-center text-center p-4 rounded-card border border-P/15 bg-white">
-                    <div className="w-[26px] h-[26px] rounded-full border border-P/20 bg-white flex items-center justify-center font-h font-extrabold text-[12px] text-P/90">
-                      3
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                      <div className="font-h text-[13px] font-extrabold text-P/90 leading-[1.2]">
+                  <div className="flex flex-col gap-2 items-center text-center py-4 px-3 rounded-card border border-P/15 bg-white transition-[border-color,box-shadow] duration-200 hover:border-P/30 hover:shadow-sm">
+                    <div className="h-[2.4em] flex items-center justify-center w-full">
+                      <span className="font-h text-[18px] font-extrabold text-P/90 leading-[1.2] text-center">
                         Next Steps
-                      </div>
-                      <div className="text-[12px] font-semibold text-P/70 leading-[1.35]">
-                        Align on approach, scope and timeline. Co-design
-                        solutions, implement together.
-                      </div>
+                      </span>
+                    </div>
+                    <div className="text-[15px] font-semibold text-P/70 leading-[1.4]">
+                      We align on approach, then design and implement.
                     </div>
                   </div>
                 </div>
