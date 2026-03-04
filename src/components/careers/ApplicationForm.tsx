@@ -7,7 +7,7 @@ const APPLICATION_FORM_ENDPOINT = import.meta.env
 
 // Match Contact form input/label styles when embedded (Careers page)
 const contactStyleInput =
-  "w-full font-b text-base lg:text-[14px] px-3 py-2 rounded-btn border border-P/20 outline-none text-P/90 placeholder:text-P/55 placeholder:font-semibold focus:border-P/40 focus:ring-4 focus:ring-P/10";
+  "w-full font-b text-base lg:text-[14px] px-3 py-3 min-h-[44px] rounded-btn border border-P/20 outline-none text-P/90 placeholder:text-P/55 placeholder:font-semibold focus:border-P/40 focus:ring-4 focus:ring-P/10";
 const contactStyleLabel = "font-b text-[13px] font-semibold text-P/80";
 
 interface ApplicationFormProps {
@@ -25,7 +25,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
 
   const inputBase = embedded
     ? contactStyleInput
-    : "w-full px-3 py-2 bg-white border border-P/15 rounded-btn font-b text-base lg:text-[14px] focus:outline-none focus:border-A1/40 focus:ring-4 focus:ring-P/5 transition-all placeholder:text-P/40";
+    : "w-full px-3 py-3 min-h-[44px] bg-white border border-P/15 rounded-btn font-b text-base lg:text-[14px] focus:outline-none focus:border-A1/40 focus:ring-4 focus:ring-P/5 transition-all placeholder:text-P/40";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -126,7 +126,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
               name="note"
               rows={4}
               placeholder="What draws you to SparrowBridge?"
-              className={`${inputBase} resize-y`}
+              className={`${inputBase} min-h-[100px] resize-y`}
               required
             />
           </FormField>
@@ -166,7 +166,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="inline-flex items-center justify-center px-4 py-3 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px] transition-all hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-A1 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center px-4 py-3 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px] touch-manipulation transition-all hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-A1 focus-visible:ring-offset-2"
               >
                 {status === "sending" ? "Submitting…" : "Submit Application"}
               </button>
@@ -174,7 +174,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px] transition-all hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-A1 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center px-8 py-3.5 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px] touch-manipulation transition-all hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-A1 focus-visible:ring-offset-2"
               >
                 {status === "sending" ? "Submitting…" : "Submit Application"}
               </button>

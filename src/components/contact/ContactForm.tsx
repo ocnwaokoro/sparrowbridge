@@ -12,7 +12,7 @@ export const ContactForm: React.FC = () => {
   const [message, setMessage] = useState("");
 
   const inputBase =
-    "font-b text-base lg:text-[14px] px-3 py-2 rounded-btn border border-P/20 outline-none text-P/90 placeholder:text-P/55 placeholder:font-semibold focus:border-P/40 focus:ring-4 focus:ring-P/10";
+    "font-b text-base lg:text-[14px] px-3 py-3 min-h-[44px] rounded-btn border border-P/20 outline-none text-P/90 placeholder:text-P/55 placeholder:font-semibold focus:border-P/40 focus:ring-4 focus:ring-P/10";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -150,7 +150,7 @@ export const ContactForm: React.FC = () => {
         <textarea
           id="contact-message"
           required
-          className={`${inputBase} min-h-[100px] resize-y flex-1`}
+          className={`${inputBase} min-h-[100px] resize-y flex-1 py-3`}
           name="message"
           placeholder="Message"
         />
@@ -158,7 +158,7 @@ export const ContactForm: React.FC = () => {
 
       <div className="flex gap-3 items-center flex-wrap">
         <button
-          className="inline-flex items-center justify-center px-4 py-3 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px] transition-all hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-A1 focus-visible:ring-offset-2"
+          className="inline-flex items-center justify-center px-4 py-3 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px] touch-manipulation transition-all hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-A1 focus-visible:ring-offset-2"
           type="submit"
           disabled={status === "sending"}
         >
