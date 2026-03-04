@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -6,22 +6,15 @@ import {
   useLocation,
 } from "react-router-dom";
 import Home from "./pages/Home";
-
-const About = lazy(() => import("./pages/About"));
-const Solutions = lazy(() => import("./pages/Solutions"));
-const Insights = lazy(() => import("./pages/Insights"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Careers = lazy(() => import("./pages/Careers"));
-const CaseStudyElsevier = lazy(() => import("./pages/CaseStudyElsevier"));
-const CaseStudySaaS = lazy(() => import("./pages/CaseStudySaaS"));
-const Privacy = lazy(() => import("./pages/Privacy"));
-const Terms = lazy(() => import("./pages/Terms"));
-
-const lazyFallback = (
-  <div className="min-h-screen flex items-center justify-center font-b text-P/70">
-    Loading…
-  </div>
-);
+import About from "./pages/About";
+import Solutions from "./pages/Solutions";
+import Insights from "./pages/Insights";
+import Contact from "./pages/Contact";
+import Careers from "./pages/Careers";
+import CaseStudyElsevier from "./pages/CaseStudyElsevier";
+import CaseStudySaaS from "./pages/CaseStudySaaS";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 // Lightweight scroll-to-top component
 const ScrollToTop: React.FC = () => {
@@ -49,119 +42,21 @@ const App: React.FC = () => {
       <div className="app">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/about"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <About />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/solutions"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <Solutions />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/insights"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <Insights />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <Contact />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/careers"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <Careers />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/case-studies/elsevier"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <CaseStudyElsevier />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/case-studies/saas"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <CaseStudySaaS />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/privacy"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <Privacy />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/terms"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <Terms />
-              </Suspense>
-            }
-          />
+          <Route path="/about" element={<About />} />
+          <Route path="/solutions" element={<Solutions />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/case-studies/elsevier" element={<CaseStudyElsevier />} />
+          <Route path="/case-studies/saas" element={<CaseStudySaaS />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           {/* Fallback for old .html links or mismatched routes */}
-          <Route
-            path="/about.html"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <About />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/solutions.html"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <Solutions />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/insights.html"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <Insights />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/contact.html"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <Contact />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/careers.html"
-            element={
-              <Suspense fallback={lazyFallback}>
-                <Careers />
-              </Suspense>
-            }
-          />
+          <Route path="/about.html" element={<About />} />
+          <Route path="/solutions.html" element={<Solutions />} />
+          <Route path="/insights.html" element={<Insights />} />
+          <Route path="/contact.html" element={<Contact />} />
+          <Route path="/careers.html" element={<Careers />} />
         </Routes>
       </div>
     </Router>
