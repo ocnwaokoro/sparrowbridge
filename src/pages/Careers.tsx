@@ -19,7 +19,7 @@ const Careers: React.FC = () => {
       <SiteHeader />
 
       {/* HERO — same layout as Contact */}
-      <section className="relative py-8 min-h-[320px] overflow-hidden text-white">
+      <section className="relative py-6 sm:py-8 min-h-[280px] sm:min-h-[320px] overflow-hidden text-white">
         <img
           src={careersHero}
           alt=""
@@ -27,14 +27,14 @@ const Careers: React.FC = () => {
           className="absolute inset-0 w-full h-full object-cover object-bottom"
         />
         <div className="absolute inset-0 bg-P/75" aria-hidden />
-        <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-4 items-stretch">
+        <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-4 lg:gap-4 items-stretch min-w-0">
           {/* Hero header */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 min-w-0">
             <HeroKickerStyle prefix="CAREERS" />
-            <h1 className="font-h text-[40px] lg:text-[52px] font-extrabold tracking-[-.6px] leading-[1.05] mt-1">
+            <h1 className="font-h text-[32px] sm:text-[40px] lg:text-[52px] font-extrabold tracking-[-.6px] leading-[1.05] mt-1">
               Join us
             </h1>
-            <p className="text-[18px] text-white/80 max-w-[700px] mt-2">
+            <p className="text-[16px] sm:text-[18px] text-white/80 max-w-[700px] mt-2">
               We are a purpose-driven company. If you feel called to help
               individuals and organizations unlock and amplify their value, we
               would love to work with you.
@@ -42,21 +42,21 @@ const Careers: React.FC = () => {
           </div>
 
           {/* LEFT */}
-          <div className="flex flex-col gap-3 min-h-0 flex-1">
+          <div className="flex flex-col gap-3 min-h-0 lg:flex-1 min-w-0">
             {/* What We Value */}
-            <div className="border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex-1 min-h-0 flex flex-col">
+            <div className="w-full border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex flex-col min-h-0 lg:flex-1">
               <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
                 <div className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">
                   What We Value
                 </div>
               </div>
 
-              <div className="p-3 flex flex-col gap-3 bg-white flex-1 min-h-0">
+              <div className="py-3 px-3 flex flex-col gap-3 bg-white flex-1 min-h-0 min-w-0">
                 <p className="text-[15px] font-medium text-P/70 leading-[1.4]">
                   These principles guide how we show up for clients and each
                   other.
                 </p>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-2">
                   {[
                     {
                       t: "Integrity",
@@ -90,19 +90,19 @@ const Careers: React.FC = () => {
             </div>
 
             {/* How We Work */}
-            <div className="w-full border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex-1 min-h-0 flex flex-col">
+            <div className="w-full border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex flex-col min-h-0 lg:flex-1">
               <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
                 <div className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">
                   How We Work
                 </div>
               </div>
 
-              <div className="p-3 flex flex-col gap-3 bg-white flex-1 min-h-0">
+              <div className="py-3 px-3 flex flex-col gap-3 bg-white flex-1 min-h-0 min-w-0 overflow-visible">
                 <p className="text-[15px] font-medium text-P/70 leading-[1.4]">
                   We look for root causes, communicate with clarity, and measure
                   what lasts.
                 </p>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-2">
                   {[
                     {
                       t: "Client-facing excellence",
@@ -139,7 +139,7 @@ const Careers: React.FC = () => {
           {/* RIGHT: Apply */}
           <div
             id="apply"
-            className="border border-P/10 rounded-card overflow-hidden bg-[#F8F9FA] flex flex-col"
+            className="border border-P/10 rounded-card overflow-hidden bg-[#F8F9FA] flex flex-col min-w-0"
           >
             <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
               <div className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">

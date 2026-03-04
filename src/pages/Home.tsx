@@ -240,7 +240,7 @@ const Home: React.FC = () => {
                 <img
                   src={acluLogo}
                   alt=""
-                  className="h-16 w-auto object-contain object-right"
+                  className="h-10 w-auto max-w-[120px] object-contain object-right"
                 />
               </div>
             </a>

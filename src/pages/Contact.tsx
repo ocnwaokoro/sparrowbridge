@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
       <SiteHeader />
 
       {/* HERO */}
-      <section className="relative py-8 min-h-[320px] overflow-hidden text-white">
+      <section className="relative py-6 sm:py-8 min-h-[280px] sm:min-h-[320px] overflow-hidden text-white">
         <img
           src={contactHero}
           alt=""
@@ -27,36 +27,36 @@ const Contact: React.FC = () => {
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-P/75" aria-hidden />
-        <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-4 items-stretch">
+        <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-4 lg:gap-4 items-stretch min-w-0">
           {/* Hero header */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 min-w-0">
             <HeroKickerStyle prefix="CONTACT" />
-            <h1 className="font-h text-[40px] lg:text-[52px] font-extrabold tracking-[-.6px] leading-[1.05] mt-1">
+            <h1 className="font-h text-[32px] sm:text-[40px] lg:text-[52px] font-extrabold tracking-[-.6px] leading-[1.05] mt-1">
               Start the Conversation
             </h1>
-            <p className="text-[18px] text-white/80 max-w-[700px] mt-2">
+            <p className="text-[16px] sm:text-[18px] text-white/80 max-w-[700px] mt-2">
               Schedule a discovery call or send a note. We’ll respond quickly
               and clearly.
             </p>
           </div>
 
           {/* LEFT */}
-          <div className="flex flex-col gap-3 min-h-0 flex-1">
+          <div className="flex flex-col gap-3 min-h-0 lg:flex-1 min-w-0">
             {/* Connect block */}
-            <div className="w-full border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex-1 min-h-0 flex flex-col">
+            <div className="w-full border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex flex-col min-h-0 lg:flex-1">
               <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
                 <div className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">
                   Connect
                 </div>
               </div>
 
-              <div className="p-3 flex flex-col gap-3 bg-white flex-1 min-h-0">
+              <div className="p-3 flex flex-col gap-3 bg-white flex-1 min-h-0 min-w-0">
                 <p className="text-[15px] font-medium text-P/70 leading-[1.4]">
                   Follow us or book a discovery call. We respond quickly and
                   keep the process simple.
                 </p>
                 <a
-                  className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[15px] transition-[border-color,box-shadow,transform] duration-200 hover:border-P/30 hover:shadow-sm hover:-translate-y-0.5"
+                  className="flex items-center justify-between gap-2.5 px-3 py-3 min-h-[44px] rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[15px] transition-[border-color,box-shadow,transform] duration-200 hover:border-P/30 hover:shadow-sm active:scale-[0.99] touch-manipulation"
                   href="https://www.linkedin.com/company/sparrowbridge"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
                 </a>
 
                 <a
-                  className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[15px] transition-[border-color,box-shadow,transform] duration-200 hover:border-P/30 hover:shadow-sm hover:-translate-y-0.5"
+                  className="flex items-center justify-between gap-2.5 px-3 py-3 min-h-[44px] rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[15px] transition-[border-color,box-shadow,transform] duration-200 hover:border-P/30 hover:shadow-sm active:scale-[0.99] touch-manipulation"
                   href="https://www.linkedin.com/in/kelechiokere/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -80,7 +80,7 @@ const Contact: React.FC = () => {
                 </a>
 
                 <a
-                  className="flex items-center justify-between gap-2.5 px-3 py-2 rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[15px] transition-[border-color,box-shadow,transform] duration-200 hover:border-P/30 hover:shadow-sm hover:-translate-y-0.5"
+                  className="flex items-center justify-between gap-2.5 px-3 py-3 min-h-[44px] rounded-card border border-P/15 bg-white no-underline text-P/90 font-bold text-[15px] transition-[border-color,box-shadow,transform] duration-200 hover:border-P/30 hover:shadow-sm active:scale-[0.99] touch-manipulation"
                   href="https://calendly.com/ko-sparrowbridgeconsulting/30min"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -94,18 +94,18 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Getting Started block */}
-            <div className="w-full border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex-1 min-h-0 flex flex-col">
+            <div className="w-full border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex flex-col min-h-0 lg:flex-1">
               <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
                 <div className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">
                   Getting Started
                 </div>
               </div>
 
-              <div className="py-3 px-3 flex flex-col gap-3 bg-white flex-1 min-h-0">
+              <div className="py-3 px-3 flex flex-col gap-3 bg-white flex-1 min-h-0 min-w-0 overflow-visible">
                 <p className="text-[15px] font-medium text-P/70 leading-[1.4]">
                   Here’s how we typically work with new clients, from first touch to lasting change.
                 </p>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-2">
                   <div className="flex flex-col gap-2 items-center text-center py-3 px-3 rounded-card border border-P/15 bg-white transition-[border-color,box-shadow] duration-200 hover:border-P/30 hover:shadow-sm">
                     <div className="h-[2.4em] flex items-center justify-center w-full">
                       <span className="font-h text-[18px] font-extrabold text-P/90 leading-[1.2] text-center">
@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
           {/* RIGHT: Send a Note */}
           <div
             id="note"
-            className="border border-P/10 rounded-card overflow-hidden bg-[#F8F9FA] flex flex-col"
+            className="border border-P/10 rounded-card overflow-hidden bg-[#F8F9FA] flex flex-col min-w-0"
           >
             <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
               <div className="font-h text-[13px] font-extrabold text-P/90 uppercase tracking-wider">
