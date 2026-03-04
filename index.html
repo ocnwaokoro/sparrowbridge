@@ -7,6 +7,25 @@
     <title>SparrowBridge - Home</title>
   </head>
   <body>
+    <!-- Hidden forms for Netlify Forms detection (SPA). Same names/fields as React forms. -->
+    <form name="contact" method="POST" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="org" />
+      <input type="text" name="role" />
+      <select name="type"><option value="discovery">Discovery</option><option value="coaching">Coaching</option><option value="speaking">Speaking</option><option value="other">Other</option></select>
+      <textarea name="message"></textarea>
+    </form>
+    <form name="application" method="POST" enctype="multipart/form-data" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="application" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="url" name="linkedin" />
+      <input type="text" name="location" />
+      <textarea name="note"></textarea>
+      <input type="file" name="resume" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

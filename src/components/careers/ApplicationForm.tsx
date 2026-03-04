@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { FormField } from "../contact/FormField";
 
-// PLACEHOLDER [BLOCKING]: Application submission only works when env is set — needs VITE_APPLICATION_FORM_ENDPOINT in .env and backend/Formspree
-const APPLICATION_FORM_ENDPOINT = import.meta.env
-  .VITE_APPLICATION_FORM_ENDPOINT as string | undefined;
+const NETLIFY_FORM_NAME = "application";
 
 // Match Contact form input/label styles when embedded (Careers page)
 const contactStyleInput =
@@ -29,17 +27,14 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!APPLICATION_FORM_ENDPOINT) {
-      return;
-    }
     const form = e.currentTarget;
     setStatus("sending");
     setMessage("");
     try {
-      const body = new FormData(form);
-      const res = await fetch(APPLICATION_FORM_ENDPOINT, {
+      const formData = new FormData(form);
+      const res = await fetch("/", {
         method: "POST",
-        body,
+        body: formData,
       });
       if (!res.ok) throw new Error("Submission failed");
       setStatus("success");
@@ -54,7 +49,15 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
   };
 
   const formEl = (
-      <form className="flex flex-col gap-4 flex-1" onSubmit={handleSubmit}>
+      <form
+        name={NETLIFY_FORM_NAME}
+        method="post"
+        encType="multipart/form-data"
+        className="flex flex-col gap-4 flex-1"
+        onSubmit={handleSubmit}
+        data-netlify="true"
+      >
+        <input type="hidden" name="form-name" value={NETLIFY_FORM_NAME} />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
               label="Name"

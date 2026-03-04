@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 
-// PLACEHOLDER [BLOCKING]: Form submission only works when env is set — needs VITE_CONTACT_FORM_ENDPOINT in .env and Formspree/backend endpoint
-const CONTACT_FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT as
-  | string
-  | undefined;
+const NETLIFY_FORM_NAME = "contact";
 
 export const ContactForm: React.FC = () => {
   const [status, setStatus] = useState<
@@ -16,17 +13,17 @@ export const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!CONTACT_FORM_ENDPOINT) {
-      return;
-    }
     const form = e.currentTarget;
     setStatus("sending");
     setMessage("");
     try {
-      const body = new FormData(form);
-      const res = await fetch(CONTACT_FORM_ENDPOINT, {
+      const formData = new FormData(form);
+      const params = new URLSearchParams();
+      formData.forEach((value, key) => params.append(key, value instanceof File ? value.name : String(value)));
+      const res = await fetch("/", {
         method: "POST",
-        body,
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: params.toString(),
       });
       if (!res.ok) throw new Error("Submission failed");
       setStatus("success");
@@ -42,12 +39,13 @@ export const ContactForm: React.FC = () => {
 
   return (
     <form
-      action={CONTACT_FORM_ENDPOINT || "#"}
+      name={NETLIFY_FORM_NAME}
       method="post"
       className="flex flex-col gap-4 flex-1"
       onSubmit={handleSubmit}
+      data-netlify="true"
     >
-      {/* PLACEHOLDER [SILENT]: action falls back to '#' when VITE_CONTACT_FORM_ENDPOINT unset — form appears to submit but does nothing */}
+      <input type="hidden" name="form-name" value={NETLIFY_FORM_NAME} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1">
           <label
