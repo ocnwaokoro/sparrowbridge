@@ -38,5 +38,15 @@ npm install
 npm run dev
 ```
 
+## 🌐 Deploying to Netlify
+
+1. **Connect the repo** to Netlify (Git provider or manual deploy). Build command and publish directory are in `netlify.toml` (`npm run build`, `dist`).
+
+2. **Enable Netlify Forms** (free tier: 100 submissions/month). In Netlify: **Site settings → Forms → Form detection → Enable form detection**. The contact and careers forms submit to Netlify Forms; no environment variables or third-party services needed.
+
+3. **SPA routing** is handled by `public/_redirects` (all routes serve `index.html`). No extra config needed.
+
+4. View submissions in **Site dashboard → Forms** and optionally set up email or Slack notifications.
+
 ---
 *Built with purpose, guided by integrity and care.*

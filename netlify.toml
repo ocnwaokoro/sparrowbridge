@@ -1,0 +1,9 @@
+# Netlify build and deploy config for SparrowBridge
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Forms use Netlify Forms (free tier). Enable "Form detection" in Netlify:
+# Site settings → Forms → Form detection → Enable form detection
