@@ -7,7 +7,4 @@ export default defineConfig({
   server: {
     allowedHosts: [".ngrok-free.app"],
   },
-  optimizeDeps: {
-    include: ["pdfjs-dist"],
-  },
 });

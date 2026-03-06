@@ -13,7 +13,7 @@ export const PageShell: React.FC<PageShellProps> = ({
 }) => {
   return (
     <div
-      className={`min-h-screen bg-white font-b text-P leading-[1.6] flex flex-col ${className}`}
+      className={`min-h-screen font-b text-P leading-[1.6] flex flex-col ${className}`}
     >
       {/* If sticky offset is needed for the header, we can add padding-top here */}
       <main

@@ -36,8 +36,8 @@ const CaseStudySaaS: React.FC = () => {
             Technology Solution Case Study
           </p>
           <a
-            href="/case-studies/saas-case-study.pdf"
-            download
+            href="/case-studies/sparrowbridge-saas-case-study.pdf"
+            download="Breaking the Plateau – SparrowBridge Case Study.pdf"
             className="font-b text-[14px] text-A1 no-underline hover:underline inline-flex items-center gap-1.5 mb-6"
           >
             Download case study (PDF) ↓
@@ -146,8 +146,8 @@ const CaseStudySaaS: React.FC = () => {
               Start the conversation
             </Button>
             <a
-              href="/case-studies/saas-case-study.pdf"
-              download
+              href="/case-studies/sparrowbridge-saas-case-study.pdf"
+              download="Breaking the Plateau – SparrowBridge Case Study.pdf"
               className="font-b text-[14px] text-A1 no-underline hover:underline inline-flex items-center gap-1.5 px-4 py-2 rounded-md border border-[var(--color-A1)] hover:bg-A1/5 transition-colors"
             >
               Download PDF ↓
