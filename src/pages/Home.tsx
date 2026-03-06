@@ -235,7 +235,7 @@ const Home: React.FC = () => {
               </p>
               <div className="flex items-end justify-between gap-3 mt-auto">
                 <span className="font-b text-[14px] font-semibold text-A1 no-underline hover:underline">
-                  Read more →
+                  Visit client →
                 </span>
                 <img
                   src={acluLogo}
@@ -261,7 +261,7 @@ const Home: React.FC = () => {
               </p>
               <div className="flex items-end justify-between gap-3 mt-auto">
                 <span className="font-b text-[14px] font-semibold text-A1 no-underline hover:underline">
-                  Read more →
+                  Visit client →
                 </span>
                 <img
                   src={isnLogo}
@@ -287,7 +287,7 @@ const Home: React.FC = () => {
               </p>
               <div className="flex items-end justify-between gap-3 mt-auto">
                 <span className="font-b text-[14px] font-semibold text-A1 no-underline hover:underline">
-                  Read more →
+                  Visit client →
                 </span>
                 <img
                   src={sehLogo}
