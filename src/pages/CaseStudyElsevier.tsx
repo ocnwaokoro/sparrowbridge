@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import caseStudyImage from "../assets/case-studies/home-case-study-global-product.jpg";
 import {
   PageShell,
   SiteHeader,
@@ -28,12 +29,20 @@ const CaseStudyElsevier: React.FC = () => {
             ← Client Transformations
           </Link>
 
-          <SectionTitle className="lg:text-[34px] mb-2">
+          <SectionTitle className="lg:text-[34px] mb-1.5">
             Case Study: Guiding a Product Team Through Strategic Growth
           </SectionTitle>
-          <p className="font-b text-[14px] text-P/70 mb-10">
-            Global Product Team
+          <p className="font-b text-[14px] text-P/70 mb-2">
+            Global Product Team Case Study
           </p>
+
+          <figure className="mb-10 mt-6 h-[400px] w-full overflow-hidden rounded-card">
+            <img
+              src={caseStudyImage}
+              alt=""
+              className="h-full w-full object-cover object-center"
+            />
+          </figure>
 
           <div className="space-y-10">
             <div>

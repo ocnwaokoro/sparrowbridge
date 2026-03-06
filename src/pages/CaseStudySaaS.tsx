@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import caseStudyImage from "../assets/case-studies/home-case-study-saas.jpg";
 import {
   PageShell,
   SiteHeader,
@@ -28,19 +29,27 @@ const CaseStudySaaS: React.FC = () => {
             ← Client Transformations
           </Link>
 
-          <SectionTitle className="lg:text-[34px] mb-2">
+          <SectionTitle className="lg:text-[34px] mb-1.5">
             Breaking the Plateau: How a SaaS Pivot Fueled Global Growth
           </SectionTitle>
-          <p className="font-b text-[14px] text-P/70 mb-4">
+          <p className="font-b text-[14px] text-P/70 mb-2">
             Technology Solution Case Study
           </p>
           <a
             href="/case-studies/saas-case-study.pdf"
             download
-            className="font-b text-[14px] text-A1 no-underline hover:underline inline-flex items-center gap-1.5 mb-10"
+            className="font-b text-[14px] text-A1 no-underline hover:underline inline-flex items-center gap-1.5 mb-6"
           >
             Download case study (PDF) ↓
           </a>
+
+          <figure className="mb-10 h-[400px] -mt-2 w-full overflow-hidden rounded-card">
+            <img
+              src={caseStudyImage}
+              alt=""
+              className="h-full w-full object-cover object-bottom"
+            />
+          </figure>
 
           <div className="space-y-10">
             <div>
