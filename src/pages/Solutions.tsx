@@ -54,19 +54,19 @@ const Solutions: React.FC = () => {
             corporate environment and Ivy League training to help clients in
             areas such as:
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-[1fr_1fr] gap-8">
-            {/* Row 1: 2 cards (same size as row 2 — each spans 2 cols, centered) */}
+          <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-[auto_auto_auto_auto] gap-8">
+            {/* Row 1: 2 cards — subgrid so header row height = largest in row */}
             {/* Organization Change */}
             <div
               id="org-change"
-              className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0"
+              className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-2 md:row-span-2 md:row-start-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col min-h-0 md:grid md:grid-rows-subgrid"
             >
-              <div className="px-5 py-4 bg-P/5 border-b border-P/15">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 md:flex md:items-center">
                 <h3 className="font-h text-[20px] font-extrabold text-P">
                   Organization Change
                 </h3>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+              <div className="px-5 pt-5 pb-5 md:pt-0 md:-mt-[5px] flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">
                     Challenge
@@ -92,14 +92,14 @@ const Solutions: React.FC = () => {
             {/* Sales Transformation */}
             <div
               id="sales"
-              className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-4 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0"
+              className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-4 md:row-span-2 md:row-start-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col min-h-0 md:grid md:grid-rows-subgrid"
             >
-              <div className="px-5 py-4 bg-P/5 border-b border-P/15">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 md:flex md:items-center">
                 <h3 className="font-h text-[20px] font-extrabold text-P">
                   Sales Transformation
                 </h3>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+              <div className="px-5 pt-5 pb-5 md:pt-0 md:-mt-[5px] flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">
                     Challenge
@@ -125,14 +125,14 @@ const Solutions: React.FC = () => {
             {/* Product Transformation */}
             <div
               id="product"
-              className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0"
+              className="scroll-mt-28 col-span-1 md:col-span-2 md:row-span-2 md:row-start-3 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col min-h-0 md:grid md:grid-rows-subgrid"
             >
-              <div className="px-5 py-4 bg-P/5 border-b border-P/15">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 md:flex md:items-center">
                 <h3 className="font-h text-[20px] font-extrabold text-P">
                   Product Transformation
                 </h3>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+              <div className="px-5 pt-5 pb-5 md:pt-0 md:-mt-[5px] flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">
                     Challenge
@@ -157,14 +157,14 @@ const Solutions: React.FC = () => {
             {/* Talent */}
             <div
               id="talent"
-              className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0"
+              className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-3 md:row-span-2 md:row-start-3 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col min-h-0 md:grid md:grid-rows-subgrid"
             >
-              <div className="px-5 py-4 bg-P/5 border-b border-P/15">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 md:flex md:items-center">
                 <h3 className="font-h text-[20px] font-extrabold text-P">
                   Talent
                 </h3>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+              <div className="px-5 pt-5 pb-5 md:pt-0 md:-mt-[5px] flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">
                     Challenge
@@ -189,14 +189,14 @@ const Solutions: React.FC = () => {
             {/* Executive Coaching */}
             <div
               id="coaching"
-              className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0"
+              className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-5 md:row-span-2 md:row-start-3 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col min-h-0 md:grid md:grid-rows-subgrid"
             >
-              <div className="px-5 py-4 bg-P/5 border-b border-P/15">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 md:flex md:items-center">
                 <h3 className="font-h text-[20px] font-extrabold text-P">
                   Executive Coaching
                 </h3>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+              <div className="px-5 pt-5 pb-5 md:pt-0 md:-mt-[5px] flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">
                     Challenge
@@ -233,14 +233,14 @@ const Solutions: React.FC = () => {
             get from where you are to where you want to be.
           </p>
           {/* Solutions Content: 6 steps — 3+3 layout */}
-          <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-[repeat(3,auto_auto)] gap-8">
             {/* Row 1: 01, 02, 03 */}
             {/* 01 - Exploration */}
             <div
               id="exploration"
-              className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0"
+              className="scroll-mt-28 col-span-1 md:col-span-2 md:row-span-2 md:row-start-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col min-h-0 md:grid md:grid-rows-subgrid"
             >
-              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2 md:items-center">
                 <h3 className="font-h text-[20px] font-extrabold text-P">
                   Exploration
                 </h3>
@@ -248,7 +248,7 @@ const Solutions: React.FC = () => {
                   01
                 </span>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+              <div className="px-5 pt-5 pb-5 md:pt-0 md:-mt-[5px] flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">
                     Overview
@@ -275,9 +275,9 @@ const Solutions: React.FC = () => {
             {/* 02 - Diagnosis */}
             <div
               id="diagnosis"
-              className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0"
+              className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-3 md:row-span-2 md:row-start-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col min-h-0 md:grid md:grid-rows-subgrid"
             >
-              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2 md:items-center">
                 <h3 className="font-h text-[20px] font-extrabold text-P">
                   Diagnosis
                 </h3>
@@ -285,7 +285,7 @@ const Solutions: React.FC = () => {
                   02
                 </span>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+              <div className="px-5 pt-5 pb-5 md:pt-0 md:-mt-[5px] flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">
                     Overview
@@ -313,9 +313,9 @@ const Solutions: React.FC = () => {
             {/* 03 - Co-design & Alignment */}
             <div
               id="codesign"
-              className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0"
+              className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-5 md:row-span-2 md:row-start-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col min-h-0 md:grid md:grid-rows-subgrid"
             >
-              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2 md:items-center">
                 <h3 className="font-h text-[20px] font-extrabold text-P">
                   Co-design & Alignment
                 </h3>
@@ -323,7 +323,7 @@ const Solutions: React.FC = () => {
                   03
                 </span>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+              <div className="px-5 pt-5 pb-5 md:pt-0 md:-mt-[5px] flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">
                     Overview
@@ -352,9 +352,9 @@ const Solutions: React.FC = () => {
             {/* 04 - Implementation & Integration */}
             <div
               id="implement"
-              className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0"
+              className="scroll-mt-28 col-span-1 md:col-span-2 md:row-span-2 md:row-start-3 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col min-h-0 md:grid md:grid-rows-subgrid"
             >
-              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2 md:items-center">
                 <h3 className="font-h text-[20px] font-extrabold text-P">
                   Implementation & Integration
                 </h3>
@@ -362,7 +362,7 @@ const Solutions: React.FC = () => {
                   04
                 </span>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+              <div className="px-5 pt-5 pb-5 md:pt-0 md:-mt-[5px] flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">
                     Overview
@@ -390,9 +390,9 @@ const Solutions: React.FC = () => {
             {/* 05 - Executive & Org Coaching */}
             <div
               id="coaching-process"
-              className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0"
+              className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-3 md:row-span-2 md:row-start-3 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col min-h-0 md:grid md:grid-rows-subgrid"
             >
-              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2 md:items-center">
                 <h3 className="font-h text-[20px] font-extrabold text-P">
                   Executive & Org Coaching
                 </h3>
@@ -400,7 +400,7 @@ const Solutions: React.FC = () => {
                   05
                 </span>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+              <div className="px-5 pt-5 pb-5 md:pt-0 md:-mt-[5px] flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">
                     Overview
@@ -428,9 +428,9 @@ const Solutions: React.FC = () => {
             {/* 06 - Assess */}
             <div
               id="assess"
-              className="scroll-mt-28 col-span-1 md:col-span-2 row-span-1 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col h-full min-h-0"
+              className="scroll-mt-28 col-span-1 md:col-span-2 md:col-start-5 md:row-span-2 md:row-start-3 border border-P/15 rounded-card bg-white overflow-hidden shadow-sm flex flex-col min-h-0 md:grid md:grid-rows-subgrid"
             >
-              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2">
+              <div className="px-5 py-4 bg-P/5 border-b border-P/15 flex justify-between items-center gap-2 md:items-center">
                 <h3 className="font-h text-[20px] font-extrabold text-P">
                   Assess
                 </h3>
@@ -438,7 +438,7 @@ const Solutions: React.FC = () => {
                   06
                 </span>
               </div>
-              <div className="p-5 flex flex-col gap-5 flex-1 min-h-0">
+              <div className="px-5 pt-5 pb-5 md:pt-0 md:-mt-[5px] flex flex-col gap-5 flex-1 min-h-0">
                 <div className="flex flex-col gap-2 min-h-[72px]">
                   <div className="font-h text-[11px] font-extrabold tracking-[1px] uppercase text-A1">
                     Overview
