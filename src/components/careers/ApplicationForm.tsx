@@ -20,6 +20,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
     "idle" | "sending" | "success" | "error"
   >("idle");
   const [message, setMessage] = useState("");
+  const [resumeFileName, setResumeFileName] = useState<string | null>(null);
 
   const inputBase = embedded
     ? contactStyleInput
@@ -40,6 +41,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
       setStatus("success");
       setMessage("Application received. We'll be in touch.");
       form.reset();
+      setResumeFileName(null);
     } catch {
       setStatus("error");
       setMessage(
@@ -52,6 +54,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
       <form
         name={NETLIFY_FORM_NAME}
         method="post"
+        action="/"
         encType="multipart/form-data"
         className="flex flex-col gap-4 flex-1"
         onSubmit={handleSubmit}
@@ -143,19 +146,55 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
           >
             <label
               htmlFor="resume"
-              className={
-                embedded ? contactStyleLabel : "font-h text-[12px] font-extrabold text-P/80 uppercase tracking-wider"
-              }
+              className={`flex flex-col gap-1 cursor-pointer ${embedded ? "" : "block"}`}
             >
-              Resume / CV
+              <span
+                className={
+                  embedded ? contactStyleLabel : "font-h text-[12px] font-extrabold text-P/80 uppercase tracking-wider"
+                }
+              >
+                Resume / CV
+              </span>
+              <div className="flex items-center gap-2">
+                <input
+                  type="file"
+                  id="resume"
+                  name="resume"
+                  accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  className="sr-only"
+                  required
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    setResumeFileName(file ? file.name : null);
+                  }}
+                />
+                <span className="inline-flex items-center justify-center min-w-[7.5rem] py-2 px-4 rounded-btn border-0 font-h text-[13px] font-bold text-white bg-P hover:bg-P/90 cursor-pointer transition-colors">
+                  {resumeFileName ? "Update file" : "Choose file"}
+                </span>
+                {resumeFileName && (
+                  <>
+                    <span className="font-b text-[13px] text-P/70 truncate min-w-0">
+                      {resumeFileName}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setResumeFileName(null);
+                        const input = document.getElementById("resume") as HTMLInputElement | null;
+                        if (input) input.value = "";
+                      }}
+                      className="flex-shrink-0 p-1 rounded-full text-P/60 hover:text-P hover:bg-P/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-P/30"
+                      aria-label="Remove file"
+                    >
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                        <path d="M18 6L6 18M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </>
+                )}
+              </div>
             </label>
-            <input
-              type="file"
-              id="resume"
-              name="resume"
-              className="text-[13px] file:mr-4 file:py-2 file:px-4 file:rounded-btn file:border-0 file:text-[13px] file:font-h file:font-bold file:bg-P file:text-white hover:file:bg-P/90 cursor-pointer"
-              required
-            />
           </div>
 
           <div
