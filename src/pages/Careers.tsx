@@ -18,31 +18,33 @@ const Careers: React.FC = () => {
     <PageShell>
       <SiteHeader />
 
-      {/* HERO — same layout as Contact */}
-      <section className="relative py-6 sm:py-8 min-h-[280px] sm:min-h-[320px] overflow-hidden text-white">
-        <img
-          src={careersHero}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 w-full h-full object-cover object-bottom"
-        />
-        <div className="absolute inset-0 bg-P/75" aria-hidden />
-        <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-4 lg:gap-4 items-stretch min-w-0">
-          {/* Hero header */}
-          <div className="lg:col-span-2 min-w-0">
-            <HeroKickerStyle prefix="CAREERS" />
-            <h1 className="font-h text-[32px] sm:text-[40px] lg:text-[52px] font-extrabold tracking-[-.6px] leading-[1.05] mt-1">
-              Join us
-            </h1>
-            <p className="text-[16px] sm:text-[18px] text-white/80 max-w-[700px] mt-2">
-              We are a purpose-driven company. If you feel called to help
-              individuals and organizations unlock and amplify their value, we
-              would love to work with you.
-            </p>
-          </div>
+      {/* Wrapper so hero can fill viewport below nav on lg */}
+      <div className="flex-1 flex flex-col min-h-0">
+        {/* HERO — photo as bg for full section (title + form); fills viewport below nav on lg */}
+        <section className="relative py-6 sm:py-8 min-h-[280px] sm:min-h-[320px] lg:h-[730px] lg:flex flex-col overflow-hidden lg:overflow-y-auto text-white">
+          <img
+            src={careersHero}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover object-bottom"
+          />
+          <div className="absolute inset-0 bg-P/75" aria-hidden />
+          <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-4 lg:gap-4 items-stretch min-w-0 flex-1 flex flex-col min-h-0">
+            {/* Hero header */}
+            <div className="lg:col-span-2 min-w-0">
+              <HeroKickerStyle prefix="CAREERS" />
+              <h1 className="font-h text-[32px] sm:text-[40px] lg:text-[52px] font-extrabold tracking-[-.6px] leading-[1.05] mt-1">
+                Join us
+              </h1>
+              <p className="text-[16px] sm:text-[18px] text-white/80 max-w-[700px] mt-2">
+                We are a purpose-driven company. If you feel called to help
+                individuals and organizations unlock and amplify their value, we
+                would love to work with you.
+              </p>
+            </div>
 
-          {/* LEFT */}
-          <div className="flex flex-col gap-3 min-h-0 lg:flex-1 min-w-0">
+            {/* LEFT */}
+            <div className="flex flex-col gap-3 min-h-0 lg:flex-1 min-w-0">
             {/* What We Value */}
             <div className="w-full border border-P/10 rounded-card bg-[#F8F9FA] overflow-hidden flex flex-col min-h-0 lg:flex-1">
               <div className="px-4 py-2 border-b border-P/10 bg-P/5 flex items-center justify-between gap-2.5">
@@ -152,7 +154,8 @@ const Careers: React.FC = () => {
             </div>
           </div>
         </Container>
-      </section>
+        </section>
+      </div>
 
       <Footer />
     </PageShell>

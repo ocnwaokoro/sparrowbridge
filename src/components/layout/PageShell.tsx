@@ -18,7 +18,7 @@ export const PageShell: React.FC<PageShellProps> = ({
       {/* If sticky offset is needed for the header, we can add padding-top here */}
       <main
         id="main-content"
-        className={`flex-grow ${stickyOffset ? "pt-20" : ""}`}
+        className={`flex-grow flex flex-col min-h-0 ${stickyOffset ? "pt-20" : ""}`}
       >
         {children}
       </main>
