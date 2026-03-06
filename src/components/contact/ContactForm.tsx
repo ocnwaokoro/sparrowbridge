@@ -122,20 +122,34 @@ export const ContactForm: React.FC = () => {
         >
           Inquiry type
         </label>
-        <select
-          id="contact-type"
-          required
-          className={`${inputBase} bg-white`}
-          name="type"
-        >
-          <option value="" disabled>
-            Inquiry type
-          </option>
-          <option value="discovery">Discovery / Consulting</option>
-          <option value="coaching">Coaching</option>
-          <option value="speaking">Speaking / Workshop</option>
-          <option value="other">Other</option>
-        </select>
+        <div className="relative">
+          <select
+            id="contact-type"
+            required
+            className={`${inputBase} bg-white appearance-none pr-9`}
+            name="type"
+          >
+            <option value="" disabled>
+              Inquiry type
+            </option>
+            <option value="discovery">Discovery / Consulting</option>
+            <option value="coaching">Coaching</option>
+            <option value="speaking">Speaking / Workshop</option>
+            <option value="other">Other</option>
+          </select>
+          <svg
+            className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-P/60"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </div>
       </div>
 
       <div className="flex flex-col gap-1">
