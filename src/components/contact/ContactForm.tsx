@@ -9,7 +9,7 @@ export const ContactForm: React.FC = () => {
   const [message, setMessage] = useState("");
 
   const inputBase =
-    "font-b text-base lg:text-[14px] px-3 py-3 min-h-[44px] rounded-btn border border-P/20 outline-none text-P/90 placeholder:text-P/55 placeholder:font-semibold focus:border-P/40 focus:ring-4 focus:ring-P/10";
+    "w-full font-b text-base lg:text-[14px] px-2.5 py-2 min-h-[44px] rounded-btn border border-P/20 outline-none text-P/90 placeholder:text-P/55 placeholder:font-semibold focus:border-P/40 focus:ring-4 focus:ring-P/10";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -148,7 +148,8 @@ export const ContactForm: React.FC = () => {
         <textarea
           id="contact-message"
           required
-          className={`${inputBase} min-h-[100px] resize-y flex-1 py-3`}
+          rows={3}
+          className={`${inputBase} min-h-[72px] resize-y flex-1 py-2`}
           name="message"
           placeholder="Message"
         />

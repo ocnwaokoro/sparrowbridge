@@ -5,7 +5,7 @@ const NETLIFY_FORM_NAME = "application";
 
 // Match Contact form input/label styles when embedded (Careers page)
 const contactStyleInput =
-  "w-full font-b text-base lg:text-[14px] px-3 py-3 min-h-[44px] rounded-btn border border-P/20 outline-none text-P/90 placeholder:text-P/55 placeholder:font-semibold focus:border-P/40 focus:ring-4 focus:ring-P/10";
+  "w-full font-b text-base lg:text-[14px] px-2.5 py-2 min-h-[44px] rounded-btn border border-P/20 outline-none text-P/90 placeholder:text-P/55 placeholder:font-semibold focus:border-P/40 focus:ring-4 focus:ring-P/10";
 const contactStyleLabel = "font-b text-[13px] font-semibold text-P/80";
 
 interface ApplicationFormProps {
@@ -23,7 +23,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
 
   const inputBase = embedded
     ? contactStyleInput
-    : "w-full px-3 py-3 min-h-[44px] bg-white border border-P/15 rounded-btn font-b text-base lg:text-[14px] focus:outline-none focus:border-A1/40 focus:ring-4 focus:ring-P/5 transition-all placeholder:text-P/40";
+    : "w-full px-2.5 py-2 min-h-[44px] bg-white border border-P/15 rounded-btn font-b text-base lg:text-[14px] focus:outline-none focus:border-A1/40 focus:ring-4 focus:ring-P/5 transition-all placeholder:text-P/40";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -127,9 +127,9 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
             <textarea
               id="app-note"
               name="note"
-              rows={4}
+              rows={3}
               placeholder="What draws you to SparrowBridge?"
-              className={`${inputBase} min-h-[100px] resize-y`}
+              className={`${inputBase} min-h-[72px] resize-y`}
               required
             />
           </FormField>
