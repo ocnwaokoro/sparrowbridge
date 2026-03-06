@@ -179,7 +179,7 @@ const Home: React.FC = () => {
                 <img
                   src={caseStudySaas}
                   alt=""
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-bottom"
                 />
               }
             />
