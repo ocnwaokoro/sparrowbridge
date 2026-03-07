@@ -21,6 +21,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
   >("idle");
   const [message, setMessage] = useState("");
   const [resumeFileName, setResumeFileName] = useState<string | null>(null);
+  const [fileError, setFileError] = useState<string | null>(null);
 
   const inputBase = embedded
     ? contactStyleInput
@@ -29,6 +30,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    if (fileError) return;
     setStatus("sending");
     setMessage("");
     try {
@@ -42,6 +44,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
       setMessage("Application received. We'll be in touch.");
       form.reset();
       setResumeFileName(null);
+      setFileError(null);
     } catch {
       setStatus("error");
       setMessage(
@@ -99,12 +102,11 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
               labelClassName={embedded ? contactStyleLabel : undefined}
             >
               <input
-                type="url"
+                type="text"
                 id="app-linkedin"
                 name="linkedin"
                 placeholder="https://linkedin.com/in/..."
                 className={inputBase}
-                required
               />
             </FormField>
             <FormField
@@ -133,7 +135,6 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
               rows={3}
               placeholder="What draws you to SparrowBridge?"
               className={`${inputBase} min-h-[72px] resize-y`}
-              required
             />
           </FormField>
 
@@ -162,9 +163,15 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
                   name="resume"
                   accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                   className="sr-only"
-                  required
                   onChange={(e) => {
                     const file = e.target.files?.[0];
+                    if (file && file.size > 8 * 1024 * 1024) {
+                      setFileError("File must be under 8 MB.");
+                      setResumeFileName(null);
+                      e.target.value = "";
+                      return;
+                    }
+                    setFileError(null);
                     setResumeFileName(file ? file.name : null);
                   }}
                 />
@@ -181,6 +188,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
                       onClick={(e) => {
                         e.preventDefault();
                         setResumeFileName(null);
+                        setFileError(null);
                         const input = document.getElementById("resume") as HTMLInputElement | null;
                         if (input) input.value = "";
                       }}
@@ -195,6 +203,9 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
                 )}
               </div>
             </label>
+            {fileError && (
+              <span className="font-b text-[12px] font-semibold text-A1">{fileError}</span>
+            )}
           </div>
 
           <div
@@ -204,28 +215,17 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
                 : "mt-2 flex flex-wrap items-center gap-3"
             }
           >
-            {embedded ? (
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="inline-flex items-center justify-center px-4 py-3 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px] touch-manipulation transition-all hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-A1 focus-visible:ring-offset-2"
-              >
-                {status === "sending" ? "Submitting…" : "Submit Application"}
-              </button>
-            ) : (
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px] touch-manipulation transition-all hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-A1 focus-visible:ring-offset-2"
-              >
-                {status === "sending" ? "Submitting…" : "Submit Application"}
-              </button>
-            )}
-            {status === "success" && (
-              <span className="font-b text-[14px] font-semibold text-A2">
-                {message}
-              </span>
-            )}
+            <button
+              type="submit"
+              disabled={status === "sending" || status === "success"}
+              className={`inline-flex items-center justify-center ${embedded ? "px-4 py-3" : "px-8 py-3.5"} rounded-btn text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-80 min-h-[44px] touch-manipulation transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                status === "success"
+                  ? "bg-A2 focus-visible:ring-A2"
+                  : "bg-A1 hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:ring-A1"
+              }`}
+            >
+              {status === "sending" ? "Submitting…" : status === "success" ? "Submitted ✓" : "Submit Application"}
+            </button>
             {status === "error" && (
               <span className="font-b text-[14px] font-semibold text-A1">
                 {message}

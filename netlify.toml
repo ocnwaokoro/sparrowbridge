@@ -5,5 +5,12 @@
   command = "npm run build"
   publish = "dist"
 
-# Forms use Netlify Forms (free tier). Enable "Form detection" in Netlify:
-# Site settings → Forms → Form detection → Enable form detection
+# Forms use Netlify Forms (free tier).
+# 1. In Netlify: Site settings → Forms → Form detection → Enable form detection
+# 2. Redeploy after enabling so forms in dist/index.html are registered.
+# 3. Submissions only work on the deployed site; local dev POST / does not reach Netlify.
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

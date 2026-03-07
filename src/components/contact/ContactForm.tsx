@@ -18,12 +18,12 @@ export const ContactForm: React.FC = () => {
     setMessage("");
     try {
       const formData = new FormData(form);
-      const params = new URLSearchParams();
-      formData.forEach((value, key) => params.append(key, value instanceof File ? value.name : String(value)));
+      const body = new URLSearchParams();
+      formData.forEach((value, key) => body.append(key, value instanceof File ? value.name : String(value)));
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: params.toString(),
+        body: body.toString(),
       });
       if (!res.ok) throw new Error("Submission failed");
       setStatus("success");
@@ -125,7 +125,6 @@ export const ContactForm: React.FC = () => {
         <div className="relative">
           <select
             id="contact-type"
-            required
             className={`${inputBase} bg-white appearance-none pr-9`}
             name="type"
           >
@@ -161,7 +160,6 @@ export const ContactForm: React.FC = () => {
         </label>
         <textarea
           id="contact-message"
-          required
           rows={3}
           className={`${inputBase} min-h-[72px] resize-y flex-1 py-2`}
           name="message"
@@ -171,17 +169,16 @@ export const ContactForm: React.FC = () => {
 
       <div className="flex gap-3 items-center flex-wrap">
         <button
-          className="inline-flex items-center justify-center px-4 py-3 rounded-btn bg-A1 text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-70 min-h-[44px] touch-manipulation transition-all hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-A1 focus-visible:ring-offset-2"
           type="submit"
-          disabled={status === "sending"}
+          disabled={status === "sending" || status === "success"}
+          className={`inline-flex items-center justify-center px-4 py-3 rounded-btn text-white font-h text-[14px] font-bold no-underline whitespace-nowrap disabled:opacity-80 min-h-[44px] touch-manipulation transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+            status === "success"
+              ? "bg-A2 focus-visible:ring-A2"
+              : "bg-A1 hover:-translate-y-[1px] hover:opacity-[0.95] focus-visible:ring-A1"
+          }`}
         >
-          {status === "sending" ? "Sending…" : "Send Message"}
+          {status === "sending" ? "Sending…" : status === "success" ? "Sent ✓" : "Send Message"}
         </button>
-        {status === "success" && (
-          <span className="font-b text-[14px] font-semibold text-A2">
-            {message}
-          </span>
-        )}
         {status === "error" && (
           <span className="font-b text-[14px] font-semibold text-A1">
             {message}
