@@ -49,7 +49,6 @@ export const Hero: React.FC<HeroProps> = ({
     >
       {backgroundImage && (
         <>
-          {/* TODO J-02: create mobile-optimized versions of hero/landscape images at ≤300KB and pass as mobileBackgroundImage */}
           {mobileBackgroundImage ? (
             <picture>
               <source

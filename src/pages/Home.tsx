@@ -55,11 +55,6 @@ const Home: React.FC = () => {
         }
       />
 
-      {/* Override kicker for Homepage Hero specific style */}
-      {/* Note: In a real implementation, I'd pass HeroValueList to Hero's kicker prop if needed, 
-          but the componentized Hero already handles the standard kicker. 
-          The homepage has a very specific kicker with dots. */}
-
       {/* Challenges Section */}
       <section className="bg-white py-8 lg:py-[48px] xl:py-[64px] flex flex-col items-center">
         <Container className="flex flex-col items-center gap-4 lg:gap-6 w-full">

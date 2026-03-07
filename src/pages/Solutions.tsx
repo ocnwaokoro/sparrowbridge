@@ -24,7 +24,7 @@ const Solutions: React.FC = () => {
       {/* Solutions Hero */}
       <Hero
         kicker={<HeroKickerStyle prefix="Solutions" />}
-        title="Four ways we help leaders create lasting change."
+        title="Five ways we help leaders create lasting change."
         subtitle="We don’t treat symptoms. We help you see what’s true, align leaders around what matters, and implement change that holds."
         variant="dark"
         backgroundImage={flowersGreenery}
